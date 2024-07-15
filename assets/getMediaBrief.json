@@ -1,0 +1,118 @@
+{
+  "code": 0,
+  "message": "0",
+  "ttl": 1,
+  "data": {
+    "bvid": "BV1cs411v7xr",
+    "aid": 5034525,
+    "videos": 1,
+    "tid": 29,
+    "tname": "音乐现场",
+    "copyright": 2,
+    "pic": "http://i2.hdslb.com/bfs/archive/78e0d4daf6b118365cab78d1b8af42d3a12273aa.png",
+    "title": "Try & Just Give Me a Reason 2014格莱美奖典礼现场版 中英字幕",
+    "pubdate": 1466405250,
+    "ctime": 1497429750,
+    "desc": "http://v.yinyuetai.com/video/865240 Pink Try &amp;amp; Just Give Me a Reason 2014格莱美奖典礼现场版 \r\n唱Try这首歌简直厉害到不行，一边耍杂技一边唱歌，就问你怕不怕。\r\n也是这首歌带我进粉妈的坑的。Just Give Me a Reason这首歌也很好听，现场简直爆炸",
+    "desc_v2": [
+      {
+        "raw_text": "http://v.yinyuetai.com/video/865240 Pink Try &amp;amp; Just Give Me a Reason 2014格莱美奖典礼现场版 \r\n唱Try这首歌简直厉害到不行，一边耍杂技一边唱歌，就问你怕不怕。\r\n也是这首歌带我进粉妈的坑的。Just Give Me a Reason这首歌也很好听，现场简直爆炸",
+        "type": 1,
+        "biz_id": 0
+      }
+    ],
+    "state": 0,
+    "duration": 366,
+    "rights": {
+      "bp": 0,
+      "elec": 0,
+      "download": 1,
+      "movie": 0,
+      "pay": 0,
+      "hd5": 0,
+      "no_reprint": 0,
+      "autoplay": 1,
+      "ugc_pay": 0,
+      "is_cooperation": 0,
+      "ugc_pay_preview": 0,
+      "no_background": 0,
+      "clean_mode": 0,
+      "is_stein_gate": 0,
+      "is_360": 0,
+      "no_share": 0,
+      "arc_pay": 0,
+      "free_watch": 0
+    },
+    "owner": {
+      "mid": 6730434,
+      "name": "情牵黄昏路",
+      "face": "http://i0.hdslb.com/bfs/face/8fa3c668fe8205178727a4c7f799a819605c23f0.jpg"
+    },
+    "stat": {
+      "aid": 5034525,
+      "view": 447669,
+      "danmaku": 1504,
+      "reply": 283,
+      "favorite": 11122,
+      "coin": 2278,
+      "share": 6363,
+      "now_rank": 0,
+      "his_rank": 0,
+      "like": 7059,
+      "dislike": 0,
+      "evaluation": "",
+      "vt": 0
+    },
+    "argue_info": {
+      "argue_msg": "",
+      "argue_type": 0,
+      "argue_link": ""
+    },
+    "dynamic": "",
+    "cid": 8177639,
+    "dimension": {
+      "width": 640,
+      "height": 360,
+      "rotate": 0
+    },
+    "premiere": null,
+    "teenage_mode": 0,
+    "is_chargeable_season": false,
+    "is_story": false,
+    "is_upower_exclusive": false,
+    "is_upower_play": false,
+    "is_upower_preview": false,
+    "enable_vt": 0,
+    "vt_display": "",
+    "no_cache": false,
+    "pages": [
+      {
+        "cid": 8177639,
+        "page": 1,
+        "from": "vupload",
+        "part": "",
+        "duration": 366,
+        "vid": "",
+        "weblink": "",
+        "dimension": {
+          "width": 640,
+          "height": 360,
+          "rotate": 0
+        }
+      }
+    ],
+    "subtitle": {
+      "allow_submit": false,
+      "list": []
+    },
+    "is_season_display": false,
+    "user_garb": {
+      "url_image_ani_cut": ""
+    },
+    "honor_reply": {},
+    "like_icon": "",
+    "need_jump_bv": false,
+    "disable_show_up_info": false,
+    "is_story_play": 1
+  }
+}

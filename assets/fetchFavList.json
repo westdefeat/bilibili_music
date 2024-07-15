@@ -1,0 +1,137 @@
+{
+  "code": 0,
+  "message": "0",
+  "ttl": 1,
+  "data": {
+    "count": 14,
+    "list": [
+      {
+        "id": 100109244,
+        "fid": 1001092,
+        "mid": 57164044,
+        "attr": 0,
+        "title": "默认收藏夹",
+        "fav_state": 0,
+        "media_count": 18
+      },
+      {
+        "id": 3242730544,
+        "fid": 32427305,
+        "mid": 57164044,
+        "attr": 2,
+        "title": "test3",
+        "fav_state": 0,
+        "media_count": 0
+      },
+      {
+        "id": 3239759744,
+        "fid": 32397597,
+        "mid": 57164044,
+        "attr": 2,
+        "title": "dart",
+        "fav_state": 0,
+        "media_count": 0
+      },
+      {
+        "id": 3209930144,
+        "fid": 32099301,
+        "mid": 57164044,
+        "attr": 2,
+        "title": "dart",
+        "fav_state": 0,
+        "media_count": 0
+      },
+      {
+        "id": 3209785244,
+        "fid": 32097852,
+        "mid": 57164044,
+        "attr": 54,
+        "title": "dart_renamed",
+        "fav_state": 0,
+        "media_count": 0
+      },
+      {
+        "id": 3209746744,
+        "fid": 32097467,
+        "mid": 57164044,
+        "attr": 2,
+        "title": "test2",
+        "fav_state": 0,
+        "media_count": 0
+      },
+      {
+        "id": 3206759444,
+        "fid": 32067594,
+        "mid": 57164044,
+        "attr": 54,
+        "title": "dart_renamed",
+        "fav_state": 0,
+        "media_count": 0
+      },
+      {
+        "id": 3206663244,
+        "fid": 32066632,
+        "mid": 57164044,
+        "attr": 2,
+        "title": "test2",
+        "fav_state": 0,
+        "media_count": 2
+      },
+      {
+        "id": 3191974344,
+        "fid": 31919743,
+        "mid": 57164044,
+        "attr": 54,
+        "title": "dart_renamed",
+        "fav_state": 0,
+        "media_count": 0
+      },
+      {
+        "id": 3185791644,
+        "fid": 31857916,
+        "mid": 57164044,
+        "attr": 2,
+        "title": "xxxxxx",
+        "fav_state": 0,
+        "media_count": 0
+      },
+      {
+        "id": 3179749944,
+        "fid": 31797499,
+        "mid": 57164044,
+        "attr": 2,
+        "title": "test2",
+        "fav_state": 0,
+        "media_count": 0
+      },
+      {
+        "id": 3170798444,
+        "fid": 31707984,
+        "mid": 57164044,
+        "attr": 2,
+        "title": "dart",
+        "fav_state": 0,
+        "media_count": 0
+      },
+      {
+        "id": 2057910644,
+        "fid": 20579106,
+        "mid": 57164044,
+        "attr": 22,
+        "title": "音乐",
+        "fav_state": 0,
+        "media_count": 125
+      },
+      {
+        "id": 2310667344,
+        "fid": 23106673,
+        "mid": 57164044,
+        "attr": 22,
+        "title": "陈翔六点半",
+        "fav_state": 0,
+        "media_count": 3
+      }
+    ],
+    "season": null
+  }
+}

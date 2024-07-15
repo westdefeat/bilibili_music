@@ -1,0 +1,37 @@
+{
+  "code": 0,
+  "message": "0",
+  "ttl": 1,
+  "data": {
+    "id": 2310667344,
+    "fid": 23106673,
+    "mid": 57164044,
+    "attr": 22,
+    "title": "陈翔六点半",
+    "cover": "http://i2.hdslb.com/bfs/archive/1eb6c2217de9a55fbbac07a9e46249b3ff701903.jpg",
+    "upper": {
+      "mid": 57164044,
+      "name": "以气御刀",
+      "face": "http://i1.hdslb.com/bfs/face/28c18b8056c5b3980a397485150c4bd1a2766e4a.jpg",
+      "followed": false,
+      "vip_type": 1,
+      "vip_statue": 0
+    },
+    "cover_type": 2,
+    "cnt_info": {
+      "collect": 0,
+      "play": 0,
+      "thumb_up": 0,
+      "share": 0
+    },
+    "type": 11,
+    "intro": "",
+    "ctime": 1683777549,
+    "mtime": 1683777549,
+    "state": 0,
+    "fav_state": 0,
+    "like_state": 0,
+    "media_count": 3,
+    "is_top": false
+  }
+}
