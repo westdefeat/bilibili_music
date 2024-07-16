@@ -43,7 +43,7 @@ enum HttpMethod {
 
 
 Future<Map<String, dynamic>?> requestBilibili(HttpMethod methodType, String endpoint, Map<String, String> queryParams) async {
-  var url = Uri.http(ApiConfig.baseUrl, endpoint, queryParams);
+  var url = Uri.https(ApiConfig.baseUrl, endpoint, queryParams);
   Map<String, String> headers = {
     ...ApiConfig.headers,
   };

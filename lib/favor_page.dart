@@ -6,6 +6,7 @@ import 'package:bilibili_music/bilibili_api/bilibli_api.dart';
 import 'package:bilibili_music/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:path_provider/path_provider.dart';
 
 
@@ -22,10 +23,12 @@ class FavorPage extends StatefulWidget {
   State<FavorPage> createState() => _FavorPageState();
 }
 
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:2637489214.
 class _FavorPageState extends State<FavorPage> {
-  Future<List<BiliListItem>> loadJson() async {
+  Set<int> selectedIndexes = {};
+  bool xx = false;
+  bool isSelected = false;
 
+  Future<List<BiliListItem>> loadJson() async {
   dynamic data = await fetchFavList();
     List<dynamic> dataList = data['data']['list'];
     List<BiliListItem> items = [];
@@ -43,21 +46,26 @@ class _FavorPageState extends State<FavorPage> {
           media_ids: id);
 
       items.add(item);
-      // break;
     }
 
     return items;
   }
 
+  void _onLongPress(int index) {
+
+  }
+
+  void _onTapDown(int index) {
+
+  }
+
+
   @override
   Widget build(BuildContext context) {
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:770832848.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:4219625110.
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:2090342741.
       body: FutureBuilder(
         future: loadJson(),
         builder: (context, AsyncSnapshot<List<BiliListItem>> snapshot) {
@@ -66,17 +74,25 @@ class _FavorPageState extends State<FavorPage> {
             return ListView.builder(
               itemCount: items.length,
               itemBuilder: (context, index) {
-                return InkWell(
-                  onTap: () {
+                return ListTileWithImage(
+                  onTap: () => {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
                             DetailedPage(myItem: items[index]),
                       ),
-                    );
+                    )
                   },
-                  child: ListTileWithImage(title: items[index].title, intro: items[index].intro, coverUrl: items[index].coverUrl,),
+                  onLongPress: () => {
+                    setState(() {
+                    isSelected = !isSelected; // Toggle the selection state
+                  })
+                  },
+                  title: items[index].title, 
+                  intro: items[index].intro, 
+                  coverUrl: items[index].coverUrl,
+                  tileColor: isSelected ? Colors.grey : null,
                 );
               },
             );
@@ -92,20 +108,25 @@ class _FavorPageState extends State<FavorPage> {
 }
 
 
+
 class ListTileWithImage extends StatefulWidget {
   final String title;
   final String intro;
   final String coverUrl;
-
+  // final VoidCallback? onLongPress; // make it nullable
+  VoidCallback? onTap; // make it nullable
+  VoidCallback? onLongPress; // make it nullable
+  bool _isSelected = false;
+  Color? tileColor = null;
   ListTileWithImage(
-      {required this.title, required this.intro, required this.coverUrl});
+      {required this.title, required this.intro, required this.coverUrl, this.onTap, this.onLongPress, this.tileColor});
   
   @override
   State<StatefulWidget> createState() => ListTileWithImageState();
 }
 
 class ListTileWithImageState extends State<ListTileWithImage> {
-  @override
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -115,11 +136,16 @@ class ListTileWithImageState extends State<ListTileWithImage> {
       ),
       title: Text(widget.title.length > 10 ? '${widget.title.substring(0, 10)}...' : widget.title),
       subtitle: Text(widget.intro.length > 10 ? '${widget.intro.substring(0, 10)}...' : widget.intro),    
-      onLongPress: () => {
-        setState(() {
-          selectedTileColor
-        })e
-      },
+      onTap: widget.onTap,
+      onLongPress: widget.onLongPress,
+      tileColor: widget.tileColor,
+
+      // onLongPress: () => {
+      //   setState(() {
+      //     _isLongPressed = !_isLongPressed;
+      //   })
+      // },
+      // tileColor: _isLongPressed ? Colors.grey : null,
     );
   }
 }
@@ -221,7 +247,8 @@ class _DetailedPageState extends State<DetailedPage> {
                   return ListTileWithImage(
                       title: _lists[index].title,
                       intro: _lists[index].intro,
-                      coverUrl: _lists[index].coverUrl);
+                      coverUrl: _lists[index].coverUrl,
+                      onTap: null,);
                 },
               ),
             ),
