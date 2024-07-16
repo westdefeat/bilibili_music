@@ -92,23 +92,34 @@ class _FavorPageState extends State<FavorPage> {
 }
 
 
-class ListTileWithImage extends StatelessWidget {
+class ListTileWithImage extends StatefulWidget {
   final String title;
   final String intro;
   final String coverUrl;
 
   ListTileWithImage(
       {required this.title, required this.intro, required this.coverUrl});
+  
+  @override
+  State<StatefulWidget> createState() => ListTileWithImageState();
+}
 
+class ListTileWithImageState extends State<ListTileWithImage> {
+  @override
   @override
   Widget build(BuildContext context) {
     return ListTile(
       leading: SizedBox(
         width: MediaQuery.of(context).size.width / 4,
-        child: Image.network(coverUrl, fit: BoxFit.fill),
+        child: Image.network(widget.coverUrl, fit: BoxFit.fill),
       ),
-      title: Text(title.length > 10 ? '${title.substring(0, 10)}...' : title),
-      subtitle: Text(intro.length > 10 ? '${intro.substring(0, 10)}...' : intro),
+      title: Text(widget.title.length > 10 ? '${widget.title.substring(0, 10)}...' : widget.title),
+      subtitle: Text(widget.intro.length > 10 ? '${widget.intro.substring(0, 10)}...' : widget.intro),    
+      onLongPress: () => {
+        setState(() {
+          selectedTileColor
+        })e
+      },
     );
   }
 }
@@ -159,7 +170,10 @@ class _DetailedPageState extends State<DetailedPage> {
 
   Future<List<BiliListItem>> _loadLists() async {
     setState(() {
-      _loading = true;
+      if (widget.myItem.mediaCount != 0) {
+        _loading = true;
+
+      }
     });
     
     dynamic jsonData = await getFavouredMediaList(widget.myItem.media_ids, pageNumber: _page++);
@@ -189,7 +203,7 @@ class _DetailedPageState extends State<DetailedPage> {
       appBar: AppBar(
         title: Text(widget.myItem.title),
       ),
-      body: _lists.isEmpty
+      body: _lists.isEmpty && widget.myItem.mediaCount != 0
           ? const Center(
               child: CircularProgressIndicator(),
             )

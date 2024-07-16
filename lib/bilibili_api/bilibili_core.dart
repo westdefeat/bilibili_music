@@ -10,6 +10,7 @@ class ApiConfig {
     'origin': 'https://space.bilibili.com',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0',
     'referer': 'https://www.bilibili.com',
+    "Access-Control-Allow-Origin": "*",
   };
   static final String csrfToken = 'd42061b75a3476cfb5683a3c7c1471f9';
 }
@@ -42,7 +43,7 @@ enum HttpMethod {
 
 
 Future<Map<String, dynamic>?> requestBilibili(HttpMethod methodType, String endpoint, Map<String, String> queryParams) async {
-  var url = Uri.https(ApiConfig.baseUrl, endpoint, queryParams);
+  var url = Uri.http(ApiConfig.baseUrl, endpoint, queryParams);
   Map<String, String> headers = {
     ...ApiConfig.headers,
   };
