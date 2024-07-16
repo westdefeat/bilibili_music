@@ -108,7 +108,7 @@ class ListTileWithImage extends StatelessWidget {
         child: Image.network(coverUrl, fit: BoxFit.fill),
       ),
       title: Text(title.length > 10 ? '${title.substring(0, 10)}...' : title),
-      subtitle: Text(intro),
+      subtitle: Text(intro.length > 10 ? '${intro.substring(0, 10)}...' : intro),
     );
   }
 }
@@ -207,7 +207,7 @@ class _DetailedPageState extends State<DetailedPage> {
                   return ListTileWithImage(
                       title: _lists[index].title,
                       intro: _lists[index].intro,
-                      coverUrl: '');
+                      coverUrl: _lists[index].coverUrl);
                 },
               ),
             ),
