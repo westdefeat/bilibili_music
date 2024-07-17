@@ -75,10 +75,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // body: IndexedStack(
-      //   index: _selectedIndex,
-      //   children: _widgetOptions,
-      // ),
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: _widgetOptions,
+      ),
    
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,

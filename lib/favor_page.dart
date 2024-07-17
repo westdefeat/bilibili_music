@@ -37,7 +37,7 @@ class _FavorPageState extends State<FavorPage> {
   }
 
   Future<List<BiliListItem>> loadJson() async {
-    print(_cachedItems);
+  print(_cachedItems);
   dynamic data = await fetchFavList();
     List<dynamic> dataList = data['data']['list'];
     List<BiliListItem> items = [];
@@ -61,21 +61,9 @@ class _FavorPageState extends State<FavorPage> {
     return items;
   }
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   print('FavorPageState build method called');
-  //   // Build your widget tree here
-  //   return Scaffold(
-  //     appBar: AppBar(
-  //       title: Text('Favorites'),
-  //     ),
-  //     body: Center(
-  //       child: Text('This is the Favorites Page'),
-  //     ),
-  //   );
-  // }
   @override
   Widget build(BuildContext context) {
+    print("build");
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -117,6 +105,9 @@ class _FavorPageState extends State<FavorPage> {
           }
         },
       ),
+      floatingActionButton: FloatingActionButton(onPressed: () =>  setState(() {
+          // Any state changes that you want to make to trigger a rebuild
+        })),
     );
   }
 }
