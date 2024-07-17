@@ -27,8 +27,11 @@ class _FavorPageState extends State<FavorPage> {
   Set<int> selectedIndexes = {};
   bool xx = false;
   bool isSelected = false;
-
+List<BiliListItem>? _cachedItems;
   Future<List<BiliListItem>> loadJson() async {
+    if (_cachedItems != null) {
+      return [];
+    }
   dynamic data = await fetchFavList();
     List<dynamic> dataList = data['data']['list'];
     List<BiliListItem> items = [];
@@ -47,18 +50,10 @@ class _FavorPageState extends State<FavorPage> {
 
       items.add(item);
     }
+    _cachedItems = items;
 
     return items;
   }
-
-  void _onLongPress(int index) {
-
-  }
-
-  void _onTapDown(int index) {
-
-  }
-
 
   @override
   Widget build(BuildContext context) {
