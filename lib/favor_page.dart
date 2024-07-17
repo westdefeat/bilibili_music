@@ -27,11 +27,17 @@ class _FavorPageState extends State<FavorPage> {
   Set<int> selectedIndexes = {};
   bool xx = false;
   bool isSelected = false;
-List<BiliListItem>? _cachedItems;
+  List<BiliListItem> _cachedItems = [];
+
+@override
+  void initState() {
+    super.initState();
+    // Print debug information here
+    print('FavorPageState has been created');
+  }
+
   Future<List<BiliListItem>> loadJson() async {
-    if (_cachedItems != null) {
-      return [];
-    }
+    print(_cachedItems);
   dynamic data = await fetchFavList();
     List<dynamic> dataList = data['data']['list'];
     List<BiliListItem> items = [];
@@ -55,6 +61,19 @@ List<BiliListItem>? _cachedItems;
     return items;
   }
 
+  // @override
+  // Widget build(BuildContext context) {
+  //   print('FavorPageState build method called');
+  //   // Build your widget tree here
+  //   return Scaffold(
+  //     appBar: AppBar(
+  //       title: Text('Favorites'),
+  //     ),
+  //     body: Center(
+  //       child: Text('This is the Favorites Page'),
+  //     ),
+  //   );
+  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

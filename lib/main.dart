@@ -58,12 +58,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
+  final List<Widget> _widgetOptions = [
+    const Text(
       'Recommend',
       style: TextStyle(fontSize: 24),
     ),
-    FavorPage(title: '我的收藏',),
+    const FavorPage(title: '我的收藏',),
   ];
   
   void _onItemTapped(int index) {
@@ -75,27 +75,24 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-      //   title: Text(widget.title),
+      // body: IndexedStack(
+      //   index: _selectedIndex,
+      //   children: _widgetOptions,
       // ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
+   
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Recommend',
+            label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
-            label: 'Favour',
+            label: 'Favorites',
           ),
         ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
-        onTap: _onItemTapped,
       ),
     );
   }
