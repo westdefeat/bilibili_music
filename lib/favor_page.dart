@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 import 'dart:io';
 
@@ -9,8 +8,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:path_provider/path_provider.dart';
 
-
-  
 class FavorPage extends StatefulWidget {
   final String title;
 
@@ -29,7 +26,10 @@ class _FavorPageState extends State<FavorPage> {
   bool isSelected = false;
   List<BiliListItem> _cachedItems = [];
 
-@override
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _introController = TextEditingController();
+
+  @override
   void initState() {
     super.initState();
     // Print debug information here
@@ -37,19 +37,19 @@ class _FavorPageState extends State<FavorPage> {
   }
 
   Future<List<BiliListItem>> loadJson() async {
-  print(_cachedItems);
-  dynamic data = await fetchFavList();
+    print(_cachedItems);
+    dynamic data = await fetchFavList();
     List<dynamic> dataList = data['data']['list'];
     List<BiliListItem> items = [];
 
     for (var jsonItem in dataList) {
       String id = jsonItem['id'].toString();
-      dynamic detailJson = await fetchFavInfo(id); // load detail JSON for each item
+      dynamic detailJson =
+          await fetchFavInfo(id); // load detail JSON for each item
 
       BiliListItem item = BiliListItem(
           title: jsonItem['title'],
-          coverUrl: 
-              detailJson['data']['cover'],
+          coverUrl: detailJson['data']['cover'],
           intro: detailJson['data']['intro'],
           mediaCount: detailJson['data']['media_count'],
           media_ids: id);
@@ -59,6 +59,84 @@ class _FavorPageState extends State<FavorPage> {
     _cachedItems = items;
 
     return items;
+  }
+
+  Future<void> _handleRefresh() async {
+    // Update the list of items and refresh the UI
+    setState(() {
+      print('1');
+    });
+  }
+
+  void _showInputDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext dialogContext) {
+        return AlertDialog(
+          title: const Text('输入详情'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextField(
+                controller: _nameController,
+                decoration: const InputDecoration(labelText: '名称'),
+              ),
+              TextField(
+                controller: _introController,
+                decoration: const InputDecoration(labelText: '介绍'),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              child: const Text('取消'),
+              onPressed: () => Navigator.of(dialogContext).pop(),
+            ),
+            TextButton(
+              child: const Text('确认'),
+              onPressed: () async {
+                Navigator.of(dialogContext).pop();
+                try {
+                  dynamic data = await createFav(
+                      _nameController.text, _introController.text, 0);
+                  print(data);
+                  if (data != null &&
+                      data['code'] != null &&
+                      data['message'] != null) {
+                    await _handleRefresh();
+                    _showSnackBar(
+                      data['code'] == 0 ? '创建成功！' : data['message'],
+                    );
+                  } else {
+                    _showSnackBar('Unknown error');
+                  }
+                } catch (e) {
+                  _showSnackBar('Error: $e');
+                }
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _showSnackBar(String message) {
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(message),
+          duration: const Duration(milliseconds: 500),
+        ),
+      );
+    }
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _introController.dispose();
+    super.dispose();
   }
 
   @override
@@ -73,31 +151,34 @@ class _FavorPageState extends State<FavorPage> {
         builder: (context, AsyncSnapshot<List<BiliListItem>> snapshot) {
           if (snapshot.hasData) {
             List<BiliListItem> items = snapshot.data ?? [];
-            return ListView.builder(
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                return ListTileWithImage(
-                  onTap: () => {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            DetailedPage(myItem: items[index]),
-                      ),
-                    )
+            return RefreshIndicator(
+                onRefresh: _handleRefresh,
+                child: ListView.builder(
+                  itemCount: items.length,
+                  itemBuilder: (context, index) {
+                    return ListTileWithImage(
+                      onTap: () => {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                DetailedPage(myItem: items[index]),
+                          ),
+                        )
+                      },
+                      onLongPress: () => {
+                        setState(() {
+                          isSelected =
+                              !isSelected; // Toggle the selection state
+                        })
+                      },
+                      title: items[index].title,
+                      intro: items[index].intro,
+                      coverUrl: items[index].coverUrl,
+                      tileColor: isSelected ? Colors.grey : null,
+                    );
                   },
-                  onLongPress: () => {
-                    setState(() {
-                    isSelected = !isSelected; // Toggle the selection state
-                  })
-                  },
-                  title: items[index].title, 
-                  intro: items[index].intro, 
-                  coverUrl: items[index].coverUrl,
-                  tileColor: isSelected ? Colors.grey : null,
-                );
-              },
-            );
+                ));
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else {
@@ -105,14 +186,13 @@ class _FavorPageState extends State<FavorPage> {
           }
         },
       ),
-      floatingActionButton: FloatingActionButton(onPressed: () =>  setState(() {
-          // Any state changes that you want to make to trigger a rebuild
-        })),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () => _showInputDialog(),
+      ),
     );
   }
 }
-
-
 
 class ListTileWithImage extends StatefulWidget {
   final String title;
@@ -124,14 +204,18 @@ class ListTileWithImage extends StatefulWidget {
   bool _isSelected = false;
   Color? tileColor = null;
   ListTileWithImage(
-      {required this.title, required this.intro, required this.coverUrl, this.onTap, this.onLongPress, this.tileColor});
-  
+      {required this.title,
+      required this.intro,
+      required this.coverUrl,
+      this.onTap,
+      this.onLongPress,
+      this.tileColor});
+
   @override
   State<StatefulWidget> createState() => ListTileWithImageState();
 }
 
 class ListTileWithImageState extends State<ListTileWithImage> {
-
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -139,8 +223,12 @@ class ListTileWithImageState extends State<ListTileWithImage> {
         width: MediaQuery.of(context).size.width / 4,
         child: Image.network(widget.coverUrl, fit: BoxFit.fill),
       ),
-      title: Text(widget.title.length > 10 ? '${widget.title.substring(0, 10)}...' : widget.title),
-      subtitle: Text(widget.intro.length > 10 ? '${widget.intro.substring(0, 10)}...' : widget.intro),    
+      title: Text(widget.title.length > 10
+          ? '${widget.title.substring(0, 10)}...'
+          : widget.title),
+      subtitle: Text(widget.intro.length > 10
+          ? '${widget.intro.substring(0, 10)}...'
+          : widget.intro),
       onTap: widget.onTap,
       onLongPress: widget.onLongPress,
       tileColor: widget.tileColor,
@@ -203,21 +291,20 @@ class _DetailedPageState extends State<DetailedPage> {
     setState(() {
       if (widget.myItem.mediaCount != 0) {
         _loading = true;
-
       }
     });
-    
-    dynamic jsonData = await getFavouredMediaList(widget.myItem.media_ids, pageNumber: _page++);
+
+    dynamic jsonData = await getFavouredMediaList(widget.myItem.media_ids,
+        pageNumber: _page++);
     List<dynamic> dataList = jsonData['data']['medias'];
     List<BiliListItem> items = [];
 
     for (var jsonItem in dataList) {
       BiliListItem item = BiliListItem(
-          title: jsonItem['title'],
-          coverUrl:
-              jsonItem['cover'],
-          intro: jsonItem['intro'],
-     );
+        title: jsonItem['title'],
+        coverUrl: jsonItem['cover'],
+        intro: jsonItem['intro'],
+      );
 
       items.add(item);
     }
@@ -241,7 +328,8 @@ class _DetailedPageState extends State<DetailedPage> {
           : NotificationListener<ScrollNotification>(
               onNotification: (ScrollNotification notification) {
                 if (notification is ScrollEndNotification &&
-                    notification.metrics.extentAfter == 0 && _lists.length < widget.myItem.mediaCount) {
+                    notification.metrics.extentAfter == 0 &&
+                    _lists.length < widget.myItem.mediaCount) {
                   _loadLists();
                 }
                 return true;
@@ -250,10 +338,11 @@ class _DetailedPageState extends State<DetailedPage> {
                 itemCount: _lists.length,
                 itemBuilder: (context, index) {
                   return ListTileWithImage(
-                      title: _lists[index].title,
-                      intro: _lists[index].intro,
-                      coverUrl: _lists[index].coverUrl,
-                      onTap: null,);
+                    title: _lists[index].title,
+                    intro: _lists[index].intro,
+                    coverUrl: _lists[index].coverUrl,
+                    onTap: null,
+                  );
                 },
               ),
             ),

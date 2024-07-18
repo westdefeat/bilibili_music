@@ -50,7 +50,7 @@
     },
     "stat": {
       "aid": 5034525,
-      "view": 447669,
+      "view": 447709,
       "danmaku": 1504,
       "reply": 283,
       "favorite": 11122,
@@ -103,7 +103,33 @@
     ],
     "subtitle": {
       "allow_submit": false,
-      "list": []
+      "list": [
+        {
+          "id": 1105125887608839936,
+          "lan": "ai-zh",
+          "lan_doc": "中文（自动翻译）",
+          "is_lock": false,
+          "subtitle_url": "",
+          "type": 1,
+          "id_str": "1105125887608839936",
+          "ai_type": 1,
+          "ai_status": 2,
+          "author": {
+            "mid": 0,
+            "name": "",
+            "sex": "",
+            "face": "",
+            "sign": "",
+            "rank": 0,
+            "birthday": 0,
+            "is_fake_account": 0,
+            "is_deleted": 0,
+            "in_reg_audit": 0,
+            "is_senior_member": 0,
+            "name_render": null
+          }
+        }
+      ]
     },
     "is_season_display": false,
     "user_garb": {

@@ -1,4 +1,7 @@
 {
-  "code": -101,
-  "message": "æªç»å½"
+  "code": 0,
+  "data": {
+    "prompt": false
+  },
+  "message": "success"
 }

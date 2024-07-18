@@ -10,7 +10,10 @@ class ApiConfig {
     'origin': 'https://space.bilibili.com',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0',
     'referer': 'https://www.bilibili.com',
-    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+  "Access-Control-Allow-Credentials": "true", // Required for cookies, authorization headers with HTTPS
+  "Access-Control-Allow-Headers": "Origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,locale",
+  "Access-Control-Allow-Methods": "POST, OPTIONS"
   };
   static final String csrfToken = 'd42061b75a3476cfb5683a3c7c1471f9';
 }
