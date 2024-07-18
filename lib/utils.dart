@@ -39,10 +39,10 @@ class ListTileWithImage extends StatefulWidget {
   // final VoidCallback? onLongPress; // make it nullable
   VoidCallback? onTap; // make it nullable
   VoidCallback? onLongPress; // make it nullable
-  bool _isSelected = false;
+  bool isSelected = false;
   Color? tileColor = null;
   ListTileWithImage(
-      {required this.title, required this.intro, required this.coverUrl, this.onTap, this.onLongPress, this.tileColor});
+      {required this.title, required this.intro, required this.coverUrl, this.onTap, this.onLongPress, required this.isSelected});
   
   @override
   State<StatefulWidget> createState() => ListTileWithImageState();
@@ -62,7 +62,7 @@ class ListTileWithImageState extends State<ListTileWithImage> {
       subtitle: Text(widget.intro.length > 10 ? '${widget.intro.substring(0, 10)}...' : widget.intro),    
       onTap: widget.onTap,
       onLongPress: widget.onLongPress,
-      tileColor: widget.tileColor,
+      tileColor:  widget.isSelected ? Colors.blue.withOpacity(0.2) : null,
 
       // onLongPress: () => {
       //   setState(() {

@@ -21,11 +21,10 @@ class FavorPage extends StatefulWidget {
 }
 
 class _FavorPageState extends State<FavorPage> {
-  Set<int> selectedIndexes = {};
   bool xx = false;
-  bool isSelected = false;
+  bool isSelectionMode = false;
   List<BiliListItem> _cachedItems = [];
-
+  Set<int> selectedIndices = {};
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _introController = TextEditingController();
 
@@ -139,6 +138,24 @@ class _FavorPageState extends State<FavorPage> {
     super.dispose();
   }
 
+   void toggleSelectionMode(int index) {
+    setState(() {
+      if (isSelectionMode) {
+        if (selectedIndices.contains(index)) {
+          selectedIndices.remove(index);
+        } else {
+          selectedIndices.add(index);
+        }
+        if (selectedIndices.isEmpty) {
+          isSelectionMode = false;
+        }
+      } else {
+        isSelectionMode = true;
+        selectedIndices.add(index);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     print("build");
@@ -158,24 +175,24 @@ class _FavorPageState extends State<FavorPage> {
                   itemBuilder: (context, index) {
                     return ListTileWithImage(
                       onTap: () => {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                DetailedPage(myItem: items[index]),
-                          ),
-                        )
+                        if (isSelectionMode) {
+                          toggleSelectionMode(index)
+                        } else {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailedPage(myItem: items[index]),
+                            ),
+                          )
+                        }
                       },
                       onLongPress: () => {
-                        setState(() {
-                          isSelected =
-                              !isSelected; // Toggle the selection state
-                        })
+                        
                       },
                       title: items[index].title,
                       intro: items[index].intro,
                       coverUrl: items[index].coverUrl,
-                      tileColor: isSelected ? Colors.grey : null,
+                      isSelected: selectedIndices.contains(index),
                     );
                   },
                 ));
@@ -190,79 +207,6 @@ class _FavorPageState extends State<FavorPage> {
         child: const Icon(Icons.add),
         onPressed: () => _showInputDialog(),
       ),
-    );
-  }
-}
-
-class ListTileWithImage extends StatefulWidget {
-  final String title;
-  final String intro;
-  final String coverUrl;
-  // final VoidCallback? onLongPress; // make it nullable
-  VoidCallback? onTap; // make it nullable
-  VoidCallback? onLongPress; // make it nullable
-  bool _isSelected = false;
-  Color? tileColor = null;
-  ListTileWithImage(
-      {required this.title,
-      required this.intro,
-      required this.coverUrl,
-      this.onTap,
-      this.onLongPress,
-      this.tileColor});
-
-  @override
-  State<StatefulWidget> createState() => ListTileWithImageState();
-}
-
-class ListTileWithImageState extends State<ListTileWithImage> {
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      leading: SizedBox(
-        width: MediaQuery.of(context).size.width / 4,
-        child: Image.network(widget.coverUrl, fit: BoxFit.fill),
-      ),
-      title: Text(widget.title.length > 10
-          ? '${widget.title.substring(0, 10)}...'
-          : widget.title),
-      subtitle: Text(widget.intro.length > 10
-          ? '${widget.intro.substring(0, 10)}...'
-          : widget.intro),
-      onTap: widget.onTap,
-      onLongPress: widget.onLongPress,
-      tileColor: widget.tileColor,
-
-      // onLongPress: () => {
-      //   setState(() {
-      //     _isLongPressed = !_isLongPressed;
-      //   })
-      // },
-      // tileColor: _isLongPressed ? Colors.grey : null,
-    );
-  }
-}
-
-class BiliListItem {
-  final String title;
-  final String coverUrl;
-  final String intro;
-  final int mediaCount;
-  final String media_ids;
-
-  BiliListItem(
-      {required this.title,
-      this.coverUrl = '',
-      this.intro = '',
-      this.mediaCount = 0,
-      this.media_ids = ''});
-
-  factory BiliListItem.fromJson(Map<String, dynamic> json) {
-    return BiliListItem(
-      title: json['title'],
-      coverUrl: json['cover_url'],
-      intro: json['intro'],
-      mediaCount: json['media_count'],
     );
   }
 }
@@ -342,6 +286,7 @@ class _DetailedPageState extends State<DetailedPage> {
                     intro: _lists[index].intro,
                     coverUrl: _lists[index].coverUrl,
                     onTap: null,
+                    isSelected: true,
                   );
                 },
               ),
