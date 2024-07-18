@@ -120,9 +120,9 @@ Future<dynamic> renameFav(
 // }
 
 // 3170798444
-Future<dynamic> removeFav(String media_id) async {
+Future<dynamic> removeFav(String media_ids) async {
   var queryParams = {
-    "media_ids": media_id,
+    "media_ids": media_ids,
     'csrf': ApiConfig.csrfToken,
   };
   var data = await requestBilibili(

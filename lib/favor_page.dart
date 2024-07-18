@@ -36,11 +36,14 @@ class _FavorPageState extends State<FavorPage> {
   }
 
   Future<List<BiliListItem>> loadJson() async {
-    print(_cachedItems);
+    // if (_cachedItems.isNotEmpty) {
+    //   return _cachedItems;
+    // }
+
     dynamic data = await fetchFavList();
     List<dynamic> dataList = data['data']['list'];
-    List<BiliListItem> items = [];
-
+    // List<BiliListItem> items = [];
+    _cachedItems = [];
     for (var jsonItem in dataList) {
       String id = jsonItem['id'].toString();
       dynamic detailJson =
@@ -53,11 +56,11 @@ class _FavorPageState extends State<FavorPage> {
           mediaCount: detailJson['data']['media_count'],
           media_ids: id);
 
-      items.add(item);
+      _cachedItems.add(item);
     }
-    _cachedItems = items;
+    // _cachedItems = items;
 
-    return items;
+    return _cachedItems;
   }
 
   Future<void> _handleRefresh() async {
@@ -98,7 +101,7 @@ class _FavorPageState extends State<FavorPage> {
                 try {
                   dynamic data = await createFav(
                       _nameController.text, _introController.text, 0);
-                  print(data);
+                      
                   if (data != null &&
                       data['code'] != null &&
                       data['message'] != null) {
@@ -138,7 +141,7 @@ class _FavorPageState extends State<FavorPage> {
     super.dispose();
   }
 
-   void toggleSelectionMode(int index) {
+  void toggleSelectionMode(int index) {
     setState(() {
       if (isSelectionMode) {
         if (selectedIndices.contains(index)) {
@@ -156,6 +159,26 @@ class _FavorPageState extends State<FavorPage> {
     });
   }
 
+  void deleteSelectedItems() async {
+    // setState(() {
+      // _cachedItems.removeWhere((item) => selectedIndices.contains(_cachedItems.indexOf(item)));
+    
+    // });
+      setState(() {
+      isSelectionMode = false;
+    });
+    for (int element in selectedIndices) {
+      dynamic res = await removeFav(_cachedItems[element].media_ids);
+      print(res);
+      print(_cachedItems[element].media_ids);
+    }
+    for (int index in selectedIndices.toList()..sort((a, b) => b.compareTo(a))) {
+      _cachedItems.removeAt(index);
+    }
+      selectedIndices.clear();
+      
+  }
+
   @override
   Widget build(BuildContext context) {
     print("build");
@@ -163,45 +186,62 @@ class _FavorPageState extends State<FavorPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: FutureBuilder(
-        future: loadJson(),
-        builder: (context, AsyncSnapshot<List<BiliListItem>> snapshot) {
-          if (snapshot.hasData) {
-            List<BiliListItem> items = snapshot.data ?? [];
-            return RefreshIndicator(
-                onRefresh: _handleRefresh,
-                child: ListView.builder(
-                  itemCount: items.length,
-                  itemBuilder: (context, index) {
-                    return ListTileWithImage(
-                      onTap: () => {
-                        if (isSelectionMode) {
-                          toggleSelectionMode(index)
-                        } else {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => DetailedPage(myItem: items[index]),
-                            ),
-                          )
-                        }
+      body: Stack(
+        children: [
+          FutureBuilder(
+            future: loadJson(),
+            builder: (context, AsyncSnapshot<List<BiliListItem>> snapshot) {
+              if (snapshot.hasData) {
+                List<BiliListItem> items = snapshot.data ?? [];
+                // if (_cachedItems.length == 0) {
+                  _cachedItems = items;
+                // }
+                return RefreshIndicator(
+                    onRefresh: _handleRefresh,
+                    child: ListView.builder(
+                      itemCount: _cachedItems.length,
+                      itemBuilder: (context, index) {
+                        return ListTileWithImage(
+                          onTap: () => {
+                            if (isSelectionMode)
+                              {toggleSelectionMode(index)}
+                            else
+                              {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        DetailedPage(myItem: _cachedItems[index]),
+                                  ),
+                                )
+                              }
+                          },
+                          onLongPress: () => toggleSelectionMode(index),
+                          title: _cachedItems[index].title,
+                          intro: _cachedItems[index].intro,
+                          coverUrl: _cachedItems[index].coverUrl,
+                          isSelected: selectedIndices.contains(index),
+                        );
                       },
-                      onLongPress: () => {
-                        
-                      },
-                      title: items[index].title,
-                      intro: items[index].intro,
-                      coverUrl: items[index].coverUrl,
-                      isSelected: selectedIndices.contains(index),
-                    );
-                  },
-                ));
-          } else if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
-          } else {
-            return const Center(child: CircularProgressIndicator());
-          }
-        },
+                    ));
+              } else if (snapshot.hasError) {
+                return Center(child: Text('Error: ${snapshot.error}'));
+              } else {
+                return const Center(child: CircularProgressIndicator());
+              }
+            },
+          ),
+          if (isSelectionMode)
+            Positioned(
+              bottom: 16,
+              left: 16,
+              child: FloatingActionButton(
+                onPressed: deleteSelectedItems,
+                child: Icon(Icons.delete),
+                backgroundColor: Colors.red,
+              ),
+            ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
