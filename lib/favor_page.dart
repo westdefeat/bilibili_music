@@ -27,47 +27,59 @@ class _FavorPageState extends State<FavorPage> {
   Set<int> selectedIndices = {};
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _introController = TextEditingController();
-
+FocusNode _focusNode = FocusNode();
   @override
   void initState() {
+    loadJson();
     super.initState();
     // Print debug information here
     print('FavorPageState has been created');
+    _focusNode.requestFocus();
+  
   }
 
   Future<List<BiliListItem>> loadJson() async {
     print("load json");
     if (!firstLoad) {
+      print('first load');
+    } else {
       firstLoad = false;
+
+      dynamic data = await fetchFavList();
+      List<dynamic> dataList = data['data']['list'];
+      List<BiliListItem> items = [];
+      for (var jsonItem in dataList) {
+        String id = jsonItem['id'].toString();
+        dynamic detailJson =
+            await fetchFavInfo(id); // load detail JSON for each item
+
+        BiliListItem item = BiliListItem(
+            title: jsonItem['title'],
+            coverUrl: detailJson['data']['cover'],
+            intro: detailJson['data']['intro'],
+            mediaCount: detailJson['data']['media_count'],
+            media_ids: id);
+
+        items.add(item);
+      }
+      _cachedItems = items;
+      print('cache items: $_cachedItems');
+      
+    }
+      setState(() {
+
+      print('1');
+
+    });
       return _cachedItems;
-    }
 
-    dynamic data = await fetchFavList();
-    List<dynamic> dataList = data['data']['list'];
-    List<BiliListItem> items = [];
-    for (var jsonItem in dataList) {
-      String id = jsonItem['id'].toString();
-      dynamic detailJson =
-          await fetchFavInfo(id); // load detail JSON for each item
-
-      BiliListItem item = BiliListItem(
-          title: jsonItem['title'],
-          coverUrl: detailJson['data']['cover'],
-          intro: detailJson['data']['intro'],
-          mediaCount: detailJson['data']['media_count'],
-          media_ids: id);
-
-      items.add(item);
-    }
-    _cachedItems = items;
-
-    return _cachedItems;
   }
 
   Future<void> _handleRefresh() async {
     // Update the list of items and refresh the UI
     setState(() {
       print('1');
+      isSelectionMode = false;
     });
   }
 
@@ -102,7 +114,7 @@ class _FavorPageState extends State<FavorPage> {
                 try {
                   dynamic data = await createFav(
                       _nameController.text, _introController.text, 0);
-                      
+
                   if (data != null &&
                       data['code'] != null &&
                       data['message'] != null) {
@@ -111,7 +123,13 @@ class _FavorPageState extends State<FavorPage> {
                       data['code'] == 0 ? '创建成功！' : data['message'],
                     );
                     if (data['code'] == 0) {
-                      _cachedItems.add(BiliListItem(title: _nameController.text, intro: _introController.text, mediaCount: 0, media_ids: data['data']['id'].toString()));
+                      print(data);
+                      print(_cachedItems[0].media_ids);
+                      _cachedItems.add(BiliListItem(
+                          title: _nameController.text,
+                          intro: _introController.text,
+                          mediaCount: 0,
+                          media_ids: data['data']['id'].toString()));
                     }
                   } else {
                     _showSnackBar('Unknown error');
@@ -146,112 +164,118 @@ class _FavorPageState extends State<FavorPage> {
   }
 
   void toggleSelectionMode(int index) {
-    // setState(() {
-      if (isSelectionMode) {
-        if (selectedIndices.contains(index)) {
-          selectedIndices.remove(index);
-        } else {
-          selectedIndices.add(index);
-        }
-        if (selectedIndices.isEmpty) {
-          isSelectionMode = false;
-        }
+    setState(() {
+    if (isSelectionMode) {
+      if (selectedIndices.contains(index)) {
+        selectedIndices.remove(index);
       } else {
-        isSelectionMode = true;
         selectedIndices.add(index);
       }
-    // });
+      if (selectedIndices.isEmpty) {
+        isSelectionMode = false;
+      }
+    } else {
+      isSelectionMode = true;
+      selectedIndices.add(index);
+    }
+    });
   }
 
   void deleteSelectedItems() async {
-    // setState(() {
-      // _cachedItems.removeWhere((item) => selectedIndices.contains(_cachedItems.indexOf(item)));
-    
-    // });
-      setState(() {
-      isSelectionMode = false;
-    });
     for (int element in selectedIndices) {
       dynamic res = await removeFav(_cachedItems[element].media_ids);
       print(res);
       print(_cachedItems[element].media_ids);
     }
-    for (int index in selectedIndices.toList()..sort((a, b) => b.compareTo(a))) {
+    for (int index in selectedIndices.toList()
+      ..sort((a, b) => b.compareTo(a))) {
       _cachedItems.removeAt(index);
     }
     selectedIndices.clear();
     isSelectionMode = false;
-
+        setState(() {
+      isSelectionMode = false;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    print("build");
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Stack(
-        children: [
-          FutureBuilder(
-            future: loadJson(),
-            builder: (context, AsyncSnapshot<List<BiliListItem>> snapshot) {
-              if (snapshot.hasData) {
-                // List<BiliListItem> items = snapshot.data ?? [];
-                // if (_cachedItems.length == 0) {
-                  // _cachedItems = items;
-                // }
-                return RefreshIndicator(
-                    onRefresh: _handleRefresh,
-                    child: ListView.builder(
-                      itemCount: _cachedItems.length,
-                      itemBuilder: (context, index) {
-                        return ListTileWithImage(
-                          onTap: () => {
-                            if (isSelectionMode)
-                              {toggleSelectionMode(index)}
-                            else
-                              {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        DetailedPage(myItem: _cachedItems[index]),
-                                  ),
-                                )
-                              }
-                          },
-                          onLongPress: () => toggleSelectionMode(index),
-                          title: _cachedItems[index].title,
-                          intro: _cachedItems[index].intro,
-                          coverUrl: _cachedItems[index].coverUrl,
-                          isSelected: selectedIndices.contains(index),
-                        );
-                      },
-                    ));
-              } else if (snapshot.hasError) {
-                return Center(child: Text('Error: ${snapshot.error}'));
-              } else {
-                return const Center(child: CircularProgressIndicator());
-              }
-            },
+    // set outer gesture detector, inner gesture detector will take precedence
+    return GestureDetector(
+      onTap: () {
+            // print("esc");
+          isSelectionMode = false;
+selectedIndices.clear();
+        setState(() {
+        });
+      },
+      child: KeyboardListener(
+        focusNode: _focusNode,
+        onKeyEvent: (KeyEvent event) {
+          if (event is KeyDownEvent  && event.logicalKey == LogicalKeyboardKey.escape) {
+              isSelectionMode = false;
+selectedIndices.clear();
+
+            setState(() {
+            });
+            // _setFlag();
+          }
+        },
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text(widget.title),
           ),
-          if (isSelectionMode)
-            Positioned(
-              bottom: 16,
-              left: 16,
-              child: FloatingActionButton(
-                onPressed: deleteSelectedItems,
-                child: Icon(Icons.delete),
-                backgroundColor: Colors.red,
+          body: Stack(
+            children: [
+              RefreshIndicator(
+                onRefresh: _handleRefresh,
+                child: _cachedItems.isEmpty
+                    ? Center(child: CircularProgressIndicator())
+                    : ListView.builder(
+                        itemCount: _cachedItems.length,
+                        itemBuilder: (context, index) {
+                          return ListTileWithImage(
+                            onTap: () => {
+                              if (isSelectionMode)
+                                {toggleSelectionMode(index)}
+                              else
+                                {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          DetailedPage(myItem: _cachedItems[index]),
+                                    ),
+                                  )
+                                }
+                            },
+                            onLongPress: () => toggleSelectionMode(index),
+                            title: _cachedItems[index].title,
+                            intro: _cachedItems[index].intro,
+                            coverUrl: _cachedItems[index].coverUrl,
+                            isSelected: selectedIndices.contains(index),
+                          );
+                        },
+                      ),
               ),
-            ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () => _showInputDialog(),
-      ),
+              if (isSelectionMode)
+                Positioned(
+                  bottom: 16,
+                  left: 16,
+                  child: FloatingActionButton(
+                    onPressed: deleteSelectedItems,
+                    child: Icon(Icons.delete),
+                    backgroundColor: Colors.red,
+                  ),
+                ),
+            ],
+          ),
+          floatingActionButton: FloatingActionButton(
+            child: const Icon(Icons.add),
+            onPressed: () => _showInputDialog(),
+          ),
+        )
+      )
     );
   }
 }
@@ -282,10 +306,11 @@ class _DetailedPageState extends State<DetailedPage> {
         _loading = true;
       }
     });
-
+    print(widget.myItem.media_ids);
     dynamic jsonData = await getFavouredMediaList(widget.myItem.media_ids,
         pageNumber: _page++);
-    List<dynamic> dataList = jsonData['data']['medias'];
+    print(jsonData);
+    List<dynamic> dataList = jsonData['data']['medias'] ?? [];
     List<BiliListItem> items = [];
 
     for (var jsonItem in dataList) {
@@ -331,7 +356,7 @@ class _DetailedPageState extends State<DetailedPage> {
                     intro: _lists[index].intro,
                     coverUrl: _lists[index].coverUrl,
                     onTap: null,
-                    isSelected: true,
+                    isSelected: false,
                   );
                 },
               ),

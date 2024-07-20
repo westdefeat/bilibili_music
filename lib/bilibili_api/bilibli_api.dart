@@ -91,7 +91,7 @@ Future<dynamic> createFav(String title, String? intro, int privacy) async {
   if (data != null) {
     printResponse(data, getCurrentFunctionName() + '.json');
   }
-  print(data);
+  // print(data);
   return data;
 }
 
@@ -176,6 +176,7 @@ Future<dynamic> getFavouredMediaList(String media_id,
   if (data != null) {
     printResponse(data, getCurrentFunctionName() + '.json');
   }
+  print(data);
   return data;
 }
 
