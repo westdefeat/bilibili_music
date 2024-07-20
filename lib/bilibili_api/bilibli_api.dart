@@ -89,8 +89,9 @@ Future<dynamic> createFav(String title, String? intro, int privacy) async {
   var data = await requestBilibili(
       HttpMethod.post, ApiEndpoints.createFav, queryParams);
   if (data != null) {
-    printResponse(data, 'createFav.json');
+    printResponse(data, getCurrentFunctionName() + '.json');
   }
+  print(data);
   return data;
 }
 

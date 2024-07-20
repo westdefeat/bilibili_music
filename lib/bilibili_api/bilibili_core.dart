@@ -2,11 +2,11 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class ApiConfig {
-  static final String baseUrl = 'api.bilibili.com';
+  static const String baseUrl = 'api.bilibili.com';
   static final Map<String, String> headers = {
     'accept': 'application/json, text/plain, */*',
     'accept-language': 'en,zh-CN;q=0.9,zh;q=0.8,en-GB;q=0.7,en-US;q=0.6',
-    'cookie': 'SESSDATA=f4f09c83%2C1736605247%2C47f9d%2A71CjDtBlWfstp7Y6sNN3sAiB2BeAGHf84cgN0gQQ7UlL2jK8iwUx1atpLTP3KRsGdpurMSVjROM0ZsTFljLW5nRkZxQTdwN084b3c2eC1ZbjBHVnNlNkpCaXA5c2w3QV95a1VtcE1Ra2NKT3pCVEJHWkRLRmZ4bHlIeVdzYk1MRkVtdkVaemhSN3lBIIEC',
+    'cookie': 'SESSDATA=d5d8f95f%2C1736941924%2Ca6a3f%2A71CjAhfDrdKTIBF5MXr930fxCoN-vN3l1EPsv8JNRs12bOv87Fgs-4L6TTo68AsRm-_B0SVlpid0dkbnZLTGZYYnpJOWxyR001SVZtMzBGdThQRkZXODc1aEFjMGk5Skk1aEFaXzBER3IxdVgxY0lWUlZxS3BFRjlqYW9oY2otTWUwbExXMEgxZGVnIIEC',
     'origin': 'https://space.bilibili.com',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0',
     'referer': 'https://www.bilibili.com',
@@ -15,7 +15,7 @@ class ApiConfig {
   "Access-Control-Allow-Headers": "Origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,locale",
   "Access-Control-Allow-Methods": "POST, OPTIONS"
   };
-  static final String csrfToken = 'd42061b75a3476cfb5683a3c7c1471f9';
+  static const String csrfToken = 'c25c35d6c14f3eb0f1477e9f9410c2d8';
 }
 
 

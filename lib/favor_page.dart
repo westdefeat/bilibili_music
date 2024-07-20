@@ -21,7 +21,7 @@ class FavorPage extends StatefulWidget {
 }
 
 class _FavorPageState extends State<FavorPage> {
-  bool xx = false;
+  bool firstLoad = true;
   bool isSelectionMode = false;
   List<BiliListItem> _cachedItems = [];
   Set<int> selectedIndices = {};
@@ -36,14 +36,15 @@ class _FavorPageState extends State<FavorPage> {
   }
 
   Future<List<BiliListItem>> loadJson() async {
-    // if (_cachedItems.isNotEmpty) {
-    //   return _cachedItems;
-    // }
+    print("load json");
+    if (!firstLoad) {
+      firstLoad = false;
+      return _cachedItems;
+    }
 
     dynamic data = await fetchFavList();
     List<dynamic> dataList = data['data']['list'];
-    // List<BiliListItem> items = [];
-    _cachedItems = [];
+    List<BiliListItem> items = [];
     for (var jsonItem in dataList) {
       String id = jsonItem['id'].toString();
       dynamic detailJson =
@@ -56,9 +57,9 @@ class _FavorPageState extends State<FavorPage> {
           mediaCount: detailJson['data']['media_count'],
           media_ids: id);
 
-      _cachedItems.add(item);
+      items.add(item);
     }
-    // _cachedItems = items;
+    _cachedItems = items;
 
     return _cachedItems;
   }
@@ -109,6 +110,9 @@ class _FavorPageState extends State<FavorPage> {
                     _showSnackBar(
                       data['code'] == 0 ? '创建成功！' : data['message'],
                     );
+                    if (data['code'] == 0) {
+                      _cachedItems.add(BiliListItem(title: _nameController.text, intro: _introController.text, mediaCount: 0, media_ids: data['data']['id'].toString()));
+                    }
                   } else {
                     _showSnackBar('Unknown error');
                   }
@@ -142,7 +146,7 @@ class _FavorPageState extends State<FavorPage> {
   }
 
   void toggleSelectionMode(int index) {
-    setState(() {
+    // setState(() {
       if (isSelectionMode) {
         if (selectedIndices.contains(index)) {
           selectedIndices.remove(index);
@@ -156,7 +160,7 @@ class _FavorPageState extends State<FavorPage> {
         isSelectionMode = true;
         selectedIndices.add(index);
       }
-    });
+    // });
   }
 
   void deleteSelectedItems() async {
@@ -175,8 +179,9 @@ class _FavorPageState extends State<FavorPage> {
     for (int index in selectedIndices.toList()..sort((a, b) => b.compareTo(a))) {
       _cachedItems.removeAt(index);
     }
-      selectedIndices.clear();
-      
+    selectedIndices.clear();
+    isSelectionMode = false;
+
   }
 
   @override
@@ -192,9 +197,9 @@ class _FavorPageState extends State<FavorPage> {
             future: loadJson(),
             builder: (context, AsyncSnapshot<List<BiliListItem>> snapshot) {
               if (snapshot.hasData) {
-                List<BiliListItem> items = snapshot.data ?? [];
+                // List<BiliListItem> items = snapshot.data ?? [];
                 // if (_cachedItems.length == 0) {
-                  _cachedItems = items;
+                  // _cachedItems = items;
                 // }
                 return RefreshIndicator(
                     onRefresh: _handleRefresh,
