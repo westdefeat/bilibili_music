@@ -60,6 +60,18 @@ class ListTileWithImageState extends State<ListTileWithImage> {
       ),
       title: Text(widget.title.length > 10 ? '${widget.title.substring(0, 10)}...' : widget.title),
       subtitle: Text(widget.intro.length > 10 ? '${widget.intro.substring(0, 10)}...' : widget.intro),    
+      trailing: Row(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      IconButton(
+        icon: Icon(Icons.edit, size: 14),
+        onPressed: () {
+          // handle edit action
+        },
+      ),
+      
+    ],
+  ),
       onTap: widget.onTap,
       onLongPress: widget.onLongPress,
       tileColor:  widget.isSelected ? Colors.blue.withOpacity(0.2) : null,

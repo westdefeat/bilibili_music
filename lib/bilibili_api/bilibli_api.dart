@@ -31,7 +31,7 @@ Future<void> printResponse(Map<String, dynamic>? data, String fileName) async {
   final file = File('${directory.path}/$fileName');
 
   // Write the formatted JSON to the file
-  // await file.writeAsString(formattedJson);
+  await file.writeAsString(formattedJson);
 
   // print('JSON saved to ${file.path}');
 }

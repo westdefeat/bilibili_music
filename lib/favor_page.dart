@@ -80,6 +80,7 @@ FocusNode _focusNode = FocusNode();
     setState(() {
       print('1');
       isSelectionMode = false;
+      selectedIndices.clear();
     });
   }
 
@@ -270,7 +271,12 @@ selectedIndices.clear();
                 ),
             ],
           ),
-          floatingActionButton: FloatingActionButton(
+          floatingActionButton: isSelectionMode ? 
+          FloatingActionButton(
+            child: const Icon(Icons.undo),
+            onPressed: () => _handleRefresh(),
+          )
+          : FloatingActionButton(
             child: const Icon(Icons.add),
             onPressed: () => _showInputDialog(),
           ),
@@ -293,7 +299,10 @@ class _DetailedPageState extends State<DetailedPage> {
   List<BiliListItem> _lists = [];
   bool _loading = false;
   int _page = 1;
-
+  bool firstLoad = true;
+  bool isSelectionMode = false;
+  List<BiliListItem> _cachedItems = [];
+  Set<int> selectedIndices = {};
   @override
   void initState() {
     super.initState();
@@ -329,6 +338,47 @@ class _DetailedPageState extends State<DetailedPage> {
     return items;
   }
 
+  void toggleSelectionMode(int index) {
+    setState(() {
+    if (isSelectionMode) {
+      if (selectedIndices.contains(index)) {
+        selectedIndices.remove(index);
+      } else {
+        selectedIndices.add(index);
+      }
+      if (selectedIndices.isEmpty) {
+        isSelectionMode = false;
+      }
+    } else {
+      isSelectionMode = true;
+      selectedIndices.add(index);
+    }
+    });
+  }
+
+  void deleteSelectedItems() async {
+    for (int element in selectedIndices) {
+      dynamic res = await removeFav(_cachedItems[element].media_ids);
+      print(res);
+      print(_cachedItems[element].media_ids);
+    }
+    for (int index in selectedIndices.toList()
+      ..sort((a, b) => b.compareTo(a))) {
+      _cachedItems.removeAt(index);
+    }
+    selectedIndices.clear();
+    isSelectionMode = false;
+        setState(() {
+      isSelectionMode = false;
+    });
+  }
+Future<void> _handleRefresh() async {
+    // Update the list of items and refresh the UI
+    setState(() {
+      print('1');
+      isSelectionMode = false;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
