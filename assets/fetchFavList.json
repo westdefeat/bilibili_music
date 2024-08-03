@@ -3,7 +3,7 @@
   "message": "0",
   "ttl": 1,
   "data": {
-    "count": 12,
+    "count": 5,
     "list": [
       {
         "id": 100109244,
@@ -12,86 +12,23 @@
         "attr": 0,
         "title": "默认收藏夹",
         "fav_state": 0,
-        "media_count": 18
+        "media_count": 13
       },
       {
-        "id": 3242730544,
-        "fid": 32427305,
+        "id": 3324133044,
+        "fid": 33241330,
         "mid": 57164044,
         "attr": 2,
-        "title": "test3",
+        "title": "1",
         "fav_state": 0,
         "media_count": 0
       },
       {
-        "id": 3239759744,
-        "fid": 32397597,
+        "id": 3291163044,
+        "fid": 32911630,
         "mid": 57164044,
         "attr": 2,
-        "title": "dart",
-        "fav_state": 0,
-        "media_count": 0
-      },
-      {
-        "id": 3209785244,
-        "fid": 32097852,
-        "mid": 57164044,
-        "attr": 54,
-        "title": "dart_renamed",
-        "fav_state": 0,
-        "media_count": 0
-      },
-      {
-        "id": 3209746744,
-        "fid": 32097467,
-        "mid": 57164044,
-        "attr": 2,
-        "title": "test2",
-        "fav_state": 0,
-        "media_count": 0
-      },
-      {
-        "id": 3206759444,
-        "fid": 32067594,
-        "mid": 57164044,
-        "attr": 54,
-        "title": "dart_renamed",
-        "fav_state": 0,
-        "media_count": 0
-      },
-      {
-        "id": 3206663244,
-        "fid": 32066632,
-        "mid": 57164044,
-        "attr": 2,
-        "title": "test2",
-        "fav_state": 0,
-        "media_count": 2
-      },
-      {
-        "id": 3185791644,
-        "fid": 31857916,
-        "mid": 57164044,
-        "attr": 2,
-        "title": "xxxxxx",
-        "fav_state": 0,
-        "media_count": 0
-      },
-      {
-        "id": 3179749944,
-        "fid": 31797499,
-        "mid": 57164044,
-        "attr": 2,
-        "title": "test2",
-        "fav_state": 0,
-        "media_count": 0
-      },
-      {
-        "id": 3170798444,
-        "fid": 31707984,
-        "mid": 57164044,
-        "attr": 2,
-        "title": "dart",
+        "title": "1",
         "fav_state": 0,
         "media_count": 0
       },

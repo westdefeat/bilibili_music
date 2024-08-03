@@ -12,15 +12,19 @@ class BiliListItem {
   final String title;
   final String coverUrl;
   final String intro;
-  final int mediaCount;
-  final String media_ids;
+  int mediaCount;
+  final String media_ids; // fav id
+  final String id; // video id
+  final String type; // video id
 
   BiliListItem(
       {required this.title,
       this.coverUrl = '',
       this.intro = '',
       this.mediaCount = 0,
-      this.media_ids = ''});
+      this.media_ids = '',
+      this.id = '',
+      this.type = '2'});
 
   factory BiliListItem.fromJson(Map<String, dynamic> json) {
     return BiliListItem(

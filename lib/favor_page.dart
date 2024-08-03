@@ -27,7 +27,7 @@ class _FavorPageState extends State<FavorPage> {
   Set<int> selectedIndices = {};
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _introController = TextEditingController();
-FocusNode _focusNode = FocusNode();
+  FocusNode _focusNode = FocusNode();
   @override
   void initState() {
     loadJson();
@@ -35,7 +35,6 @@ FocusNode _focusNode = FocusNode();
     // Print debug information here
     print('FavorPageState has been created');
     _focusNode.requestFocus();
-  
   }
 
   Future<List<BiliListItem>> loadJson() async {
@@ -64,15 +63,11 @@ FocusNode _focusNode = FocusNode();
       }
       _cachedItems = items;
       print('cache items: $_cachedItems');
-      
     }
-      setState(() {
-
+    setState(() {
       print('1');
-
     });
-      return _cachedItems;
-
+    return _cachedItems;
   }
 
   Future<void> _handleRefresh() async {
@@ -166,19 +161,19 @@ FocusNode _focusNode = FocusNode();
 
   void toggleSelectionMode(int index) {
     setState(() {
-    if (isSelectionMode) {
-      if (selectedIndices.contains(index)) {
-        selectedIndices.remove(index);
+      if (isSelectionMode) {
+        if (selectedIndices.contains(index)) {
+          selectedIndices.remove(index);
+        } else {
+          selectedIndices.add(index);
+        }
+        if (selectedIndices.isEmpty) {
+          isSelectionMode = false;
+        }
       } else {
+        isSelectionMode = true;
         selectedIndices.add(index);
       }
-      if (selectedIndices.isEmpty) {
-        isSelectionMode = false;
-      }
-    } else {
-      isSelectionMode = true;
-      selectedIndices.add(index);
-    }
     });
   }
 
@@ -194,7 +189,7 @@ FocusNode _focusNode = FocusNode();
     }
     selectedIndices.clear();
     isSelectionMode = false;
-        setState(() {
+    setState(() {
       isSelectionMode = false;
     });
   }
@@ -203,86 +198,84 @@ FocusNode _focusNode = FocusNode();
   Widget build(BuildContext context) {
     // set outer gesture detector, inner gesture detector will take precedence
     return GestureDetector(
-      onTap: () {
-            // print("esc");
+        onTap: () {
           isSelectionMode = false;
-selectedIndices.clear();
-        setState(() {
-        });
-      },
-      child: KeyboardListener(
-        focusNode: _focusNode,
-        onKeyEvent: (KeyEvent event) {
-          if (event is KeyDownEvent  && event.logicalKey == LogicalKeyboardKey.escape) {
-              isSelectionMode = false;
-selectedIndices.clear();
-
-            setState(() {
-            });
-            // _setFlag();
-          }
+          selectedIndices.clear();
+          setState(() {});
         },
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text(widget.title),
-          ),
-          body: Stack(
-            children: [
-              RefreshIndicator(
-                onRefresh: _handleRefresh,
-                child: _cachedItems.isEmpty
-                    ? Center(child: CircularProgressIndicator())
-                    : ListView.builder(
-                        itemCount: _cachedItems.length,
-                        itemBuilder: (context, index) {
-                          return ListTileWithImage(
-                            onTap: () => {
-                              if (isSelectionMode)
-                                {toggleSelectionMode(index)}
-                              else
-                                {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          DetailedPage(myItem: _cachedItems[index]),
-                                    ),
-                                  )
-                                }
-                            },
-                            onLongPress: () => toggleSelectionMode(index),
-                            title: _cachedItems[index].title,
-                            intro: _cachedItems[index].intro,
-                            coverUrl: _cachedItems[index].coverUrl,
-                            isSelected: selectedIndices.contains(index),
-                          );
-                        },
-                      ),
+        child: KeyboardListener(
+            focusNode: _focusNode,
+            onKeyEvent: (KeyEvent event) {
+          print("esc");
+
+              if (event is KeyDownEvent &&
+                  event.logicalKey == LogicalKeyboardKey.escape) {
+                isSelectionMode = false;
+                selectedIndices.clear();
+
+                setState(() {});
+                // _setFlag();
+              }
+            },
+            child: Scaffold(
+              appBar: AppBar(
+                title: Text(widget.title),
               ),
-              if (isSelectionMode)
-                Positioned(
-                  bottom: 16,
-                  left: 16,
-                  child: FloatingActionButton(
-                    onPressed: deleteSelectedItems,
-                    child: Icon(Icons.delete),
-                    backgroundColor: Colors.red,
+              body: Stack(
+                children: [
+                  RefreshIndicator(
+                    onRefresh: _handleRefresh,
+                    child: _cachedItems.isEmpty
+                        ? Center(child: CircularProgressIndicator())
+                        : ListView.builder(
+                            itemCount: _cachedItems.length,
+                            itemBuilder: (context, index) {
+                              return ListTileWithImage(
+                                onTap: () => {
+                                  if (isSelectionMode)
+                                    {toggleSelectionMode(index)}
+                                  else
+                                    {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => DetailedPage(
+                                              myItem: _cachedItems[index]),
+                                        ),
+                                      )
+                                    }
+                                },
+                                onLongPress: () => toggleSelectionMode(index),
+                                title: _cachedItems[index].title,
+                                intro: _cachedItems[index].intro,
+                                coverUrl: _cachedItems[index].coverUrl,
+                                isSelected: selectedIndices.contains(index),
+                              );
+                            },
+                          ),
                   ),
-                ),
-            ],
-          ),
-          floatingActionButton: isSelectionMode ? 
-          FloatingActionButton(
-            child: const Icon(Icons.undo),
-            onPressed: () => _handleRefresh(),
-          )
-          : FloatingActionButton(
-            child: const Icon(Icons.add),
-            onPressed: () => _showInputDialog(),
-          ),
-        )
-      )
-    );
+                  if (isSelectionMode)
+                    Positioned(
+                      bottom: 16,
+                      left: 16,
+                      child: FloatingActionButton(
+                        onPressed: deleteSelectedItems,
+                        child: Icon(Icons.delete),
+                        backgroundColor: Colors.red,
+                      ),
+                    ),
+                ],
+              ),
+              floatingActionButton: isSelectionMode
+                  ? FloatingActionButton(
+                      child: const Icon(Icons.undo),
+                      onPressed: () => _handleRefresh(),
+                    )
+                  : FloatingActionButton(
+                      child: const Icon(Icons.add),
+                      onPressed: () => _showInputDialog(),
+                    ),
+            )));
   }
 }
 
@@ -296,17 +289,20 @@ class DetailedPage extends StatefulWidget {
 }
 
 class _DetailedPageState extends State<DetailedPage> {
-  List<BiliListItem> _lists = [];
   bool _loading = false;
   int _page = 1;
   bool firstLoad = true;
   bool isSelectionMode = false;
   List<BiliListItem> _cachedItems = [];
   Set<int> selectedIndices = {};
+  final FocusNode _focusNode = FocusNode();
+
   @override
   void initState() {
     super.initState();
     _loadLists();
+    _focusNode.requestFocus();
+
   }
 
   Future<List<BiliListItem>> _loadLists() async {
@@ -318,7 +314,7 @@ class _DetailedPageState extends State<DetailedPage> {
     print(widget.myItem.media_ids);
     dynamic jsonData = await getFavouredMediaList(widget.myItem.media_ids,
         pageNumber: _page++);
-    print(jsonData);
+    // print(jsonData);
     List<dynamic> dataList = jsonData['data']['medias'] ?? [];
     List<BiliListItem> items = [];
 
@@ -327,91 +323,164 @@ class _DetailedPageState extends State<DetailedPage> {
         title: jsonItem['title'],
         coverUrl: jsonItem['cover'],
         intro: jsonItem['intro'],
+        id: jsonItem['id'].toString(),
+        type: jsonItem['type'].toString(),
       );
 
       items.add(item);
     }
+    _cachedItems = items;
+
     setState(() {
-      _lists.addAll(items);
       _loading = false;
     });
-    return items;
+    return _cachedItems;
   }
 
   void toggleSelectionMode(int index) {
     setState(() {
-    if (isSelectionMode) {
-      if (selectedIndices.contains(index)) {
-        selectedIndices.remove(index);
+      if (isSelectionMode) {
+        if (selectedIndices.contains(index)) {
+          selectedIndices.remove(index);
+        } else {
+          selectedIndices.add(index);
+        }
+        if (selectedIndices.isEmpty) {
+          isSelectionMode = false;
+        }
       } else {
+        isSelectionMode = true;
         selectedIndices.add(index);
       }
-      if (selectedIndices.isEmpty) {
-        isSelectionMode = false;
-      }
-    } else {
-      isSelectionMode = true;
-      selectedIndices.add(index);
-    }
     });
   }
 
   void deleteSelectedItems() async {
+    dynamic resources = 'resources=';
     for (int element in selectedIndices) {
-      dynamic res = await removeFav(_cachedItems[element].media_ids);
-      print(res);
-      print(_cachedItems[element].media_ids);
+      resources += _cachedItems[element].id.toString() + ':' +  _cachedItems[element].type.toString() + ',';
     }
+    print(resources);
+    dynamic res = await removeBatchFromFav(widget.myItem.media_ids, resources);
+    print(res);
     for (int index in selectedIndices.toList()
       ..sort((a, b) => b.compareTo(a))) {
       _cachedItems.removeAt(index);
     }
+    widget.myItem.mediaCount -= selectedIndices.length;
     selectedIndices.clear();
     isSelectionMode = false;
-        setState(() {
+    setState(() {
       isSelectionMode = false;
     });
   }
-Future<void> _handleRefresh() async {
+
+  Future<void> _handleRefresh() async {
     // Update the list of items and refresh the UI
     setState(() {
       print('1');
       isSelectionMode = false;
     });
   }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.myItem.title),
-      ),
-      body: _lists.isEmpty && widget.myItem.mediaCount != 0
-          ? const Center(
-              child: CircularProgressIndicator(),
-            )
-          : NotificationListener<ScrollNotification>(
-              onNotification: (ScrollNotification notification) {
-                if (notification is ScrollEndNotification &&
-                    notification.metrics.extentAfter == 0 &&
-                    _lists.length < widget.myItem.mediaCount) {
-                  _loadLists();
-                }
-                return true;
-              },
-              child: ListView.builder(
-                itemCount: _lists.length,
-                itemBuilder: (context, index) {
-                  return ListTileWithImage(
-                    title: _lists[index].title,
-                    intro: _lists[index].intro,
-                    coverUrl: _lists[index].coverUrl,
-                    onTap: null,
-                    isSelected: false,
-                  );
-                },
+    return GestureDetector(
+        onTap: () {
+          isSelectionMode = false;
+          selectedIndices.clear();
+          setState(() {});
+        },
+        child: KeyboardListener(
+            focusNode: _focusNode,
+            onKeyEvent: (KeyEvent event) {
+
+              if (event is KeyDownEvent &&
+                  event.logicalKey == LogicalKeyboardKey.escape) {
+
+                isSelectionMode = false;
+                selectedIndices.clear();
+
+                setState(() {});
+                // _setFlag();
+              }
+            },
+            child: Scaffold(
+              appBar: AppBar(
+                title: Text(widget.myItem.title),
               ),
-            ),
-      bottomNavigationBar: _loading ? const LinearProgressIndicator() : null,
-    );
+              body: Stack(
+                children: [
+_cachedItems.isEmpty && widget.myItem.mediaCount != 0
+                  ? const Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : NotificationListener<ScrollNotification>(
+                      onNotification: (ScrollNotification notification) {
+                        if (notification is ScrollEndNotification &&
+                            notification.metrics.extentAfter == 0 &&
+                            _cachedItems.length < widget.myItem.mediaCount) {
+                              print("here!!");
+                              print(_cachedItems.isEmpty);
+                              print(widget.myItem.mediaCount);
+                              print(_cachedItems.length);
+                          _loadLists();
+                        }
+                        return true;
+                      },
+                      child: ListView.builder(
+                        itemCount: _cachedItems.length,
+                        itemBuilder: (context, index) {
+                          return ListTileWithImage(
+                            title: _cachedItems[index].title,
+                            intro: _cachedItems[index].intro,
+                            coverUrl: _cachedItems[index].coverUrl,
+                            onTap: () => {
+                              if (isSelectionMode)
+                                {toggleSelectionMode(index)}
+                              else
+                                {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => DetailedPage(
+                                          myItem: _cachedItems[index]),
+                                    ),
+                                  )
+                                }
+                            },
+                            onLongPress: () => toggleSelectionMode(index),
+                            isSelected: selectedIndices.contains(index),
+                          );
+                        },
+                      ),
+                    ),
+                    if (isSelectionMode)
+                    Positioned(
+                      bottom: 16,
+                      left: 16,
+                      child: FloatingActionButton(
+                        onPressed: deleteSelectedItems,
+                        child: Icon(Icons.delete),
+                        backgroundColor: Colors.red,
+                      ),
+                    ),
+                    if (isSelectionMode)
+                    Positioned(
+                      bottom: 16,
+                      right: 16,
+                      child: FloatingActionButton(
+                        onPressed: deleteSelectedItems,
+                        child: Icon(Icons.add),
+                        backgroundColor: Colors.blueGrey,
+                      ),
+                    ),
+
+                ],
+
+              ),
+              bottomNavigationBar:
+                  _loading ? const LinearProgressIndicator() : null,
+            )));
   }
 }

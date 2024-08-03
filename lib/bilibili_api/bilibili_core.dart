@@ -6,7 +6,7 @@ class ApiConfig {
   static final Map<String, String> headers = {
     'accept': 'application/json, text/plain, */*',
     'accept-language': 'en,zh-CN;q=0.9,zh;q=0.8,en-GB;q=0.7,en-US;q=0.6',
-    'cookie': 'SESSDATA=d5d8f95f%2C1736941924%2Ca6a3f%2A71CjAhfDrdKTIBF5MXr930fxCoN-vN3l1EPsv8JNRs12bOv87Fgs-4L6TTo68AsRm-_B0SVlpid0dkbnZLTGZYYnpJOWxyR001SVZtMzBGdThQRkZXODc1aEFjMGk5Skk1aEFaXzBER3IxdVgxY0lWUlZxS3BFRjlqYW9oY2otTWUwbExXMEgxZGVnIIEC',
+    'cookie': 'SESSDATA=48f2db3d%2C1738201895%2Ce1817%2A81CjA7oG1PyORwopFpibq05nQ2UD80GpAugHt4g-DeV_4WMvb3l0t5pNJo7q2_rIm9RfgSVnpHNkZiT3FrS1ltYVN2djhCaVdWRnkzekNVZU9QZFlsdUNGVkE1WEdteDlxRTBKVzBIdl82YjV1NWExbXF3MW8wVUhDcE40Ml9ZWTJpR1dPMnpoblJnIIEC',
     'origin': 'https://space.bilibili.com',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0',
     'referer': 'https://www.bilibili.com',
@@ -15,7 +15,7 @@ class ApiConfig {
   "Access-Control-Allow-Headers": "Origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,locale",
   "Access-Control-Allow-Methods": "POST, OPTIONS"
   };
-  static const String csrfToken = 'c25c35d6c14f3eb0f1477e9f9410c2d8';
+  static const String csrfToken = '27c226dbdb107119d9e65830ac4e7d48';
 }
 
 
@@ -35,6 +35,7 @@ class ApiEndpoints {
   static const String renameFav = '/x/v3/fav/folder/edit';
   static const String removeFav = '/x/v3/fav/folder/del';
   static const String modifyFav = '/medialist/gateway/coll/resource/deal';
+  static const String delbatchFromFav = '/x/v3/fav/resource/batch-del';
   // static const String fetchPlaylists = '/path/to/playlist/endpoint';
 }
 

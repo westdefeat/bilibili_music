@@ -1,6 +1,5 @@
 {
-  "code": 0,
-  "message": "0",
-  "ttl": 1,
-  "data": 0
+  "code": -400,
+  "message": "Key: 'DelFolderReq.MediaIds' Error:Field validation for 'MediaIds' failed on the 'min' tag",
+  "ttl": 1
 }

@@ -162,6 +162,20 @@ Future<dynamic> modifyFav(String rid,
   }
   return data;
 }
+Future<dynamic> removeBatchFromFav(String media_id, String resources) async {
+  var queryParams = {
+    "resources": resources,
+    "media_id": media_id,
+    "csrf": ApiConfig.csrfToken,
+  };
+  var data = await requestBilibili(
+      HttpMethod.post, ApiEndpoints.delbatchFromFav, queryParams);
+  if (data != null) {
+    printResponse(data, getCurrentFunctionName() + '.json');
+  }
+  return data;
+}
+
 
 Future<dynamic> getFavouredMediaList(String media_id,
     {int? pageNumber = 1, int? pageSize = 20}) async {
@@ -176,7 +190,7 @@ Future<dynamic> getFavouredMediaList(String media_id,
   if (data != null) {
     printResponse(data, getCurrentFunctionName() + '.json');
   }
-  print(data);
+  // print(data);
   return data;
 }
 
