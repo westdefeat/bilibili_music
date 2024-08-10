@@ -8,7 +8,7 @@ void main() async {
   // renameFav('3221643544', 'dart_renamed', 'yyyy', 0);
   // removeFav('3221643544');
   // modifyFav('100109244', delMediaIds: '1206395267');
-  modifyFav('100109244', delMediaIds: '1206395267');
+  // modifyFav('100109244', delMediaIds: '1206395267');
   // modifyFav('806855189', addMediaIds: '2057910644');
   // getFavouredMediaList('100109244', pageNumber: 1);
 
@@ -16,5 +16,5 @@ void main() async {
   // getFavouredMediaIDs('2057910644');
   // getPageList('BV1cs411v7xr');
   // getMediaBrief('BV1cs411v7xr');
-  // getPlayUrl('BV1cs411v7xr', '8177639');
+  getPlayUrl('BV1cs411v7xr', '8177639');
 }

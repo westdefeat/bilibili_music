@@ -3,26 +3,26 @@
   "message": "0",
   "ttl": 1,
   "data": {
-    "bvid": "BV1cs411v7xr",
-    "aid": 5034525,
-    "videos": 1,
-    "tid": 29,
-    "tname": "音乐现场",
+    "bvid": "BV1oW411A7wS",
+    "aid": 24521619,
+    "videos": 6,
+    "tid": 37,
+    "tname": "人文·历史",
     "copyright": 2,
-    "pic": "http://i2.hdslb.com/bfs/archive/78e0d4daf6b118365cab78d1b8af42d3a12273aa.png",
-    "title": "Try & Just Give Me a Reason 2014格莱美奖典礼现场版 中英字幕",
-    "pubdate": 1466405250,
-    "ctime": 1497429750,
-    "desc": "http://v.yinyuetai.com/video/865240 Pink Try &amp;amp; Just Give Me a Reason 2014格莱美奖典礼现场版 \r\n唱Try这首歌简直厉害到不行，一边耍杂技一边唱歌，就问你怕不怕。\r\n也是这首歌带我进粉妈的坑的。Just Give Me a Reason这首歌也很好听，现场简直爆炸",
+    "pic": "http://i1.hdslb.com/bfs/archive/3fb486302770c6e69921c32401f38980411f3565.jpg",
+    "title": "宋鸿兵 《解说货币战争》全集",
+    "pubdate": 1528439149,
+    "ctime": 1528439149,
+    "desc": "视频仅供大家学习丰富自己  切记不可盲信 任何时候都应保存自己独立思考的能力乾杯 []~（￣▽￣）~*",
     "desc_v2": [
       {
-        "raw_text": "http://v.yinyuetai.com/video/865240 Pink Try &amp;amp; Just Give Me a Reason 2014格莱美奖典礼现场版 \r\n唱Try这首歌简直厉害到不行，一边耍杂技一边唱歌，就问你怕不怕。\r\n也是这首歌带我进粉妈的坑的。Just Give Me a Reason这首歌也很好听，现场简直爆炸",
+        "raw_text": "视频仅供大家学习丰富自己  切记不可盲信 任何时候都应保存自己独立思考的能力乾杯 []~（￣▽￣）~*",
         "type": 1,
         "biz_id": 0
       }
     ],
     "state": 0,
-    "duration": 366,
+    "duration": 22036,
     "rights": {
       "bp": 0,
       "elec": 0,
@@ -44,21 +44,21 @@
       "free_watch": 0
     },
     "owner": {
-      "mid": 6730434,
-      "name": "情牵黄昏路",
-      "face": "http://i0.hdslb.com/bfs/face/8fa3c668fe8205178727a4c7f799a819605c23f0.jpg"
+      "mid": 84100099,
+      "name": "账号已注销",
+      "face": "http://i0.hdslb.com/bfs/face/member/noface.jpg"
     },
     "stat": {
-      "aid": 5034525,
-      "view": 447709,
-      "danmaku": 1504,
-      "reply": 283,
-      "favorite": 11122,
-      "coin": 2278,
-      "share": 6363,
+      "aid": 24521619,
+      "view": 355057,
+      "danmaku": 5426,
+      "reply": 839,
+      "favorite": 18452,
+      "coin": 1187,
+      "share": 2744,
       "now_rank": 0,
       "his_rank": 0,
-      "like": 7059,
+      "like": 4413,
       "dislike": 0,
       "evaluation": "",
       "vt": 0
@@ -68,11 +68,11 @@
       "argue_type": 0,
       "argue_link": ""
     },
-    "dynamic": "",
-    "cid": 8177639,
+    "dynamic": "#货币战争##宋鸿兵##讲座#",
+    "cid": 41188789,
     "dimension": {
-      "width": 640,
-      "height": 360,
+      "width": 448,
+      "height": 336,
       "rotate": 0
     },
     "premiere": null,
@@ -87,49 +87,93 @@
     "no_cache": false,
     "pages": [
       {
-        "cid": 8177639,
+        "cid": 41188789,
         "page": 1,
         "from": "vupload",
-        "part": "",
-        "duration": 366,
+        "part": "001  宋鸿兵 《解说货币战争》第一讲",
+        "duration": 3430,
         "vid": "",
         "weblink": "",
         "dimension": {
-          "width": 640,
+          "width": 448,
+          "height": 336,
+          "rotate": 0
+        }
+      },
+      {
+        "cid": 41188797,
+        "page": 2,
+        "from": "vupload",
+        "part": "002  宋鸿兵 《解说货币战争》第二讲",
+        "duration": 3317,
+        "vid": "",
+        "weblink": "",
+        "dimension": {
+          "width": 480,
           "height": 360,
+          "rotate": 0
+        }
+      },
+      {
+        "cid": 41188907,
+        "page": 3,
+        "from": "vupload",
+        "part": "003 宋鸿兵 《解说货币战争》第三讲",
+        "duration": 3635,
+        "vid": "",
+        "weblink": "",
+        "dimension": {
+          "width": 600,
+          "height": 480,
+          "rotate": 0
+        }
+      },
+      {
+        "cid": 41188991,
+        "page": 4,
+        "from": "vupload",
+        "part": "004 宋鸿兵 《解说货币战争》第四讲",
+        "duration": 3863,
+        "vid": "",
+        "weblink": "",
+        "dimension": {
+          "width": 600,
+          "height": 480,
+          "rotate": 0
+        }
+      },
+      {
+        "cid": 41189142,
+        "page": 5,
+        "from": "vupload",
+        "part": "005 宋鸿兵 《解说货币战争》第五讲",
+        "duration": 4292,
+        "vid": "",
+        "weblink": "",
+        "dimension": {
+          "width": 600,
+          "height": 480,
+          "rotate": 0
+        }
+      },
+      {
+        "cid": 41189565,
+        "page": 6,
+        "from": "vupload",
+        "part": "006 宋鸿兵 《解说货币战争》第六讲",
+        "duration": 3499,
+        "vid": "",
+        "weblink": "",
+        "dimension": {
+          "width": 600,
+          "height": 480,
           "rotate": 0
         }
       }
     ],
     "subtitle": {
       "allow_submit": false,
-      "list": [
-        {
-          "id": 1105125887608839936,
-          "lan": "ai-zh",
-          "lan_doc": "中文（自动翻译）",
-          "is_lock": false,
-          "subtitle_url": "",
-          "type": 1,
-          "id_str": "1105125887608839936",
-          "ai_type": 1,
-          "ai_status": 2,
-          "author": {
-            "mid": 0,
-            "name": "",
-            "sex": "",
-            "face": "",
-            "sign": "",
-            "rank": 0,
-            "birthday": 0,
-            "is_fake_account": 0,
-            "is_deleted": 0,
-            "in_reg_audit": 0,
-            "is_senior_member": 0,
-            "name_render": null
-          }
-        }
-      ]
+      "list": []
     },
     "is_season_display": false,
     "user_garb": {
@@ -139,6 +183,6 @@
     "like_icon": "",
     "need_jump_bv": false,
     "disable_show_up_info": false,
-    "is_story_play": 1
+    "is_story_play": 0
   }
 }

@@ -16,6 +16,7 @@ class BiliListItem {
   final String media_ids; // fav id
   final String id; // video id
   final String type; // video id
+  final String bvid; // bv id
 
   BiliListItem(
       {required this.title,
@@ -24,16 +25,9 @@ class BiliListItem {
       this.mediaCount = 0,
       this.media_ids = '',
       this.id = '',
-      this.type = '2'});
+      this.type = '2',
+      this.bvid = ''});
 
-  factory BiliListItem.fromJson(Map<String, dynamic> json) {
-    return BiliListItem(
-      title: json['title'],
-      coverUrl: json['cover_url'],
-      intro: json['intro'],
-      mediaCount: json['media_count'],
-    );
-  }
 }
 
 class ListTileWithImage extends StatefulWidget {

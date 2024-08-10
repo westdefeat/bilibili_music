@@ -1,8 +1,12 @@
+// build.gradle
 allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
+  repositories {
+    // mirror
+    maven { url 'https://maven.aliyun.com/repository/google' }
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+    // mavenCentral()
+    // google()
+  }
 }
 
 rootProject.buildDir = "../build"

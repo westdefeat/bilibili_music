@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:bilibili_music/bilibili_api/bilibli_api.dart';
+import 'package:bilibili_music/player.dart';
 import 'package:bilibili_music/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -325,6 +326,7 @@ class _DetailedPageState extends State<DetailedPage> {
         intro: jsonItem['intro'],
         id: jsonItem['id'].toString(),
         type: jsonItem['type'].toString(),
+        bvid: jsonItem['bvid'].toString(),
       );
 
       items.add(item);
@@ -374,6 +376,8 @@ class _DetailedPageState extends State<DetailedPage> {
       isSelectionMode = false;
     });
   }
+
+
 
   Future<void> _handleRefresh() async {
     // Update the list of items and refresh the UI
@@ -443,9 +447,8 @@ _cachedItems.isEmpty && widget.myItem.mediaCount != 0
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => DetailedPage(
-                                          myItem: _cachedItems[index]),
-                                    ),
+                                      builder: (context) => ControllerPage( myItem: _cachedItems[index]),
+                                  )
                                   )
                                 }
                             },
@@ -475,7 +478,6 @@ _cachedItems.isEmpty && widget.myItem.mediaCount != 0
                         backgroundColor: Colors.blueGrey,
                       ),
                     ),
-
                 ],
 
               ),

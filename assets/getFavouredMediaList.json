@@ -9,7 +9,7 @@
       "mid": 57164044,
       "attr": 0,
       "title": "默认收藏夹",
-      "cover": "http://i2.hdslb.com/bfs/archive/ddec018c161248821be1e129e0d5abc192c89133.jpg",
+      "cover": "http://i1.hdslb.com/bfs/archive/3fb486302770c6e69921c32401f38980411f3565.jpg",
       "upper": {
         "mid": 57164044,
         "name": "以气御刀",
@@ -32,46 +32,10 @@
       "state": 0,
       "fav_state": 0,
       "like_state": 0,
-      "media_count": 7,
+      "media_count": 2,
       "is_top": true
     },
     "medias": [
-      {
-        "id": 1206395267,
-        "type": 2,
-        "title": "第45期四菜一汤教程：芋头蒸排骨，番茄炒蛋，葱姜炒蛏子，炒西兰花，芋香花生汤。有预算，教你买菜荤素搭配，切配及整个烹饪过程，无废话，包你一看就会。",
-        "cover": "http://i2.hdslb.com/bfs/archive/ddec018c161248821be1e129e0d5abc192c89133.jpg",
-        "intro": "佛系博主今天用44元预算教你做四菜一汤，有排骨有海鲜，就问你中不中？",
-        "page": 1,
-        "duration": 391,
-        "upper": {
-          "mid": 472102908,
-          "name": "阿蔡美食雕刻",
-          "face": "https://i0.hdslb.com/bfs/face/65586a53d1b3da333f68ec1af5f87f396495b282.jpg"
-        },
-        "attr": 0,
-        "cnt_info": {
-          "collect": 8586,
-          "play": 683374,
-          "danmaku": 1436,
-          "vt": 0,
-          "play_switch": 0,
-          "reply": 0,
-          "view_text_1": "68.3万"
-        },
-        "link": "bilibili://video/1206395267",
-        "ctime": 1721562942,
-        "pubtime": 1721562942,
-        "fav_time": 1721784641,
-        "bv_id": "BV1mf421v7cz",
-        "bvid": "BV1mf421v7cz",
-        "season": null,
-        "ogv": null,
-        "ugc": {
-          "first_cid": 1622569464
-        },
-        "media_list_link": "bilibili://music/playlist/playpage/157273244?page_type=3&oid=1206395267&otype=2"
-      },
       {
         "id": 24521619,
         "type": 2,
@@ -87,13 +51,13 @@
         },
         "attr": 0,
         "cnt_info": {
-          "collect": 18303,
-          "play": 352794,
-          "danmaku": 5302,
+          "collect": 18452,
+          "play": 355057,
+          "danmaku": 5426,
           "vt": 0,
           "play_switch": 0,
           "reply": 0,
-          "view_text_1": "35.3万"
+          "view_text_1": "35.5万"
         },
         "link": "bilibili://video/24521619",
         "ctime": 1528439149,
@@ -123,13 +87,13 @@
         },
         "attr": 0,
         "cnt_info": {
-          "collect": 207154,
-          "play": 8564096,
-          "danmaku": 13952,
+          "collect": 207410,
+          "play": 8585726,
+          "danmaku": 13977,
           "vt": 0,
           "play_switch": 0,
           "reply": 0,
-          "view_text_1": "856.4万"
+          "view_text_1": "858.6万"
         },
         "link": "bilibili://video/714737569",
         "ctime": 1615807807,
@@ -143,153 +107,9 @@
           "first_cid": 400451316
         },
         "media_list_link": "bilibili://music/playlist/playpage/157273244?page_type=3&oid=714737569&otype=2"
-      },
-      {
-        "id": 1100189852,
-        "type": 2,
-        "title": "《仙剑四》慕容紫英4套服饰定妆合集！传说中的仙剑系列第一美男？",
-        "cover": "http://i2.hdslb.com/bfs/archive/38e10387fe650312c8e8ed81b3bfc18328727ea6.jpg",
-        "intro": "",
-        "page": 1,
-        "duration": 64,
-        "upper": {
-          "mid": 32823535,
-          "name": "内娱终于有趣了",
-          "face": "https://i1.hdslb.com/bfs/face/18bba92e4f20341318f7271b3f0b5d7e77c0db0b.jpg"
-        },
-        "attr": 0,
-        "cnt_info": {
-          "collect": 249,
-          "play": 11590,
-          "danmaku": 241,
-          "vt": 0,
-          "play_switch": 0,
-          "reply": 0,
-          "view_text_1": "1.2万"
-        },
-        "link": "bilibili://video/1100189852",
-        "ctime": 1706630638,
-        "pubtime": 1706630638,
-        "fav_time": 1706889672,
-        "bv_id": "BV1VA4m1j7L8",
-        "bvid": "BV1VA4m1j7L8",
-        "season": null,
-        "ogv": null,
-        "ugc": {
-          "first_cid": 1424755542
-        },
-        "media_list_link": "bilibili://music/playlist/playpage/157273244?page_type=3&oid=1100189852&otype=2"
-      },
-      {
-        "id": 1500049184,
-        "type": 2,
-        "title": "华语乐坛巅峰名场面个人向TOP15！！！！",
-        "cover": "http://i2.hdslb.com/bfs/archive/270ca9eb27ecd99cd2be77d9d262abf2a69f92a7.jpg",
-        "intro": "-",
-        "page": 1,
-        "duration": 422,
-        "upper": {
-          "mid": 500733739,
-          "name": "清尘做了错饭",
-          "face": "https://i1.hdslb.com/bfs/face/14fc978ccbbe4405a97f8e2a0c627dd00c64582b.jpg"
-        },
-        "attr": 0,
-        "cnt_info": {
-          "collect": 252,
-          "play": 47626,
-          "danmaku": 106,
-          "vt": 0,
-          "play_switch": 0,
-          "reply": 0,
-          "view_text_1": "4.8万"
-        },
-        "link": "bilibili://video/1500049184",
-        "ctime": 1706613913,
-        "pubtime": 1706616155,
-        "fav_time": 1706671546,
-        "bv_id": "BV1dU421o7De",
-        "bvid": "BV1dU421o7De",
-        "season": null,
-        "ogv": null,
-        "ugc": {
-          "first_cid": 1424441255
-        },
-        "media_list_link": "bilibili://music/playlist/playpage/157273244?page_type=3&oid=1500049184&otype=2"
-      },
-      {
-        "id": 664363588,
-        "type": 2,
-        "title": "腐败了等于更好吃了？吃素越多等于吃肉越多！从空气缔造肉身【豆科植物一】",
-        "cover": "http://i2.hdslb.com/bfs/archive/40788f7194a68b7bf58a03f644e4abf2c0939914.jpg",
-        "intro": "本期先讲驯化的。下期讲奇怪的植物\n参考文献\n《谷物的故事》\n《传统豆制品加工工艺学》\n《发酵食品工艺学》\n[1]赵叶舟,王浩铭,汪自强.豆科植物和根瘤菌在生态环境中的地位和作用[J].农业环境与发展, 2013, 30(4):6.DOI:CNKI:SUN:NHFZ.0.2013-04-003.\n[1]郭建平,孙其荣.葛根药理作用研究进展[J].中草药(3期):163-165[2023-12-04].DOI:10.7501/j.issn.0253-2670.1995.3.075.\n[1]陈文新,汪恩涛,陈文",
-        "page": 1,
-        "duration": 1151,
-        "upper": {
-          "mid": 18706318,
-          "name": "龙女之声",
-          "face": "https://i1.hdslb.com/bfs/face/237a0221dacbfbce0b3eb8f37124b373f26a6ec5.jpg"
-        },
-        "attr": 0,
-        "cnt_info": {
-          "collect": 21232,
-          "play": 1421003,
-          "danmaku": 10972,
-          "vt": 0,
-          "play_switch": 0,
-          "reply": 0,
-          "view_text_1": "142.1万"
-        },
-        "link": "bilibili://video/664363588",
-        "ctime": 1701689908,
-        "pubtime": 1701689907,
-        "fav_time": 1703419619,
-        "bv_id": "BV1Da4y1R7iR",
-        "bvid": "BV1Da4y1R7iR",
-        "season": null,
-        "ogv": null,
-        "ugc": {
-          "first_cid": 1368684565
-        },
-        "media_list_link": "bilibili://music/playlist/playpage/157273244?page_type=3&oid=664363588&otype=2"
-      },
-      {
-        "id": 409752219,
-        "type": 2,
-        "title": "【推荐】刘纪鹏被封前精彩吐槽，问题到底在哪？",
-        "cover": "http://i0.hdslb.com/bfs/archive/1eb609b5939a29f9bc5063f2d68af08b62a9c990.png",
-        "intro": "网络\n分享",
-        "page": 8,
-        "duration": 11283,
-        "upper": {
-          "mid": 400952250,
-          "name": "彪哥终身学习",
-          "face": "https://i0.hdslb.com/bfs/face/4a8cc31a3a4d60d5a8f101744c34ed8955665ac3.jpg"
-        },
-        "attr": 0,
-        "cnt_info": {
-          "collect": 1413,
-          "play": 62828,
-          "danmaku": 85,
-          "vt": 0,
-          "play_switch": 0,
-          "reply": 0,
-          "view_text_1": "6.3万"
-        },
-        "link": "bilibili://video/409752219",
-        "ctime": 1702572902,
-        "pubtime": 1702572901,
-        "fav_time": 1702710757,
-        "bv_id": "BV13G411a7fQ",
-        "bvid": "BV13G411a7fQ",
-        "season": null,
-        "ogv": null,
-        "ugc": {
-          "first_cid": 1367250652
-        },
-        "media_list_link": "bilibili://music/playlist/playpage/157273244?page_type=3&oid=409752219&otype=2"
       }
     ],
     "has_more": false,
-    "ttl": 1722658096
+    "ttl": 1723256147
   }
 }
