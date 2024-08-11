@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:bilibili_music/bilibili_api/bilibli_api.dart';
+import 'package:bilibili_music/minicontroller.dart';
 import 'package:bilibili_music/player.dart';
 import 'package:bilibili_music/utils.dart';
 import 'package:flutter/material.dart';
@@ -207,7 +208,7 @@ class _FavorPageState extends State<FavorPage> {
         child: KeyboardListener(
             focusNode: _focusNode,
             onKeyEvent: (KeyEvent event) {
-          print("esc");
+              print("esc");
 
               if (event is KeyDownEvent &&
                   event.logicalKey == LogicalKeyboardKey.escape) {
@@ -265,6 +266,17 @@ class _FavorPageState extends State<FavorPage> {
                         backgroundColor: Colors.red,
                       ),
                     ),
+                  if (showPlayerController)
+                    Positioned(
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      child: FloatingActionButton(
+                        onPressed: deleteSelectedItems,
+                        child: MiniControllerWidget(),
+                        backgroundColor: Colors.blueGrey,
+                      ),
+                    )
                 ],
               ),
               floatingActionButton: isSelectionMode
@@ -303,7 +315,6 @@ class _DetailedPageState extends State<DetailedPage> {
     super.initState();
     _loadLists();
     _focusNode.requestFocus();
-
   }
 
   Future<List<BiliListItem>> _loadLists() async {
@@ -312,7 +323,7 @@ class _DetailedPageState extends State<DetailedPage> {
         _loading = true;
       }
     });
-    print(widget.myItem.media_ids);
+    print('page: $_page');
     dynamic jsonData = await getFavouredMediaList(widget.myItem.media_ids,
         pageNumber: _page++);
     // print(jsonData);
@@ -329,9 +340,9 @@ class _DetailedPageState extends State<DetailedPage> {
         bvid: jsonItem['bvid'].toString(),
       );
 
-      items.add(item);
+      _cachedItems.add(item);
     }
-    _cachedItems = items;
+    // _cachedItems = items;
 
     setState(() {
       _loading = false;
@@ -360,7 +371,10 @@ class _DetailedPageState extends State<DetailedPage> {
   void deleteSelectedItems() async {
     dynamic resources = 'resources=';
     for (int element in selectedIndices) {
-      resources += _cachedItems[element].id.toString() + ':' +  _cachedItems[element].type.toString() + ',';
+      resources += _cachedItems[element].id.toString() +
+          ':' +
+          _cachedItems[element].type.toString() +
+          ',';
     }
     print(resources);
     dynamic res = await removeBatchFromFav(widget.myItem.media_ids, resources);
@@ -376,8 +390,6 @@ class _DetailedPageState extends State<DetailedPage> {
       isSelectionMode = false;
     });
   }
-
-
 
   Future<void> _handleRefresh() async {
     // Update the list of items and refresh the UI
@@ -398,10 +410,8 @@ class _DetailedPageState extends State<DetailedPage> {
         child: KeyboardListener(
             focusNode: _focusNode,
             onKeyEvent: (KeyEvent event) {
-
               if (event is KeyDownEvent &&
                   event.logicalKey == LogicalKeyboardKey.escape) {
-
                 isSelectionMode = false;
                 selectedIndices.clear();
 
@@ -415,50 +425,60 @@ class _DetailedPageState extends State<DetailedPage> {
               ),
               body: Stack(
                 children: [
-_cachedItems.isEmpty && widget.myItem.mediaCount != 0
-                  ? const Center(
-                      child: CircularProgressIndicator(),
-                    )
-                  : NotificationListener<ScrollNotification>(
-                      onNotification: (ScrollNotification notification) {
-                        if (notification is ScrollEndNotification &&
-                            notification.metrics.extentAfter == 0 &&
-                            _cachedItems.length < widget.myItem.mediaCount) {
+                  _cachedItems.isEmpty && widget.myItem.mediaCount != 0
+                      ? const Center(
+                          child: CircularProgressIndicator(),
+                        )
+                      : NotificationListener<ScrollNotification>(
+                          onNotification: (ScrollNotification notification) {
+                            if (notification is ScrollEndNotification &&
+                                notification.metrics.extentAfter == 0 &&
+                                _cachedItems.length <
+                                    widget.myItem.mediaCount) {
                               print("here!!");
                               print(_cachedItems.isEmpty);
                               print(widget.myItem.mediaCount);
                               print(_cachedItems.length);
-                          _loadLists();
-                        }
-                        return true;
-                      },
-                      child: ListView.builder(
-                        itemCount: _cachedItems.length,
-                        itemBuilder: (context, index) {
-                          return ListTileWithImage(
-                            title: _cachedItems[index].title,
-                            intro: _cachedItems[index].intro,
-                            coverUrl: _cachedItems[index].coverUrl,
-                            onTap: () => {
-                              if (isSelectionMode)
-                                {toggleSelectionMode(index)}
-                              else
-                                {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => ControllerPage( myItem: _cachedItems[index]),
-                                  )
-                                  )
-                                }
+                              _loadLists();
+                            }
+                            return true;
+                          },
+                          child: ListView.builder(
+                            itemCount: _cachedItems.length,
+                            itemBuilder: (context, index) {
+                              return ListTileWithImage(
+                                title: _cachedItems[index].title,
+                                intro: _cachedItems[index].intro,
+                                coverUrl: _cachedItems[index].coverUrl,
+                                onTap: () => {
+                                  if (isSelectionMode)
+                                    {toggleSelectionMode(index)}
+                                  else
+                                    {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                ControllerPage(
+                                                    myItem:
+                                                        _cachedItems[index]),
+                                          )).then((result) {
+                                        // if (result != null) {
+                                        // Update your state here
+                                        setState(() {
+                                          // Update your data based on the result
+                                        });
+                                        // }
+                                      })
+                                    }
+                                },
+                                onLongPress: () => toggleSelectionMode(index),
+                                isSelected: selectedIndices.contains(index),
+                              );
                             },
-                            onLongPress: () => toggleSelectionMode(index),
-                            isSelected: selectedIndices.contains(index),
-                          );
-                        },
-                      ),
-                    ),
-                    if (isSelectionMode)
+                          ),
+                        ),
+                  if (isSelectionMode)
                     Positioned(
                       bottom: 16,
                       left: 16,
@@ -468,7 +488,7 @@ _cachedItems.isEmpty && widget.myItem.mediaCount != 0
                         backgroundColor: Colors.red,
                       ),
                     ),
-                    if (isSelectionMode)
+                  if (isSelectionMode)
                     Positioned(
                       bottom: 16,
                       right: 16,
@@ -478,8 +498,18 @@ _cachedItems.isEmpty && widget.myItem.mediaCount != 0
                         backgroundColor: Colors.blueGrey,
                       ),
                     ),
+                  if (showPlayerController)
+                    Positioned(
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      child: FloatingActionButton(
+                        onPressed: deleteSelectedItems,
+                        child: MiniControllerWidget(),
+                        backgroundColor: Colors.blueGrey,
+                      ),
+                    )
                 ],
-
               ),
               bottomNavigationBar:
                   _loading ? const LinearProgressIndicator() : null,

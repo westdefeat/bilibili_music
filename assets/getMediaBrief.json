@@ -3,26 +3,26 @@
   "message": "0",
   "ttl": 1,
   "data": {
-    "bvid": "BV1oW411A7wS",
-    "aid": 24521619,
-    "videos": 6,
-    "tid": 37,
-    "tname": "人文·历史",
+    "bvid": "BV1gt411U7w1",
+    "aid": 35751883,
+    "videos": 1,
+    "tid": 59,
+    "tname": "演奏",
     "copyright": 2,
-    "pic": "http://i1.hdslb.com/bfs/archive/3fb486302770c6e69921c32401f38980411f3565.jpg",
-    "title": "宋鸿兵 《解说货币战争》全集",
-    "pubdate": 1528439149,
-    "ctime": 1528439149,
-    "desc": "视频仅供大家学习丰富自己  切记不可盲信 任何时候都应保存自己独立思考的能力乾杯 []~（￣▽￣）~*",
+    "pic": "http://i0.hdslb.com/bfs/archive/f6a24c965fea67304aa883dd59e6219c6e2a63f7.jpg",
+    "title": "中央民族乐团《彩云追月》",
+    "pubdate": 1541921112,
+    "ctime": 1541921112,
+    "desc": "转自http://ncpa-classic.cntv.cn/2011/12/16/VIDE1324045802345689.shtml\n节选自：《金秋庆典：国家大剧院2010中秋民族音乐会》（2010-9-21）\n指挥：许知俊",
     "desc_v2": [
       {
-        "raw_text": "视频仅供大家学习丰富自己  切记不可盲信 任何时候都应保存自己独立思考的能力乾杯 []~（￣▽￣）~*",
+        "raw_text": "转自http://ncpa-classic.cntv.cn/2011/12/16/VIDE1324045802345689.shtml\n节选自：《金秋庆典：国家大剧院2010中秋民族音乐会》（2010-9-21）\n指挥：许知俊",
         "type": 1,
         "biz_id": 0
       }
     ],
     "state": 0,
-    "duration": 22036,
+    "duration": 392,
     "rights": {
       "bp": 0,
       "elec": 0,
@@ -44,21 +44,21 @@
       "free_watch": 0
     },
     "owner": {
-      "mid": 84100099,
-      "name": "账号已注销",
-      "face": "http://i0.hdslb.com/bfs/face/member/noface.jpg"
+      "mid": 108233702,
+      "name": "亚洲之巅贾队长",
+      "face": "http://i2.hdslb.com/bfs/face/b83e09cac763c56f17725ed7ebe4d7457d4f3ae1.jpg"
     },
     "stat": {
-      "aid": 24521619,
-      "view": 355057,
-      "danmaku": 5426,
-      "reply": 839,
-      "favorite": 18452,
-      "coin": 1187,
-      "share": 2744,
+      "aid": 35751883,
+      "view": 500063,
+      "danmaku": 876,
+      "reply": 414,
+      "favorite": 8539,
+      "coin": 1059,
+      "share": 3651,
       "now_rank": 0,
       "his_rank": 0,
-      "like": 4413,
+      "like": 7628,
       "dislike": 0,
       "evaluation": "",
       "vt": 0
@@ -68,11 +68,11 @@
       "argue_type": 0,
       "argue_link": ""
     },
-    "dynamic": "#货币战争##宋鸿兵##讲座#",
-    "cid": 41188789,
+    "dynamic": "#音乐##民乐##音乐会#",
+    "cid": 62724294,
     "dimension": {
-      "width": 448,
-      "height": 336,
+      "width": 640,
+      "height": 360,
       "rotate": 0
     },
     "premiere": null,
@@ -87,86 +87,16 @@
     "no_cache": false,
     "pages": [
       {
-        "cid": 41188789,
+        "cid": 62724294,
         "page": 1,
         "from": "vupload",
-        "part": "001  宋鸿兵 《解说货币战争》第一讲",
-        "duration": 3430,
+        "part": "视频合并181111151111",
+        "duration": 392,
         "vid": "",
         "weblink": "",
         "dimension": {
-          "width": 448,
-          "height": 336,
-          "rotate": 0
-        }
-      },
-      {
-        "cid": 41188797,
-        "page": 2,
-        "from": "vupload",
-        "part": "002  宋鸿兵 《解说货币战争》第二讲",
-        "duration": 3317,
-        "vid": "",
-        "weblink": "",
-        "dimension": {
-          "width": 480,
+          "width": 640,
           "height": 360,
-          "rotate": 0
-        }
-      },
-      {
-        "cid": 41188907,
-        "page": 3,
-        "from": "vupload",
-        "part": "003 宋鸿兵 《解说货币战争》第三讲",
-        "duration": 3635,
-        "vid": "",
-        "weblink": "",
-        "dimension": {
-          "width": 600,
-          "height": 480,
-          "rotate": 0
-        }
-      },
-      {
-        "cid": 41188991,
-        "page": 4,
-        "from": "vupload",
-        "part": "004 宋鸿兵 《解说货币战争》第四讲",
-        "duration": 3863,
-        "vid": "",
-        "weblink": "",
-        "dimension": {
-          "width": 600,
-          "height": 480,
-          "rotate": 0
-        }
-      },
-      {
-        "cid": 41189142,
-        "page": 5,
-        "from": "vupload",
-        "part": "005 宋鸿兵 《解说货币战争》第五讲",
-        "duration": 4292,
-        "vid": "",
-        "weblink": "",
-        "dimension": {
-          "width": 600,
-          "height": 480,
-          "rotate": 0
-        }
-      },
-      {
-        "cid": 41189565,
-        "page": 6,
-        "from": "vupload",
-        "part": "006 宋鸿兵 《解说货币战争》第六讲",
-        "duration": 3499,
-        "vid": "",
-        "weblink": "",
-        "dimension": {
-          "width": 600,
-          "height": 480,
           "rotate": 0
         }
       }
@@ -183,6 +113,6 @@
     "like_icon": "",
     "need_jump_bv": false,
     "disable_show_up_info": false,
-    "is_story_play": 0
+    "is_story_play": 1
   }
 }

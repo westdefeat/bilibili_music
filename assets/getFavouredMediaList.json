@@ -4,12 +4,12 @@
   "ttl": 1,
   "data": {
     "info": {
-      "id": 100109244,
-      "fid": 1001092,
+      "id": 2057910644,
+      "fid": 20579106,
       "mid": 57164044,
-      "attr": 0,
-      "title": "默认收藏夹",
-      "cover": "http://i1.hdslb.com/bfs/archive/3fb486302770c6e69921c32401f38980411f3565.jpg",
+      "attr": 22,
+      "title": "音乐",
+      "cover": "http://i0.hdslb.com/bfs/archive/f6a24c965fea67304aa883dd59e6219c6e2a63f7.jpg",
       "upper": {
         "mid": 57164044,
         "name": "以气御刀",
@@ -21,95 +21,22 @@
       "cover_type": 2,
       "cnt_info": {
         "collect": 0,
-        "play": 2,
-        "thumb_up": 0,
-        "share": 0
+        "play": 1621,
+        "thumb_up": 1,
+        "share": 1
       },
       "type": 11,
       "intro": "",
-      "ctime": 1478922856,
-      "mtime": 1556498091,
+      "ctime": 1675059790,
+      "mtime": 1675059790,
       "state": 0,
       "fav_state": 0,
       "like_state": 0,
-      "media_count": 2,
-      "is_top": true
+      "media_count": 0,
+      "is_top": false
     },
-    "medias": [
-      {
-        "id": 24521619,
-        "type": 2,
-        "title": "宋鸿兵 《解说货币战争》全集",
-        "cover": "http://i1.hdslb.com/bfs/archive/3fb486302770c6e69921c32401f38980411f3565.jpg",
-        "intro": "视频仅供大家学习丰富自己  切记不可盲信 任何时候都应保存自己独立思考的能力乾杯 []~（￣▽￣）~*",
-        "page": 6,
-        "duration": 22036,
-        "upper": {
-          "mid": 84100099,
-          "name": "账号已注销",
-          "face": "http://i0.hdslb.com/bfs/face/member/noface.jpg"
-        },
-        "attr": 0,
-        "cnt_info": {
-          "collect": 18452,
-          "play": 355057,
-          "danmaku": 5426,
-          "vt": 0,
-          "play_switch": 0,
-          "reply": 0,
-          "view_text_1": "35.5万"
-        },
-        "link": "bilibili://video/24521619",
-        "ctime": 1528439149,
-        "pubtime": 1528439149,
-        "fav_time": 1721052750,
-        "bv_id": "BV1oW411A7wS",
-        "bvid": "BV1oW411A7wS",
-        "season": null,
-        "ogv": null,
-        "ugc": {
-          "first_cid": 41188789
-        },
-        "media_list_link": "bilibili://music/playlist/playpage/157273244?page_type=3&oid=24521619&otype=2"
-      },
-      {
-        "id": 714737569,
-        "type": 2,
-        "title": "【4K60FPS】酷玩Coldplay《Viva La Vida》万人大合唱现场！生命万岁！",
-        "cover": "http://i0.hdslb.com/bfs/archive/041214badc5e89318ab10dd73c4c3dd72a3361a4.jpg",
-        "intro": "自己制作\n蓝光原盘制作，4K最高规格制作\n很多人点的一个现场！Viva La Vida\n也是我自己非常喜欢的一首歌\n感恩，生命万岁！",
-        "page": 1,
-        "duration": 294,
-        "upper": {
-          "mid": 229733301,
-          "name": "音乐私藏馆",
-          "face": "https://i0.hdslb.com/bfs/face/91a6526445f61e2d491523242b532d5e76f0435a.jpg"
-        },
-        "attr": 0,
-        "cnt_info": {
-          "collect": 207410,
-          "play": 8585726,
-          "danmaku": 13977,
-          "vt": 0,
-          "play_switch": 0,
-          "reply": 0,
-          "view_text_1": "858.6万"
-        },
-        "link": "bilibili://video/714737569",
-        "ctime": 1615807807,
-        "pubtime": 1615807805,
-        "fav_time": 1715682198,
-        "bv_id": "BV1AX4y1G7or",
-        "bvid": "BV1AX4y1G7or",
-        "season": null,
-        "ogv": null,
-        "ugc": {
-          "first_cid": 400451316
-        },
-        "media_list_link": "bilibili://music/playlist/playpage/157273244?page_type=3&oid=714737569&otype=2"
-      }
-    ],
+    "medias": null,
     "has_more": false,
-    "ttl": 1723256147
+    "ttl": 0
   }
 }

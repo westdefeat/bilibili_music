@@ -6,6 +6,8 @@ import 'package:media_kit/media_kit.dart';
 
 import 'bilibili_api/bilibili_core.dart';       
 
+bool showPlayerController = false;
+
 final Player player = Player();
 class ControllerPage extends StatefulWidget {
   final BiliListItem myItem;
@@ -27,13 +29,16 @@ class _ControllerPageState extends State<ControllerPage> {
     dynamic playUrls = await getPlayUrl(widget.myItem.bvid, cid);
     audioPlayUrl = playUrls['data']['dash']['audio'][0]['backupUrl'][0];
     await player.open(Media(audioPlayUrl, httpHeaders: ApiConfig.headers));
-    isPlaying = true;
+    setState(() {
+      isPlaying = true;
+    });
   }
   @override
   void initState() {
     super.initState();
     // Play a [Media] or [Playlist].
     loadMedia();
+    showPlayerController |= true;
   }
 
   void togglePlayPause() {
@@ -93,3 +98,5 @@ class _ControllerPageState extends State<ControllerPage> {
     );
   }
 }
+
+
