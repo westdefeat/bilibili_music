@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
@@ -48,13 +49,16 @@ class ListTileWithImage extends StatefulWidget {
 
 
 class ListTileWithImageState extends State<ListTileWithImage> {
-
   @override
   Widget build(BuildContext context) {
     return ListTile(
       leading: SizedBox(
         width: MediaQuery.of(context).size.width / 4,
-        child: Image.network(widget.coverUrl, fit: BoxFit.fill),
+        child: CachedNetworkImage(
+            imageUrl: widget.coverUrl,
+            // placeholder: (context, url) => CircularProgressIndicator(),
+            errorWidget: (context, url, error) => Icon(Icons.error),
+        ),
       ),
       title: Text(widget.title.length > 10 ? '${widget.title.substring(0, 10)}...' : widget.title),
       subtitle: Text(widget.intro.length > 10 ? '${widget.intro.substring(0, 10)}...' : widget.intro),    

@@ -3,33 +3,33 @@
   "message": "0",
   "ttl": 1,
   "data": {
-    "bvid": "BV1gt411U7w1",
-    "aid": 35751883,
+    "bvid": "BV14K4y1j7ma",
+    "aid": 885307560,
     "videos": 1,
-    "tid": 59,
-    "tname": "演奏",
+    "tid": 193,
+    "tname": "MV",
     "copyright": 2,
-    "pic": "http://i0.hdslb.com/bfs/archive/f6a24c965fea67304aa883dd59e6219c6e2a63f7.jpg",
-    "title": "中央民族乐团《彩云追月》",
-    "pubdate": 1541921112,
-    "ctime": 1541921112,
-    "desc": "转自http://ncpa-classic.cntv.cn/2011/12/16/VIDE1324045802345689.shtml\n节选自：《金秋庆典：国家大剧院2010中秋民族音乐会》（2010-9-21）\n指挥：许知俊",
+    "pic": "http://i1.hdslb.com/bfs/archive/78034596b22bfb79dacace42b5dfb0e1f217812a.jpg",
+    "title": "【王力宏、谭维维《緣分一道橋》】4K宽屏无损音质，挺震撼的",
+    "pubdate": 1605722367,
+    "ctime": 1605722367,
+    "desc": "https://www.youtube.com/watch?v=EQ5Ib7jNnnE\n本应投到合集中，效果挺震撼呢，先好好享受一下#高音质高画质#",
     "desc_v2": [
       {
-        "raw_text": "转自http://ncpa-classic.cntv.cn/2011/12/16/VIDE1324045802345689.shtml\n节选自：《金秋庆典：国家大剧院2010中秋民族音乐会》（2010-9-21）\n指挥：许知俊",
+        "raw_text": "https://www.youtube.com/watch?v=EQ5Ib7jNnnE\n本应投到合集中，效果挺震撼呢，先好好享受一下#高音质高画质#",
         "type": 1,
         "biz_id": 0
       }
     ],
     "state": 0,
-    "duration": 392,
+    "duration": 287,
     "rights": {
       "bp": 0,
       "elec": 0,
       "download": 1,
       "movie": 0,
       "pay": 0,
-      "hd5": 0,
+      "hd5": 1,
       "no_reprint": 0,
       "autoplay": 1,
       "ugc_pay": 0,
@@ -44,21 +44,21 @@
       "free_watch": 0
     },
     "owner": {
-      "mid": 108233702,
-      "name": "亚洲之巅贾队长",
-      "face": "http://i2.hdslb.com/bfs/face/b83e09cac763c56f17725ed7ebe4d7457d4f3ae1.jpg"
+      "mid": 36826532,
+      "name": "MR_永远的第7天",
+      "face": "https://i2.hdslb.com/bfs/face/74d5c59d1dfc58aa10bc34d1da18eef606f3069a.jpg"
     },
     "stat": {
-      "aid": 35751883,
-      "view": 500063,
-      "danmaku": 876,
-      "reply": 414,
-      "favorite": 8539,
-      "coin": 1059,
-      "share": 3651,
+      "aid": 885307560,
+      "view": 2272506,
+      "danmaku": 1271,
+      "reply": 975,
+      "favorite": 39849,
+      "coin": 4782,
+      "share": 4514,
       "now_rank": 0,
       "his_rank": 0,
-      "like": 7628,
+      "like": 36887,
       "dislike": 0,
       "evaluation": "",
       "vt": 0
@@ -68,11 +68,11 @@
       "argue_type": 0,
       "argue_link": ""
     },
-    "dynamic": "#音乐##民乐##音乐会#",
-    "cid": 62724294,
+    "dynamic": "《Dream Again》那首太难修理了，传一个耳熟能详的《缘分一道桥》满足一下",
+    "cid": 257283572,
     "dimension": {
-      "width": 640,
-      "height": 360,
+      "width": 3840,
+      "height": 1536,
       "rotate": 0
     },
     "premiere": null,
@@ -87,22 +87,22 @@
     "no_cache": false,
     "pages": [
       {
-        "cid": 62724294,
+        "cid": 257283572,
         "page": 1,
         "from": "vupload",
-        "part": "视频合并181111151111",
-        "duration": 392,
+        "part": "《緣分一道橋》",
+        "duration": 287,
         "vid": "",
         "weblink": "",
         "dimension": {
-          "width": 640,
-          "height": 360,
+          "width": 3840,
+          "height": 1536,
           "rotate": 0
         }
       }
     ],
     "subtitle": {
-      "allow_submit": false,
+      "allow_submit": true,
       "list": []
     },
     "is_season_display": false,
