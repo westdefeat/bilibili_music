@@ -4,15 +4,16 @@ import 'package:bilibili_music/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:media_kit/media_kit.dart';
 
-import 'bilibili_api/bilibili_core.dart';       
+import 'bilibili_api/bilibili_core.dart';
+import 'models/BilibiliListItem.dart';       
 
 bool showPlayerController = false;
 
 final Player player = Player();
 class ControllerPage extends StatefulWidget {
-  final BiliListItem myItem;
+  final BiliListItem selectedItem;
 
-  ControllerPage({required this.myItem});
+  ControllerPage({required this.selectedItem});
 
 
   @override
@@ -24,9 +25,9 @@ class _ControllerPageState extends State<ControllerPage> {
   late String audioPlayUrl = '';
 
   void loadMedia() async {
-    dynamic brief = await getMediaBrief(widget.myItem.bvid); // data/cid
+    dynamic brief = await getMediaBrief(widget.selectedItem.bvid); // data/cid
     String cid = brief['data']['cid'].toString();
-    dynamic playUrls = await getPlayUrl(widget.myItem.bvid, cid);
+    dynamic playUrls = await getPlayUrl(widget.selectedItem.bvid, cid);
     audioPlayUrl = playUrls['data']['dash']['audio'][0]['backupUrl'][0];
     await player.open(Media(audioPlayUrl, httpHeaders: ApiConfig.headers));
     setState(() {
@@ -62,7 +63,7 @@ class _ControllerPageState extends State<ControllerPage> {
           // Image at the top center
           Center(
             child: Image.network(
-              widget.myItem.coverUrl, // Replace with your image URL
+              widget.selectedItem.coverUrl, // Replace with your image URL
               height: 150,
               width: 150,
             ),

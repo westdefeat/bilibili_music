@@ -3,33 +3,33 @@
   "message": "0",
   "ttl": 1,
   "data": {
-    "bvid": "BV14K4y1j7ma",
-    "aid": 885307560,
-    "videos": 1,
-    "tid": 193,
-    "tname": "MV",
+    "bvid": "BV1oW411A7wS",
+    "aid": 24521619,
+    "videos": 6,
+    "tid": 37,
+    "tname": "人文·历史",
     "copyright": 2,
-    "pic": "http://i1.hdslb.com/bfs/archive/78034596b22bfb79dacace42b5dfb0e1f217812a.jpg",
-    "title": "【王力宏、谭维维《緣分一道橋》】4K宽屏无损音质，挺震撼的",
-    "pubdate": 1605722367,
-    "ctime": 1605722367,
-    "desc": "https://www.youtube.com/watch?v=EQ5Ib7jNnnE\n本应投到合集中，效果挺震撼呢，先好好享受一下#高音质高画质#",
+    "pic": "http://i1.hdslb.com/bfs/archive/3fb486302770c6e69921c32401f38980411f3565.jpg",
+    "title": "宋鸿兵 《解说货币战争》全集",
+    "pubdate": 1528439149,
+    "ctime": 1528439149,
+    "desc": "视频仅供大家学习丰富自己  切记不可盲信 任何时候都应保存自己独立思考的能力乾杯 []~（￣▽￣）~*",
     "desc_v2": [
       {
-        "raw_text": "https://www.youtube.com/watch?v=EQ5Ib7jNnnE\n本应投到合集中，效果挺震撼呢，先好好享受一下#高音质高画质#",
+        "raw_text": "视频仅供大家学习丰富自己  切记不可盲信 任何时候都应保存自己独立思考的能力乾杯 []~（￣▽￣）~*",
         "type": 1,
         "biz_id": 0
       }
     ],
     "state": 0,
-    "duration": 287,
+    "duration": 22036,
     "rights": {
       "bp": 0,
       "elec": 0,
       "download": 1,
       "movie": 0,
       "pay": 0,
-      "hd5": 1,
+      "hd5": 0,
       "no_reprint": 0,
       "autoplay": 1,
       "ugc_pay": 0,
@@ -44,21 +44,21 @@
       "free_watch": 0
     },
     "owner": {
-      "mid": 36826532,
-      "name": "MR_永远的第7天",
-      "face": "https://i2.hdslb.com/bfs/face/74d5c59d1dfc58aa10bc34d1da18eef606f3069a.jpg"
+      "mid": 84100099,
+      "name": "账号已注销",
+      "face": "http://i0.hdslb.com/bfs/face/member/noface.jpg"
     },
     "stat": {
-      "aid": 885307560,
-      "view": 2272506,
-      "danmaku": 1271,
-      "reply": 975,
-      "favorite": 39849,
-      "coin": 4782,
-      "share": 4514,
+      "aid": 24521619,
+      "view": 355551,
+      "danmaku": 5431,
+      "reply": 840,
+      "favorite": 18484,
+      "coin": 1189,
+      "share": 2753,
       "now_rank": 0,
       "his_rank": 0,
-      "like": 36887,
+      "like": 4420,
       "dislike": 0,
       "evaluation": "",
       "vt": 0
@@ -68,11 +68,11 @@
       "argue_type": 0,
       "argue_link": ""
     },
-    "dynamic": "《Dream Again》那首太难修理了，传一个耳熟能详的《缘分一道桥》满足一下",
-    "cid": 257283572,
+    "dynamic": "#货币战争##宋鸿兵##讲座#",
+    "cid": 41188789,
     "dimension": {
-      "width": 3840,
-      "height": 1536,
+      "width": 448,
+      "height": 336,
       "rotate": 0
     },
     "premiere": null,
@@ -87,22 +87,92 @@
     "no_cache": false,
     "pages": [
       {
-        "cid": 257283572,
+        "cid": 41188789,
         "page": 1,
         "from": "vupload",
-        "part": "《緣分一道橋》",
-        "duration": 287,
+        "part": "001  宋鸿兵 《解说货币战争》第一讲",
+        "duration": 3430,
         "vid": "",
         "weblink": "",
         "dimension": {
-          "width": 3840,
-          "height": 1536,
+          "width": 448,
+          "height": 336,
+          "rotate": 0
+        }
+      },
+      {
+        "cid": 41188797,
+        "page": 2,
+        "from": "vupload",
+        "part": "002  宋鸿兵 《解说货币战争》第二讲",
+        "duration": 3317,
+        "vid": "",
+        "weblink": "",
+        "dimension": {
+          "width": 480,
+          "height": 360,
+          "rotate": 0
+        }
+      },
+      {
+        "cid": 41188907,
+        "page": 3,
+        "from": "vupload",
+        "part": "003 宋鸿兵 《解说货币战争》第三讲",
+        "duration": 3635,
+        "vid": "",
+        "weblink": "",
+        "dimension": {
+          "width": 600,
+          "height": 480,
+          "rotate": 0
+        }
+      },
+      {
+        "cid": 41188991,
+        "page": 4,
+        "from": "vupload",
+        "part": "004 宋鸿兵 《解说货币战争》第四讲",
+        "duration": 3863,
+        "vid": "",
+        "weblink": "",
+        "dimension": {
+          "width": 600,
+          "height": 480,
+          "rotate": 0
+        }
+      },
+      {
+        "cid": 41189142,
+        "page": 5,
+        "from": "vupload",
+        "part": "005 宋鸿兵 《解说货币战争》第五讲",
+        "duration": 4292,
+        "vid": "",
+        "weblink": "",
+        "dimension": {
+          "width": 600,
+          "height": 480,
+          "rotate": 0
+        }
+      },
+      {
+        "cid": 41189565,
+        "page": 6,
+        "from": "vupload",
+        "part": "006 宋鸿兵 《解说货币战争》第六讲",
+        "duration": 3499,
+        "vid": "",
+        "weblink": "",
+        "dimension": {
+          "width": 600,
+          "height": 480,
           "rotate": 0
         }
       }
     ],
     "subtitle": {
-      "allow_submit": true,
+      "allow_submit": false,
       "list": []
     },
     "is_season_display": false,
@@ -113,6 +183,6 @@
     "like_icon": "",
     "need_jump_bv": false,
     "disable_show_up_info": false,
-    "is_story_play": 1
+    "is_story_play": 0
   }
 }

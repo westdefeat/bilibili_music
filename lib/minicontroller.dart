@@ -4,11 +4,10 @@ import 'package:bilibili_music/player.dart';
 import 'package:bilibili_music/utils.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_kit/media_kit.dart';
+
+import 'models/BilibiliListItem.dart';
 class MiniControllerModel {
   final String mediaName;
   final bool isPlaying;
@@ -36,13 +35,13 @@ class MiniControllerNotifier extends StateNotifier<MiniControllerModel> {
     state = state.copyWith(mediaName: name, isPlaying: playing);
   }
 
-  Future<void> startPlay(BiliListItem myItem) async {
+  Future<void> startPlay(BiliListItem selectedItem) async {
     state = state.copyWith(isPlaying: !state.isPlaying);
-    dynamic brief = await getMediaBrief(myItem.bvid); // data/cid
+    dynamic brief = await getMediaBrief(selectedItem.bvid); // data/cid
     String cid = brief['data']['cid'].toString();
-    dynamic playUrls = await getPlayUrl(myItem.bvid, cid);
+    dynamic playUrls = await getPlayUrl(selectedItem.bvid, cid);
     await player.open(Media(playUrls['data']['dash']['audio'][0]['backupUrl'][0], httpHeaders: ApiConfig.headers));
-    state = state.copyWith(isPlaying: true, imageUrl: myItem.coverUrl, mediaName: myItem.title);
+    state = state.copyWith(isPlaying: true, imageUrl: selectedItem.coverUrl, mediaName: selectedItem.title);
   }
 
   Future<void> togglePlayPause() async {
@@ -55,31 +54,31 @@ final miniControllerProvider =
     StateNotifierProvider<MiniControllerNotifier, MiniControllerModel>(
         (ref) => MiniControllerNotifier());
 
-final miniControllerWidget = MiniControllerWidget();
+const miniControllerWidget = MiniControllerWidget();
 
 class MiniControllerWidget extends  ConsumerWidget {
+  const MiniControllerWidget({super.key});
+
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final miniController = ref.watch(miniControllerProvider);
     
-    print("miniController.imageUrl: ");
-    print(miniController.imageUrl);
     return Container(
       width: MediaQuery.of(context).size.width,
       height: kToolbarHeight, // Set height same as the navigation bar
-      color: Colors.grey[900], // Optional: Set a background color
+      color: Theme.of(context).primaryColor, // Optional: Set a background color
       child: Row(
         children: [
          CachedNetworkImage(
               imageUrl: miniController.imageUrl,
               // placeholder: (context, url) => CircularProgressIndicator(),
-              errorWidget: (context, url, error) => Icon(Icons.error)),
-          SizedBox(width: 8), // Optional spacing
+              errorWidget: (context, url, error) => const Icon(Icons.error)),
+          const SizedBox(width: 8), // Optional spacing
           Expanded(
             child: Text(
               miniController.mediaName,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 16,
               ),
@@ -94,7 +93,7 @@ class MiniControllerWidget extends  ConsumerWidget {
             onPressed: ref.read(miniControllerProvider.notifier).togglePlayPause,
           ),
           IconButton(
-            icon: Icon(Icons.skip_next, color: Colors.white),
+            icon: const Icon(Icons.skip_next, color: Colors.white),
             onPressed: ()=>{},
           ),
         ],

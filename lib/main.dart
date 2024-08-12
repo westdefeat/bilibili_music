@@ -1,10 +1,11 @@
 import 'package:bilibili_music/favor_page.dart';
+import 'package:bilibili_music/views/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_kit/media_kit.dart';
 
 void main() {
-   runApp(const ProviderScope(child: MyApp()));
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -64,16 +65,16 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
   final List<Widget> _widgetOptions = [
-    const Text(
-      'Recommend',
-      style: TextStyle(fontSize: 24),
+    homePage,
+    const FavorPage(
+      title: '我的收藏',
     ),
-    const FavorPage(title: '我的收藏',),
   ];
-  
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      
     });
   }
 
@@ -84,7 +85,6 @@ class _MyHomePageState extends State<MyHomePage> {
         index: _selectedIndex,
         children: _widgetOptions,
       ),
-   
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
@@ -102,5 +102,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-

@@ -9,28 +9,6 @@ Future<String> getProjectDirectory() async {
   return path;
 }
 
-class BiliListItem {
-  final String title;
-  final String coverUrl;
-  final String intro;
-  int mediaCount;
-  final String media_ids; // fav id
-  final String id; // video id
-  final String type; // video id
-  final String bvid; // bv id
-
-  BiliListItem(
-      {required this.title,
-      this.coverUrl = '',
-      this.intro = '',
-      this.mediaCount = 0,
-      this.media_ids = '',
-      this.id = '',
-      this.type = '2',
-      this.bvid = ''});
-
-}
-
 class ListTileWithImage extends StatefulWidget {
   final String title;
   final String intro;
@@ -39,9 +17,9 @@ class ListTileWithImage extends StatefulWidget {
   VoidCallback? onTap; // make it nullable
   VoidCallback? onLongPress; // make it nullable
   bool isSelected = false;
-  Color? tileColor = null;
+  Color? tileColor;
   ListTileWithImage(
-      {required this.title, required this.intro, required this.coverUrl, this.onTap, this.onLongPress, required this.isSelected});
+      {super.key, required this.title, required this.intro, required this.coverUrl, this.onTap, this.onLongPress, required this.isSelected});
   
   @override
   State<StatefulWidget> createState() => ListTileWithImageState();
@@ -57,7 +35,7 @@ class ListTileWithImageState extends State<ListTileWithImage> {
         child: CachedNetworkImage(
             imageUrl: widget.coverUrl,
             // placeholder: (context, url) => CircularProgressIndicator(),
-            errorWidget: (context, url, error) => Icon(Icons.error),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
         ),
       ),
       title: Text(widget.title.length > 10 ? '${widget.title.substring(0, 10)}...' : widget.title),
@@ -66,7 +44,7 @@ class ListTileWithImageState extends State<ListTileWithImage> {
     mainAxisSize: MainAxisSize.min,
     children: [
       IconButton(
-        icon: Icon(Icons.edit, size: 14),
+        icon: const Icon(Icons.edit, size: 14),
         onPressed: () {
           // handle edit action
         },
@@ -77,13 +55,6 @@ class ListTileWithImageState extends State<ListTileWithImage> {
       onTap: widget.onTap,
       onLongPress: widget.onLongPress,
       tileColor:  widget.isSelected ? Colors.blue.withOpacity(0.2) : null,
-
-      // onLongPress: () => {
-      //   setState(() {
-      //     _isLongPressed = !_isLongPressed;
-      //   })
-      // },
-      // tileColor: _isLongPressed ? Colors.grey : null,
     );
   }
 }
