@@ -9,15 +9,16 @@ import 'utils.dart';
 
 class CommonListPage extends ConsumerStatefulWidget {
   final BilibiliListItem selectedItem;
-  Map<String, List<BilibiliListItem>> cachedLists;
+  List<BilibiliListItem> cachedLists;
   Function loadLists;
-  void Function(Map<String, List<BilibiliListItem>>, Set<int>)? deleteSelectedItems;
+  void Function(List<BilibiliListItem>, Set<int>)? deleteSelectedItems;
   Function onItemSelected;
+  bool firstLoad = true;
 
-  CommonListPage({required this.selectedItem, required this.cachedLists, required this.loadLists, required this.deleteSelectedItems, required this.onItemSelected}) {
-    if (!cachedLists.containsKey(selectedItem.media_ids)) {
-      cachedLists[selectedItem.media_ids] = [];
-    }
+  CommonListPage( {required this.selectedItem, required this.cachedLists, required this.loadLists, required this.deleteSelectedItems, required this.onItemSelected}) {
+    // if (!cachedLists.containsKey(selectedItem.media_ids)) {
+    //   cachedLists[selectedItem.media_ids] = [];
+    // }
   }
 
   @override
@@ -27,7 +28,6 @@ class CommonListPage extends ConsumerStatefulWidget {
 class CommonListPageState extends ConsumerState<CommonListPage> {
   bool _loading = false;
   int _page = 1;
-  bool firstLoad = true;
   bool isSelectionMode = false;
   Set<int> selectedIndices = {};
   final FocusNode _focusNode = FocusNode();
@@ -35,9 +35,8 @@ class CommonListPageState extends ConsumerState<CommonListPage> {
   @override
   void initState() {
     super.initState();
-    bool useCache =
-        widget.cachedLists[widget.selectedItem.media_ids]!.isNotEmpty;
-    widget.loadLists(cachedLists: widget.cachedLists);
+    if (widget.firstLoad)
+      widget.loadLists(cachedLists: widget.cachedLists, initialize: true);
     setState(() {
       _loading = false;
     });
@@ -68,8 +67,7 @@ class CommonListPageState extends ConsumerState<CommonListPage> {
   Widget build(BuildContext context) {
     final miniControllerNotifier = ref.watch(miniControllerProvider);
 
-    List<BilibiliListItem> cachedItems =
-        widget.cachedLists[widget.selectedItem.media_ids]!;
+
 
     return GestureDetector(
         onTap: () {
@@ -121,7 +119,7 @@ class CommonListPageState extends ConsumerState<CommonListPage> {
               ),
               body: Stack(
                 children: [
-                  cachedItems.isEmpty && widget.selectedItem.mediaCount != 0
+                  widget.cachedLists.isEmpty && widget.selectedItem.mediaCount != 0
                       ? const Center(
                           child: CircularProgressIndicator(),
                         )
@@ -129,7 +127,7 @@ class CommonListPageState extends ConsumerState<CommonListPage> {
                           onNotification: (ScrollNotification notification) {
                             if (notification is ScrollEndNotification &&
                                 notification.metrics.extentAfter == 0 &&
-                                cachedItems.length <
+                                widget.cachedLists.length <
                                     widget.selectedItem.mediaCount) {
                               widget.loadLists(cachedLists: widget.cachedLists);
                             }
@@ -138,18 +136,18 @@ class CommonListPageState extends ConsumerState<CommonListPage> {
                           child: 
                           // cachedItems.isNotEmpty ?
                           ListView.builder(
-                            itemCount: cachedItems.length,
+                            itemCount: widget.cachedLists.length,
                             itemBuilder: (context, index) {
                               return ListTileWithImage(
-                                title: cachedItems[index].title,
-                                intro: cachedItems[index].intro,
-                                coverUrl: cachedItems[index].coverUrl,
+                                title: widget.cachedLists[index].title,
+                                intro: widget.cachedLists[index].intro,
+                                coverUrl: widget.cachedLists[index].coverUrl,
                                 onTap: () => {
                                   if (isSelectionMode)
                                     {toggleSelectionMode(index)}
                                   else
                                     {
-                                      widget.onItemSelected(context, cachedItems[index])
+                                      widget.onItemSelected(context, widget.cachedLists[index])
                                     }
                                 },
                                 onLongPress: () => toggleSelectionMode(index),

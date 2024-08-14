@@ -247,6 +247,19 @@ Future<dynamic> getPlayUrl(String bvid, String cid,
   return data;
 }
 
+Future<dynamic> getSearchResults(String keyword) async {
+  var queryParams = {
+    "keyword": keyword,
+
+  };
+  var data =
+      await requestBilibili(HttpMethod.get, ApiEndpoints.search, queryParams);
+  if (data != null) {
+    printResponse(data, getCurrentFunctionName() + '.json');
+  }
+  return data;
+}
+
 void main() async {
   // fetchUserInfo();
   // fetchFavList();
@@ -262,4 +275,5 @@ void main() async {
   // getPageList('BV1cs411v7xr');
   // getMediaBrief('BV1cs411v7xr');
   // getPlayUrl('BV1cs411v7xr', '8177639');
+  getSearchResults('周杰伦');
 }

@@ -36,6 +36,7 @@ class ApiEndpoints {
   static const String removeFav = '/x/v3/fav/folder/del';
   static const String modifyFav = '/medialist/gateway/coll/resource/deal';
   static const String delbatchFromFav = '/x/v3/fav/resource/batch-del';
+  static const String search = '/x/web-interface/wbi/search/all/v2';
   // static const String fetchPlaylists = '/path/to/playlist/endpoint';
 }
 

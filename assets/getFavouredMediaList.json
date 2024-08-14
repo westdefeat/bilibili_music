@@ -4,12 +4,12 @@
   "ttl": 1,
   "data": {
     "info": {
-      "id": 100109244,
-      "fid": 1001092,
+      "id": 2057910644,
+      "fid": 20579106,
       "mid": 57164044,
-      "attr": 0,
-      "title": "默认收藏夹",
-      "cover": "http://i1.hdslb.com/bfs/archive/3fb486302770c6e69921c32401f38980411f3565.jpg",
+      "attr": 22,
+      "title": "音乐",
+      "cover": "http://i0.hdslb.com/bfs/archive/ecc7eeeabbf97850628ca7840594162ccf457d7a.jpg",
       "upper": {
         "mid": 57164044,
         "name": "以气御刀",
@@ -21,65 +21,281 @@
       "cover_type": 2,
       "cnt_info": {
         "collect": 0,
-        "play": 2,
-        "thumb_up": 0,
-        "share": 0
+        "play": 1623,
+        "thumb_up": 1,
+        "share": 1
       },
       "type": 11,
       "intro": "",
-      "ctime": 1478922856,
-      "mtime": 1556498091,
+      "ctime": 1675059790,
+      "mtime": 1675059790,
       "state": 0,
       "fav_state": 0,
       "like_state": 0,
-      "media_count": 2,
-      "is_top": true
+      "media_count": 132,
+      "is_top": false
     },
     "medias": [
       {
-        "id": 24521619,
+        "id": 278803200,
         "type": 2,
-        "title": "宋鸿兵 《解说货币战争》全集",
-        "cover": "http://i1.hdslb.com/bfs/archive/3fb486302770c6e69921c32401f38980411f3565.jpg",
-        "intro": "视频仅供大家学习丰富自己  切记不可盲信 任何时候都应保存自己独立思考的能力乾杯 []~（￣▽￣）~*",
-        "page": 6,
-        "duration": 22036,
+        "title": "在百万豪装录音棚大声听 西游记ost 许镜清《云宫迅音》【Hi-res】",
+        "cover": "http://i0.hdslb.com/bfs/archive/ecc7eeeabbf97850628ca7840594162ccf457d7a.jpg",
+        "intro": "《云宫迅音》是1986版电视剧《西游记》的片头曲，由许镜清作曲，收录于1986年9月25日发行的原声专辑《西游记 电视剧配乐原声》。\n\n录音设备：\n话筒：Neumann M149 tube Pair\n调音台：SSL Duality Delta Pro Station\n工作站：PT\n音箱：Barefoot MM12\n[侵删]",
+        "page": 1,
+        "duration": 174,
         "upper": {
-          "mid": 84100099,
-          "name": "账号已注销",
-          "face": "http://i0.hdslb.com/bfs/face/member/noface.jpg"
+          "mid": 3493093607213343,
+          "name": "JLRS-LeoFM",
+          "face": "https://i0.hdslb.com/bfs/face/a7176b4e205f2fae521faf3b6d22eca17a44e7a3.jpg"
         },
         "attr": 0,
         "cnt_info": {
-          "collect": 18484,
-          "play": 355551,
-          "danmaku": 5431,
+          "collect": 9961,
+          "play": 796941,
+          "danmaku": 731,
           "vt": 0,
           "play_switch": 0,
           "reply": 0,
-          "view_text_1": "35.6万"
+          "view_text_1": "79.7万"
         },
-        "link": "bilibili://video/24521619",
-        "ctime": 1528439149,
-        "pubtime": 1528439149,
-        "fav_time": 1721052750,
-        "bv_id": "BV1oW411A7wS",
-        "bvid": "BV1oW411A7wS",
+        "link": "bilibili://video/278803200",
+        "ctime": 1700819248,
+        "pubtime": 1700883180,
+        "fav_time": 1723344660,
+        "bv_id": "BV1kw411P7kV",
+        "bvid": "BV1kw411P7kV",
         "season": null,
         "ogv": null,
         "ugc": {
-          "first_cid": 41188789
+          "first_cid": 1342722991
         },
-        "media_list_link": "bilibili://music/playlist/playpage/157273244?page_type=3&oid=24521619&otype=2"
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=278803200&otype=2"
       },
       {
-        "id": 714737569,
+        "id": 35751883,
         "type": 2,
-        "title": "【4K60FPS】酷玩Coldplay《Viva La Vida》万人大合唱现场！生命万岁！",
-        "cover": "http://i0.hdslb.com/bfs/archive/041214badc5e89318ab10dd73c4c3dd72a3361a4.jpg",
-        "intro": "自己制作\n蓝光原盘制作，4K最高规格制作\n很多人点的一个现场！Viva La Vida\n也是我自己非常喜欢的一首歌\n感恩，生命万岁！",
+        "title": "中央民族乐团《彩云追月》",
+        "cover": "http://i0.hdslb.com/bfs/archive/f6a24c965fea67304aa883dd59e6219c6e2a63f7.jpg",
+        "intro": "转自http://ncpa-classic.cntv.cn/2011/12/16/VIDE1324045802345689.shtml\n节选自：《金秋庆典：国家大剧院2010中秋民族音乐会》（2010-9-21）\n指挥：许知俊",
         "page": 1,
-        "duration": 294,
+        "duration": 392,
+        "upper": {
+          "mid": 108233702,
+          "name": "亚洲之巅贾队长",
+          "face": "http://i2.hdslb.com/bfs/face/b83e09cac763c56f17725ed7ebe4d7457d4f3ae1.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 8551,
+          "play": 500785,
+          "danmaku": 876,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "50.1万"
+        },
+        "link": "bilibili://video/35751883",
+        "ctime": 1541921112,
+        "pubtime": 1541921112,
+        "fav_time": 1723302254,
+        "bv_id": "BV1gt411U7w1",
+        "bvid": "BV1gt411U7w1",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 62724294
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=35751883&otype=2"
+      },
+      {
+        "id": 989081724,
+        "type": 2,
+        "title": "歌声飘过30年-《弯弯的月亮》刘欢4K超清修复",
+        "cover": "http://i2.hdslb.com/bfs/archive/128bbc769d581fdb3dfa38f11dcf5a9ecb90e06e.jpg",
+        "intro": "",
+        "page": 1,
+        "duration": 287,
+        "upper": {
+          "mid": 259505216,
+          "name": "第十一放映厅",
+          "face": "https://i2.hdslb.com/bfs/face/7028f043d384f5ec9946de3d2e2da70b7fa1d509.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 21,
+          "play": 1750,
+          "danmaku": 0,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "1750"
+        },
+        "link": "bilibili://video/989081724",
+        "ctime": 1671674634,
+        "pubtime": 1671674634,
+        "fav_time": 1723256634,
+        "bv_id": "BV1y44y1d7Rk",
+        "bvid": "BV1y44y1d7Rk",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 932547334
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=989081724&otype=2"
+      },
+      {
+        "id": 530406045,
+        "type": 2,
+        "title": "在百万豪装录音棚大声听 消失的她ost 张碧晨《笼》【Hi-res】",
+        "cover": "http://i2.hdslb.com/bfs/archive/ec4cc80513b8b42a486c2182704de39733f2d7f2.jpg",
+        "intro": "《笼》是电影《消失的她》片尾主题曲，由张碧晨演唱、唐恬作词、钱雷作曲。\n\n录音设备：\n话筒：Neumann M149 tube Pair\n调音台：SSL Duality Delta Pro Station\n工作站：PT\n音箱：Barefoot MM12\n[侵删]",
+        "page": 1,
+        "duration": 282,
+        "upper": {
+          "mid": 3493093607213343,
+          "name": "JLRS-LeoFM",
+          "face": "https://i0.hdslb.com/bfs/face/a7176b4e205f2fae521faf3b6d22eca17a44e7a3.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 54412,
+          "play": 3301509,
+          "danmaku": 956,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "330.2万"
+        },
+        "link": "bilibili://video/530406045",
+        "ctime": 1688285567,
+        "pubtime": 1688293200,
+        "fav_time": 1723252837,
+        "bv_id": "BV1gu411b7iF",
+        "bvid": "BV1gu411b7iF",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 1182505234
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=530406045&otype=2"
+      },
+      {
+        "id": 914723398,
+        "type": 2,
+        "title": "在百万豪装录音棚大声听 爱情公寓4ost 金贵晟《虹之间》【Hi-res】",
+        "cover": "http://i2.hdslb.com/bfs/archive/788565d7db41cd9da436e0de7d0b1ae3cc7e74e8.jpg",
+        "intro": "《虹之间》（Between The Rainbow）是电视剧《爱情公寓4》的插曲，由大风刮过、韦正填词，金贵晟作曲并演唱。\n\n录音设备：\n话筒：Neumann M149 tube Pair\n调音台：SSL Duality Delta Pro Station\n工作站：PT\n音箱：Barefoot MM12\n[侵删]",
+        "page": 1,
+        "duration": 246,
+        "upper": {
+          "mid": 3493093607213343,
+          "name": "JLRS-LeoFM",
+          "face": "https://i0.hdslb.com/bfs/face/a7176b4e205f2fae521faf3b6d22eca17a44e7a3.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 27650,
+          "play": 1675238,
+          "danmaku": 377,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "167.5万"
+        },
+        "link": "bilibili://video/914723398",
+        "ctime": 1691893929,
+        "pubtime": 1691922120,
+        "fav_time": 1723251998,
+        "bv_id": "BV15u4y1q7FH",
+        "bvid": "BV15u4y1q7FH",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 1232284822
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=914723398&otype=2"
+      },
+      {
+        "id": 303872404,
+        "type": 2,
+        "title": "【精心修复4K Hi-Res】谭咏麟《雨夜的浪漫》1986万众狂欢演唱会",
+        "cover": "http://i1.hdslb.com/bfs/archive/f92570aa57441d57c3f5553ca16b4284bdf56517.jpg",
+        "intro": "自己采集于VHS录像带并进行修复\n音频使用复黑版CD升频",
+        "page": 1,
+        "duration": 258,
+        "upper": {
+          "mid": 1821710559,
+          "name": "whatiswww",
+          "face": "https://i0.hdslb.com/bfs/face/c4f08028925877e07712725f700ac2bc8d7e0c46.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 694,
+          "play": 53648,
+          "danmaku": 41,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "5.4万"
+        },
+        "link": "bilibili://video/303872404",
+        "ctime": 1665149215,
+        "pubtime": 1665149214,
+        "fav_time": 1723200557,
+        "bv_id": "BV1gP41177i7",
+        "bvid": "BV1gP41177i7",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 855155816
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=303872404&otype=2"
+      },
+      {
+        "id": 441654009,
+        "type": 2,
+        "title": "【高清修复】谭咏麟《梦仍是一样》宝丽金20周年演唱会LIVE",
+        "cover": "http://i1.hdslb.com/bfs/archive/4580dd3612662de6941827b7a2d76aa0440f647e.jpg",
+        "intro": "自己采集于LD并作修复",
+        "page": 1,
+        "duration": 275,
+        "upper": {
+          "mid": 1821710559,
+          "name": "whatiswww",
+          "face": "https://i0.hdslb.com/bfs/face/c4f08028925877e07712725f700ac2bc8d7e0c46.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 499,
+          "play": 23316,
+          "danmaku": 53,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "2.3万"
+        },
+        "link": "bilibili://video/441654009",
+        "ctime": 1679804969,
+        "pubtime": 1679804969,
+        "fav_time": 1722669690,
+        "bv_id": "BV1sL411Q7MQ",
+        "bvid": "BV1sL411Q7MQ",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 1071295112
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=441654009&otype=2"
+      },
+      {
+        "id": 806855189,
+        "type": 2,
+        "title": "【4K60FPS】梅艳芳《夕阳之歌 》告别现场！这是一个传奇！",
+        "cover": "http://i1.hdslb.com/bfs/archive/92a02c73ed0e241ae715bf234a7e3a72b5406cbd.jpg",
+        "intro": "官方演唱会现场\n原盘提取制作，对视频和音质进行了分开处理\n近期粉丝提到的最多的一个现场\n也是群里讨论的比较多的一个电影《梅艳芳》\n这首歌跟《千千阙歌》是同一个曲子，所以别惊讶\n我其实做这个视频的，挺感慨的\n重新制作字幕，填的转载，希望能够感动到大家",
+        "page": 1,
+        "duration": 251,
         "upper": {
           "mid": 229733301,
           "name": "音乐私藏馆",
@@ -87,29 +303,461 @@
         },
         "attr": 0,
         "cnt_info": {
-          "collect": 207484,
-          "play": 8591314,
-          "danmaku": 13980,
+          "collect": 80238,
+          "play": 3604021,
+          "danmaku": 7958,
           "vt": 0,
           "play_switch": 0,
           "reply": 0,
-          "view_text_1": "859.1万"
+          "view_text_1": "360.4万"
         },
-        "link": "bilibili://video/714737569",
-        "ctime": 1615807807,
-        "pubtime": 1615807805,
-        "fav_time": 1715682198,
-        "bv_id": "BV1AX4y1G7or",
-        "bvid": "BV1AX4y1G7or",
+        "link": "bilibili://video/806855189",
+        "ctime": 1637494093,
+        "pubtime": 1637494093,
+        "fav_time": 1721053515,
+        "bv_id": "BV1j34y1o7SK",
+        "bvid": "BV1j34y1o7SK",
         "season": null,
         "ogv": null,
         "ugc": {
-          "first_cid": 400451316
+          "first_cid": 446494000
         },
-        "media_list_link": "bilibili://music/playlist/playpage/157273244?page_type=3&oid=714737569&otype=2"
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=806855189&otype=2"
+      },
+      {
+        "id": 805010034,
+        "type": 2,
+        "title": "【4K60FPS】黄霑《沧海一声笑》史诗级现场！人生一定要看的现场！",
+        "cover": "http://i0.hdslb.com/bfs/archive/c4b0996dc3ad92d8d8897041b6d85d5dca13c466.jpg",
+        "intro": "官方演唱会现场\n源文档提取制作，由于是早期的演唱会，进行了重做\n黄霑（黄沾）原名黄湛森，这位大师，我想很多人都如雷贯耳\n因为看过武侠影视剧的人，基本上都听过他写的歌曲\n不知道大家有没有过这样的感受，就是看到一个震撼的现场\n真的让人非常激动，因为这个现场，包含了太多的元素了\n无论是大师的演绎，还是对中国各种乐器的运用，简直让人赏心悦目\n填的转载，一起来感受一下这个现场吧",
+        "page": 1,
+        "duration": 190,
+        "upper": {
+          "mid": 229733301,
+          "name": "音乐私藏馆",
+          "face": "https://i0.hdslb.com/bfs/face/91a6526445f61e2d491523242b532d5e76f0435a.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 93400,
+          "play": 5054334,
+          "danmaku": 6512,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "505.4万"
+        },
+        "link": "bilibili://video/805010034",
+        "ctime": 1629631206,
+        "pubtime": 1629631205,
+        "fav_time": 1719843345,
+        "bv_id": "BV13y4y157GB",
+        "bvid": "BV13y4y157GB",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 394134838
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=805010034&otype=2"
+      },
+      {
+        "id": 33527547,
+        "type": 2,
+        "title": "王力宏《需要人陪》（电影《西虹市首富》插曲） 1080P",
+        "cover": "http://i1.hdslb.com/bfs/archive/20a9ed018f40ee3e8ba6be72bfd69487795d52c9.jpg",
+        "intro": "王力宏《需要人陪》（电影《西虹市首富》插曲） 1080P",
+        "page": 1,
+        "duration": 180,
+        "upper": {
+          "mid": 16395652,
+          "name": "小他君",
+          "face": "https://i1.hdslb.com/bfs/face/d3a432b786f88263039ba6f28507aec7f5ae357f.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 3013,
+          "play": 372417,
+          "danmaku": 175,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "37.2万"
+        },
+        "link": "bilibili://video/33527547",
+        "ctime": 1539143966,
+        "pubtime": 1539143966,
+        "fav_time": 1717324952,
+        "bv_id": "BV1yW41117Ap",
+        "bvid": "BV1yW41117Ap",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 58697072
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=33527547&otype=2"
+      },
+      {
+        "id": 910877091,
+        "type": 2,
+        "title": "腾格尔 - 长歌一曲",
+        "cover": "http://i2.hdslb.com/bfs/archive/3b3fda3d804409054d03e1eed275e50f9cfe6148.jpg",
+        "intro": "",
+        "page": 1,
+        "duration": 202,
+        "upper": {
+          "mid": 382824970,
+          "name": "麻绳理工挨踢男",
+          "face": "https://i1.hdslb.com/bfs/face/5e2b5886e3bb988e6c1887c728fc2f35acf3742f.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 81,
+          "play": 5839,
+          "danmaku": 9,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "5839"
+        },
+        "link": "bilibili://video/910877091",
+        "ctime": 1683634132,
+        "pubtime": 1683634132,
+        "fav_time": 1715874711,
+        "bv_id": "BV16M4y1b7n9",
+        "bvid": "BV16M4y1b7n9",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 1123894144
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=910877091&otype=2"
+      },
+      {
+        "id": 719522440,
+        "type": 2,
+        "title": "【4K60FPS】周杰伦《梯田+爸我回来了》神级现场！羽化登仙！",
+        "cover": "http://i2.hdslb.com/bfs/archive/38b657ae22bfb846ef583025652ac339b427fb26.jpg",
+        "intro": "官方演唱会现场\n官方演唱会原盘提取制作，进行了重做\n对照周杰伦黑胶盘歌词本制作两首歌的字幕\n一直都有很多粉丝跟我提到的这个现场\n杰伦真的是才华横溢啊！太帅了！\n最近由于身边的一些事情，出的视频比较慢\n十一月马上过去了，祝大家开心",
+        "page": 1,
+        "duration": 277,
+        "upper": {
+          "mid": 229733301,
+          "name": "音乐私藏馆",
+          "face": "https://i0.hdslb.com/bfs/face/91a6526445f61e2d491523242b532d5e76f0435a.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 51807,
+          "play": 2433647,
+          "danmaku": 4576,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "243.4万"
+        },
+        "link": "bilibili://video/719522440",
+        "ctime": 1638186097,
+        "pubtime": 1638186097,
+        "fav_time": 1715849105,
+        "bv_id": "BV14Q4y1i7ZA",
+        "bvid": "BV14Q4y1i7ZA",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 451472935
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=719522440&otype=2"
+      },
+      {
+        "id": 443819570,
+        "type": 2,
+        "title": "在百万豪装录音棚大声听 音频怪物《典狱司》【Hi-res】",
+        "cover": "http://i0.hdslb.com/bfs/archive/eb2481c9a7f53db0383d9e9bcd39c22a8dbdea1c.jpg",
+        "intro": "《典狱司》是电视剧《老九门》片尾曲，由江淮沿岸填词，和汇慧作曲，音频怪物\t演唱。\n\n录音设备：\n话筒：Neumann M149 tube Pair\n调音台：SSL Duality Delta Pro Station\n工作站：PT\n音箱：Barefoot MM12\n[侵删]",
+        "page": 1,
+        "duration": 248,
+        "upper": {
+          "mid": 3493093607213343,
+          "name": "JLRS-LeoFM",
+          "face": "https://i0.hdslb.com/bfs/face/a7176b4e205f2fae521faf3b6d22eca17a44e7a3.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 24714,
+          "play": 1683415,
+          "danmaku": 388,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "168.3万"
+        },
+        "link": "bilibili://video/443819570",
+        "ctime": 1684406300,
+        "pubtime": 1684406300,
+        "fav_time": 1715335564,
+        "bv_id": "BV1JL411B7oL",
+        "bvid": "BV1JL411B7oL",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 1131495134
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=443819570&otype=2"
+      },
+      {
+        "id": 757575752,
+        "type": 2,
+        "title": "孙燕姿  我的爱  可以听100遍了吧",
+        "cover": "http://i1.hdslb.com/bfs/archive/142e15edc529d59c085f7564e4a10dac529c6ca6.jpg",
+        "intro": "",
+        "page": 1,
+        "duration": 266,
+        "upper": {
+          "mid": 8275396,
+          "name": "岁月多姿多彩",
+          "face": "http://i1.hdslb.com/bfs/face/256ff76745d01b12b49229a928a7bd7dcd9cfb54.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 562,
+          "play": 46125,
+          "danmaku": 38,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "4.6万"
+        },
+        "link": "bilibili://video/757575752",
+        "ctime": 1618409116,
+        "pubtime": 1618409116,
+        "fav_time": 1714201278,
+        "bv_id": "BV1o64y1S7Ky",
+        "bvid": "BV1o64y1S7Ky",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 324215797
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=757575752&otype=2"
+      },
+      {
+        "id": 5034525,
+        "type": 2,
+        "title": "Try & Just Give Me a Reason 2014格莱美奖典礼现场版 中英字幕",
+        "cover": "http://i2.hdslb.com/bfs/archive/78e0d4daf6b118365cab78d1b8af42d3a12273aa.png",
+        "intro": "http://v.yinyuetai.com/video/865240 Pink Try &amp;amp; Just Give Me a Reason 2014格莱美奖典礼现场版 \r\n唱Try这首歌简直厉害到不行，一边耍杂技一边唱歌，就问你怕不怕。\r\n也是这首歌带我进粉妈的坑的。Just Give Me a Reason这首歌也很好听，现场简直爆炸",
+        "page": 1,
+        "duration": 366,
+        "upper": {
+          "mid": 6730434,
+          "name": "情牵黄昏路",
+          "face": "http://i0.hdslb.com/bfs/face/8fa3c668fe8205178727a4c7f799a819605c23f0.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 11131,
+          "play": 449131,
+          "danmaku": 1504,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "44.9万"
+        },
+        "link": "bilibili://video/5034525",
+        "ctime": 1497429750,
+        "pubtime": 1466405250,
+        "fav_time": 1713873940,
+        "bv_id": "BV1cs411v7xr",
+        "bvid": "BV1cs411v7xr",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 8177639
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=5034525&otype=2"
+      },
+      {
+        "id": 1400302909,
+        "type": 2,
+        "title": "在百万豪装录音棚大声听 周传雄《关不上的窗》【Hi-res】",
+        "cover": "http://i1.hdslb.com/bfs/archive/f3159ab1ba9eb2aae3183239588f24be21ab13f5.jpg",
+        "intro": "《关不上的窗》是陈信荣填词，周传雄作曲并演唱的歌曲，收录在周传雄2009年发行的专辑《恋人创世纪》中。\n录音设备：\n话筒：Neumann M149 tube Pair\n调音台：SSL Duality Delta Pro Station\n工作站：PT\n音箱：Barefoot MM12\n[侵删]",
+        "page": 1,
+        "duration": 295,
+        "upper": {
+          "mid": 3493093607213343,
+          "name": "JLRS-LeoFM",
+          "face": "https://i0.hdslb.com/bfs/face/a7176b4e205f2fae521faf3b6d22eca17a44e7a3.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 4855,
+          "play": 362713,
+          "danmaku": 182,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "36.3万"
+        },
+        "link": "bilibili://video/1400302909",
+        "ctime": 1707189463,
+        "pubtime": 1707189463,
+        "fav_time": 1713870641,
+        "bv_id": "BV1W642137vm",
+        "bvid": "BV1W642137vm",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 1431729799
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=1400302909&otype=2"
+      },
+      {
+        "id": 298472113,
+        "type": 2,
+        "title": "【𝟒𝐊/𝟔𝟎𝐅𝐏𝐒】Tank《三国恋》核弹现场！DNA动了！",
+        "cover": "http://i0.hdslb.com/bfs/archive/3888dfd196b7526f18bd5fe334e1b20446007727.jpg",
+        "intro": "演唱会cut。4K60帧标准重新进行了画质修复。\n《三国恋》是Tank演唱的一首歌曲，由Tank作词、作曲。这首歌曲是电视剧《七剑下天山\t》的主题曲，收录于Tank2006年发行的专辑《Fighting！生存之道》中。\n这是一首带有浓郁中国风色彩的歌曲。这首歌巧妙了地融合了摇滚和东方京剧唱腔，让听歌的人为之震撼 。《三国恋》虽然从歌名和歌词上来看与《七剑下天山》没有任何的关系，但是意境上却表达出了处在乱世的英雄想要成就大业却陷入迷惘的苍凉，歌曲传达了片中的主角们各自不同的际遇所带来的内心矛盾。\n\n我是音乐",
+        "page": 1,
+        "duration": 158,
+        "upper": {
+          "mid": 696160102,
+          "name": "同学们的音乐君",
+          "face": "https://i1.hdslb.com/bfs/face/8bb093bfa032689cc52add6986f6fc7b35d1fbbe.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 6874,
+          "play": 680816,
+          "danmaku": 512,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "68.1万"
+        },
+        "link": "bilibili://video/298472113",
+        "ctime": 1650874056,
+        "pubtime": 1650880828,
+        "fav_time": 1713026616,
+        "bv_id": "BV1PF411u7sw",
+        "bvid": "BV1PF411u7sw",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 584656261
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=298472113&otype=2"
+      },
+      {
+        "id": 86059901,
+        "type": 2,
+        "title": "【4K60FPS】粉丝点歌：陶喆《爱很简单》神级现场！确实很强",
+        "cover": "http://i0.hdslb.com/bfs/archive/4b460f121fcd5ad46f86f1b57711d059b131df79.jpg",
+        "intro": "自己制作\n帮粉丝制作\n数码修复\n自己制作字幕\n陶喆《爱很简单》神级现场LIVE",
+        "page": 1,
+        "duration": 418,
+        "upper": {
+          "mid": 229733301,
+          "name": "音乐私藏馆",
+          "face": "https://i0.hdslb.com/bfs/face/91a6526445f61e2d491523242b532d5e76f0435a.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 42580,
+          "play": 2672609,
+          "danmaku": 5460,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "267.3万"
+        },
+        "link": "bilibili://video/86059901",
+        "ctime": 1580532883,
+        "pubtime": 1580532883,
+        "fav_time": 1713026610,
+        "bv_id": "BV1T7411x78Y",
+        "bvid": "BV1T7411x78Y",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 1474965281
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=86059901&otype=2"
+      },
+      {
+        "id": 713051158,
+        "type": 2,
+        "title": "【4K修复】陶喆《Melody》史上最强现场版",
+        "cover": "http://i1.hdslb.com/bfs/archive/ada326d5375f44aa5edd2cad455758e2c4ac4632.jpg",
+        "intro": "网络\n自己制作\n2003陶喆Soul Power台北演唱会\nDVD提取视频+CD提取音频\n修复软件：Topaz Video Enhance AI\n耗时：3小时 显卡：GTX1660ti 6GB",
+        "page": 1,
+        "duration": 296,
+        "upper": {
+          "mid": 143073341,
+          "name": "The3heep",
+          "face": "https://i2.hdslb.com/bfs/face/6a2b2d280bdef8096842e7811ec3a7d82abb307f.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 143290,
+          "play": 8712049,
+          "danmaku": 7350,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "871.2万"
+        },
+        "link": "bilibili://video/713051158",
+        "ctime": 1607595968,
+        "pubtime": 1607595968,
+        "fav_time": 1713026597,
+        "bv_id": "BV1iX4y1M742",
+        "bvid": "BV1iX4y1M742",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 265005223
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=713051158&otype=2"
+      },
+      {
+        "id": 576676501,
+        "type": 2,
+        "title": "在百万豪装录音棚大声听 王力宏《花田错》【Hi-res】",
+        "cover": "http://i0.hdslb.com/bfs/archive/4d40e568c49ac223d67ac0ff03653410a84f015f.jpg",
+        "intro": "《花田错》是王力宏演唱的一首中国风歌曲，由陈镇川作词，王力宏作曲并编曲，收录在王力宏2005年12月30日发行的专辑《盖世英雄》中。\n\n录音设备：\n话筒：Neumann M149 tube Pair\n调音台：SSL Duality Delta Pro Station\n工作站：PT\n音箱：Barefoot MM12\n[侵删]",
+        "page": 1,
+        "duration": 229,
+        "upper": {
+          "mid": 3493093607213343,
+          "name": "JLRS-LeoFM",
+          "face": "https://i0.hdslb.com/bfs/face/a7176b4e205f2fae521faf3b6d22eca17a44e7a3.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 19212,
+          "play": 1385777,
+          "danmaku": 408,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "138.6万"
+        },
+        "link": "bilibili://video/576676501",
+        "ctime": 1696148693,
+        "pubtime": 1696242300,
+        "fav_time": 1713026569,
+        "bv_id": "BV1qz4y1G7eq",
+        "bvid": "BV1qz4y1G7eq",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 1285479044
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=576676501&otype=2"
       }
     ],
-    "has_more": false,
-    "ttl": 1723388665
+    "has_more": true,
+    "ttl": 1723645151
   }
 }

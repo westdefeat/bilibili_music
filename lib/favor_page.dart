@@ -544,7 +544,10 @@ class FavListPage extends ConsumerStatefulWidget {
   // Function deleteSelectedItems;
 //   Function onItemSelected;
 //  Map<String, List<BilibiliListItem>> cachedLists;
+  List<BilibiliListItem> cacheItems = [];
+  bool firstLoad = true;
   FavListPage();
+  
 
   @override
   FavListPageState createState() => FavListPageState();
@@ -557,7 +560,13 @@ class FavListPageState extends ConsumerState<FavListPage> {
   Set<int> selectedIndices = {};
 
   Future<void> loadLists(
-      {required Map<String, List<BilibiliListItem>> cachedLists}) async {
+      {required List<BilibiliListItem> cachedLists, bool? initialize=false}) async {
+        print("widget.firstLoad == ${widget.firstLoad}");
+        print("initialize == ${initialize}");
+        if (widget.firstLoad == false && initialize == true) {
+      return;
+    }
+   widget.firstLoad = false;
     dynamic data = await fetchFavList();
     List<dynamic> dataList = data['data']['list'];
     // List<BilibiliListItem> items = [];
@@ -572,7 +581,7 @@ class FavListPageState extends ConsumerState<FavListPage> {
           intro: detailJson['data']['intro'],
           mediaCount: detailJson['data']['media_count'],
           media_ids: id);
-      cachedLists[widget.selectedItem.media_ids]?.add(item);
+      cachedLists.add(item);
     }
   //   BilibiliListItem item = BilibiliListItem(title: 'xxx', mediaCount: 0, media_ids: 'xxxxx', coverUrl: 'xxx', intro: 'xxx');
   //   //  sleep(Duration(seconds: 1));
@@ -582,9 +591,9 @@ class FavListPageState extends ConsumerState<FavListPage> {
     setState(() {});
   }
 
-  void deleteSelectedItems(Map<String, List<BilibiliListItem>> cachedLists,
+  void deleteSelectedItems(List<BilibiliListItem> cachedLists,
       Set<int> selectedIndices) async {
-    dynamic cachedItems = cachedLists[widget.selectedItem.media_ids];
+    dynamic cachedItems = cachedLists;
     for (int element in selectedIndices) {
       dynamic res = await removeFav(cachedItems[element].media_ids);
       print(res);
@@ -606,7 +615,7 @@ class FavListPageState extends ConsumerState<FavListPage> {
       mediaList[item.media_ids] = FavMediaListPage(selectedItem: item,);
     }
     // // print(mediaList);
-
+    print(mediaList[item.media_ids]!.firstLoad);
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -622,7 +631,7 @@ class FavListPageState extends ConsumerState<FavListPage> {
   Widget build(BuildContext context) {
     return CommonListPage(
         selectedItem: widget.selectedItem,
-        cachedLists: favList,
+        cachedLists: widget.cacheItems,
         loadLists: loadLists,
         deleteSelectedItems: deleteSelectedItems,
         onItemSelected: onItemTapped);
@@ -636,10 +645,14 @@ class FavMediaListPage extends ConsumerStatefulWidget {
   // Function deleteSelectedItems;
 //   Function onItemSelected;
 //  Map<String, List<BilibiliListItem>> cachedLists;
+    List<BilibiliListItem> cachedItems = [];
+  bool firstLoad = true;
+
   FavMediaListPage({required this.selectedItem}) {
     if (!favList.containsKey(selectedItem.media_ids)) {
       favList[selectedItem.media_ids] = [];
     }
+    print("create a fav media list");
   }
 
   @override
@@ -648,14 +661,17 @@ class FavMediaListPage extends ConsumerStatefulWidget {
 class FavMediaListPageState extends ConsumerState<FavMediaListPage> {
   bool _loading = false;
   int _page = 1;
-  bool firstLoad = true;
   bool isSelectionMode = false;
   Set<int> selectedIndices = {};
 
+
   Future<void> loadLists(
-      {required Map<String, List<BilibiliListItem>> cachedLists}) async {
-    List<BilibiliListItem> cachedItems =
-        cachedLists[widget.selectedItem.media_ids]!;
+      {required List<BilibiliListItem> cachedLists, bool? initialize=false}) async {
+    if (widget.firstLoad == false && initialize == true) {
+      return;
+    }
+   widget.firstLoad = false;
+       
 
     // 此处setState将导致报错
     // setState(() {
@@ -663,7 +679,6 @@ class FavMediaListPageState extends ConsumerState<FavMediaListPage> {
 
     dynamic jsonData = await getFavouredMediaList(widget.selectedItem.media_ids,
         pageNumber: _page++);
-    print('jsonData: ${jsonData}');
 
     List<dynamic> dataList = jsonData['data']['medias'] ?? [];
     for (var jsonItem in dataList) {
@@ -675,7 +690,7 @@ class FavMediaListPageState extends ConsumerState<FavMediaListPage> {
         type: jsonItem['type'].toString(),
         bvid: jsonItem['bvid'].toString(),
       );
-      cachedLists[widget.selectedItem.media_ids]?.add(item);
+      cachedLists.add(item);
     }
 
     setState(() {
@@ -684,11 +699,10 @@ class FavMediaListPageState extends ConsumerState<FavMediaListPage> {
 
   }
 
-  void deleteSelectedItems(Map<String, List<BilibiliListItem>> cachedLists,
+  void deleteSelectedItems(List<BilibiliListItem> cachedLists,
       Set<int> selectedIndices) async {
         print('deleteSelectedItems');
-    List<BilibiliListItem> cachedItems =
-        cachedLists[widget.selectedItem.media_ids]!;
+    List<BilibiliListItem> cachedItems = cachedLists;
 
     dynamic resources = 'resources=';
     for (int element in selectedIndices) {
@@ -698,7 +712,7 @@ class FavMediaListPageState extends ConsumerState<FavMediaListPage> {
     await removeBatchFromFav(widget.selectedItem.media_ids, resources);
     for (int index in selectedIndices.toList()
       ..sort((a, b) => b.compareTo(a))) {
-      cachedItems.removeAt(index);
+      cachedLists.removeAt(index);
     }
     widget.selectedItem.mediaCount -= selectedIndices.length;
     selectedIndices.clear();
@@ -708,13 +722,13 @@ class FavMediaListPageState extends ConsumerState<FavMediaListPage> {
     });
   }
 
-  void onItemTapped(BuildContext context, BilibiliListItem item, Map<String, List<BilibiliListItem>>? cachedLists, int? index) {
+  void onItemTapped(BuildContext context, BilibiliListItem item) {
         print('onItemTapped');
 
-    List<BilibiliListItem> cachedItems = cachedLists![widget.selectedItem.media_ids]!;
+    // List<BilibiliListItem> cachedItems = cachedLists!;
     ref
       .read(miniControllerProvider.notifier)
-      .startPlay(cachedItems[index!]);
+      .startPlay(item);
       setState(() {
         showPlayerController = true;
       });
@@ -724,9 +738,11 @@ class FavMediaListPageState extends ConsumerState<FavMediaListPage> {
   Widget build(BuildContext context) {
     return CommonListPage(
         selectedItem: widget.selectedItem,
-        cachedLists: favList,
+        cachedLists: widget.cachedItems,
         loadLists: loadLists,
         deleteSelectedItems: deleteSelectedItems,
         onItemSelected: onItemTapped);
   }
 }
+
+
