@@ -9,10 +9,10 @@ import 'package:media_kit/media_kit.dart';
 
 import 'models/BilibiliListItem.dart';
 class MiniControllerModel {
-  final String mediaName;
-  final bool isPlaying;
-  final String imageUrl;
-  final String mediaUrl;
+  String mediaName;
+  bool isPlaying;
+  String imageUrl;
+  String mediaUrl;
   Player player = Player();
 
   MiniControllerModel({required this.mediaName, required this.isPlaying, required this.imageUrl, required this.mediaUrl});
@@ -32,16 +32,19 @@ class MiniControllerNotifier extends StateNotifier<MiniControllerModel> {
       : super(MiniControllerModel(mediaName: '', isPlaying: false, imageUrl: '', mediaUrl: ''));
 
   void updateMedia(String name, bool playing) {
-    state = state.copyWith(mediaName: name, isPlaying: playing);
+    // state = state.copyWith(mediaName: name, isPlaying: playing);
+    state.mediaName = name;
+    state.isPlaying = playing;
   }
 
-  Future<void> startPlay(BiliListItem selectedItem) async {
+  Future<void> startPlay(BilibiliListItem selectedItem) async {
     state = state.copyWith(isPlaying: !state.isPlaying);
     dynamic brief = await getMediaBrief(selectedItem.bvid); // data/cid
     String cid = brief['data']['cid'].toString();
     dynamic playUrls = await getPlayUrl(selectedItem.bvid, cid);
     await player.open(Media(playUrls['data']['dash']['audio'][0]['backupUrl'][0], httpHeaders: ApiConfig.headers));
     state = state.copyWith(isPlaying: true, imageUrl: selectedItem.coverUrl, mediaName: selectedItem.title);
+    updateMedia(selectedItem.title, true);
   }
 
   Future<void> togglePlayPause() async {
@@ -56,7 +59,7 @@ final miniControllerProvider =
 
 const miniControllerWidget = MiniControllerWidget();
 
-class MiniControllerWidget extends  ConsumerWidget {
+class MiniControllerWidget extends ConsumerWidget {
   const MiniControllerWidget({super.key});
 
 

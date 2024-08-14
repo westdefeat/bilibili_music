@@ -1,5 +1,5 @@
 
-class BiliListItem {
+class BilibiliListItem {
   final String title;
   final String coverUrl;
   final String intro;
@@ -10,7 +10,7 @@ class BiliListItem {
   final String type; // video id
   final String bvid; // bv id
 
-  BiliListItem(
+  BilibiliListItem(
       {required this.title,
       this.coverUrl = '',
       this.intro = '',
@@ -20,5 +20,6 @@ class BiliListItem {
       this.id = '',
       this.type = '2',
       this.bvid = ''});
+  
 }
 

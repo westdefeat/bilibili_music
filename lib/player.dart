@@ -11,7 +11,7 @@ bool showPlayerController = false;
 
 final Player player = Player();
 class ControllerPage extends StatefulWidget {
-  final BiliListItem selectedItem;
+  final BilibiliListItem selectedItem;
 
   ControllerPage({required this.selectedItem});
 

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_kit/media_kit.dart';
 
+import 'views/bilibili_list_view.dart';
+
 void main() {
   runApp(const ProviderScope(child: MyApp()));
 }
@@ -66,9 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<Widget> _widgetOptions = [
     homePage,
-    const FavorPage(
-      title: '我的收藏',
-    ),
+    FavListPage(),
   ];
 
   void _onItemTapped(int index) {

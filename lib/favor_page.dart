@@ -11,6 +11,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
 
+import 'common_list.dart';
 import 'controllers/home_page_notifier.dart';
 import 'models/BilibiliListItem.dart';
 
@@ -29,7 +30,7 @@ class FavorPage extends StatefulWidget {
 class _FavorPageState extends State<FavorPage> {
   bool firstLoad = true;
   bool isSelectionMode = false;
-  List<BiliListItem> _cachedItems = [];
+  List<BilibiliListItem> _cachedItems = [];
   Set<int> selectedIndices = {};
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _introController = TextEditingController();
@@ -43,19 +44,19 @@ class _FavorPageState extends State<FavorPage> {
     _focusNode.requestFocus();
   }
 
-  Future<List<BiliListItem>> loadJson() async {
+  Future<List<BilibiliListItem>> loadJson() async {
     if (firstLoad) {
       firstLoad = false;
 
       dynamic data = await fetchFavList();
       List<dynamic> dataList = data['data']['list'];
-      List<BiliListItem> items = [];
+      List<BilibiliListItem> items = [];
       for (var jsonItem in dataList) {
         String id = jsonItem['id'].toString();
         dynamic detailJson =
             await fetchFavInfo(id); // load detail JSON for each item
 
-        BiliListItem item = BiliListItem(
+        BilibiliListItem item = BilibiliListItem(
             title: jsonItem['title'],
             coverUrl: detailJson['data']['cover'],
             intro: detailJson['data']['intro'],
@@ -120,7 +121,7 @@ class _FavorPageState extends State<FavorPage> {
                     if (data['code'] == 0) {
                       print(data);
                       print(_cachedItems[0].media_ids);
-                      _cachedItems.add(BiliListItem(
+                      _cachedItems.add(BilibiliListItem(
                           title: _nameController.text,
                           intro: _introController.text,
                           mediaCount: 0,
@@ -193,7 +194,7 @@ class _FavorPageState extends State<FavorPage> {
 
   final Map<String, GlobalKey<_DetailedPageState>> _pageStateKeys = {};
 
-  void _navigateToDetailPage(BuildContext context, BiliListItem item) {
+  void _navigateToDetailPage(BuildContext context, BilibiliListItem item) {
     if (!_pageStateKeys.containsKey(item.media_ids)) {
       _pageStateKeys[item.media_ids] = GlobalKey<_DetailedPageState>();
     }
@@ -242,72 +243,67 @@ class _FavorPageState extends State<FavorPage> {
                     },
                   ),
                   if (isSelectionMode)
-                  IconButton(
-                    icon: Icon(Icons.delete),
-                    onPressed: () {
-                      // Add your onPressed code here!
-                      print('delete button pressed');
-                    },
-                  ),
-
-                  
+                    IconButton(
+                      icon: Icon(Icons.delete),
+                      onPressed: () {
+                        // Add your onPressed code here!
+                        print('delete button pressed');
+                      },
+                    ),
                 ],
               ),
-              body: PageStorage(
-                bucket: _bucket,
-                child: Stack(
-                  children: [
-                    RefreshIndicator(
-                      onRefresh: _handleRefresh,
-                      child: _cachedItems.isEmpty
-                          ? const Center(child: CircularProgressIndicator())
-                          : ListView.builder(
-                              itemCount: _cachedItems.length,
-                              itemBuilder: (context, index) {
-                                return ListTileWithImage(
-                                  onTap: () => {
-                                    if (isSelectionMode)
-                                      {toggleSelectionMode(index)}
-                                    else
-                                      {
-                                        _navigateToDetailPage(
-                                            context, _cachedItems[index])
-                                      }
-                                  },
-                                  onLongPress: () => toggleSelectionMode(index),
-                                  title: _cachedItems[index].title,
-                                  intro: _cachedItems[index].intro,
-                                  coverUrl: _cachedItems[index].coverUrl,
-                                  isSelected: selectedIndices.contains(index),
-                                );
-                              },
-                            ),
-                    ),
-                    if (isSelectionMode)
-                      Positioned(
-                        bottom: 16,
-                        left: 16,
-                        child: FloatingActionButton(
-                          heroTag: 'btn3',
-                          onPressed: deleteSelectedItems,
-                          backgroundColor: Colors.red,
-                          child: const Icon(Icons.delete),
-                        ),
+              body: Stack(
+                children: [
+                  RefreshIndicator(
+                    onRefresh: _handleRefresh,
+                    child: _cachedItems.isEmpty
+                        ? const Center(child: CircularProgressIndicator())
+                        : ListView.builder(
+                            itemCount: _cachedItems.length,
+                            itemBuilder: (context, index) {
+                              return ListTileWithImage(
+                                onTap: () => {
+                                  if (isSelectionMode)
+                                    {toggleSelectionMode(index)}
+                                  else
+                                    {
+                                      _navigateToDetailPage(
+                                          context, _cachedItems[index])
+                                    }
+                                },
+                                onLongPress: () => toggleSelectionMode(index),
+                                title: _cachedItems[index].title,
+                                intro: _cachedItems[index].intro,
+                                coverUrl: _cachedItems[index].coverUrl,
+                                isSelected: selectedIndices.contains(index),
+                              );
+                            },
+                          ),
+                  ),
+                  if (isSelectionMode)
+                    Positioned(
+                      bottom: 16,
+                      left: 16,
+                      child: FloatingActionButton(
+                        heroTag: 'btn3',
+                        onPressed: deleteSelectedItems,
+                        backgroundColor: Colors.red,
+                        child: const Icon(Icons.delete),
                       ),
-                    if (showPlayerController)
-                      Positioned(
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        child: FloatingActionButton(
-                          heroTag: 'deleteSelectedItems',
-                          onPressed: deleteSelectedItems,
-                          backgroundColor: Colors.blueGrey,
-                          child: MiniControllerWidget(),
-                        ),
-                      )
-                  ],
-                ),
+                    ),
+                  if (showPlayerController)
+                    Positioned(
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      child: FloatingActionButton(
+                        heroTag: 'deleteSelectedItems',
+                        onPressed: deleteSelectedItems,
+                        backgroundColor: Colors.blueGrey,
+                        child: MiniControllerWidget(),
+                      ),
+                    )
+                ],
               ),
               floatingActionButton: isSelectionMode
                   ? FloatingActionButton(
@@ -324,14 +320,16 @@ class _FavorPageState extends State<FavorPage> {
   }
 }
 
-Map<String, List<BiliListItem>> _detailedPageMediaList = {};
+Map<String, List<BilibiliListItem>> detailedPageMediaList = {};
+Map<String, List<BilibiliListItem>> favList = {};
+Map<String, FavMediaListPage> mediaList = {};
 
 class DetailedPage extends ConsumerStatefulWidget {
-  final BiliListItem selectedItem;
+  final BilibiliListItem selectedItem;
 
   DetailedPage({Key? key, required this.selectedItem}) : super(key: key) {
-    if (!_detailedPageMediaList.containsKey(selectedItem.media_ids)) {
-      _detailedPageMediaList[selectedItem.media_ids] = [];
+    if (!detailedPageMediaList.containsKey(selectedItem.media_ids)) {
+      detailedPageMediaList[selectedItem.media_ids] = [];
     }
   }
 
@@ -351,14 +349,14 @@ class _DetailedPageState extends ConsumerState<DetailedPage> {
   void initState() {
     super.initState();
     bool useCache =
-        _detailedPageMediaList[widget.selectedItem.media_ids]!.isNotEmpty;
+        detailedPageMediaList[widget.selectedItem.media_ids]!.isNotEmpty;
     _loadLists(useCache: useCache);
     _focusNode.requestFocus();
   }
 
-  Future<List<BiliListItem>> _loadLists({bool useCache = false}) async {
-    List<BiliListItem> cachedItems =
-        _detailedPageMediaList[widget.selectedItem.media_ids]!;
+  Future<List<BilibiliListItem>> _loadLists({bool useCache = false}) async {
+    List<BilibiliListItem> cachedItems =
+        detailedPageMediaList[widget.selectedItem.media_ids]!;
     if (useCache) {
       setState(() {
         _loading = false;
@@ -376,7 +374,7 @@ class _DetailedPageState extends ConsumerState<DetailedPage> {
     List<dynamic> dataList = jsonData['data']['medias'] ?? [];
 
     for (var jsonItem in dataList) {
-      BiliListItem item = BiliListItem(
+      BilibiliListItem item = BilibiliListItem(
         title: jsonItem['title'],
         coverUrl: jsonItem['cover'],
         intro: jsonItem['intro'],
@@ -413,8 +411,8 @@ class _DetailedPageState extends ConsumerState<DetailedPage> {
   }
 
   void deleteSelectedItems() async {
-    List<BiliListItem> cachedItems =
-        _detailedPageMediaList[widget.selectedItem.media_ids]!;
+    List<BilibiliListItem> cachedItems =
+        detailedPageMediaList[widget.selectedItem.media_ids]!;
 
     dynamic resources = 'resources=';
     for (int element in selectedIndices) {
@@ -436,8 +434,8 @@ class _DetailedPageState extends ConsumerState<DetailedPage> {
 
   @override
   Widget build(BuildContext context) {
-    List<BiliListItem> cachedItems =
-        _detailedPageMediaList[widget.selectedItem.media_ids]!;
+    List<BilibiliListItem> cachedItems =
+        detailedPageMediaList[widget.selectedItem.media_ids]!;
     return GestureDetector(
         onTap: () {
           isSelectionMode = false;
@@ -490,7 +488,7 @@ class _DetailedPageState extends ConsumerState<DetailedPage> {
                                       ref
                                           .read(miniControllerProvider.notifier)
                                           .startPlay(cachedItems[index]),
-                                      ref.read(homePageProvider.notifier).updateMedia(true),
+                            
                                       setState(() {
                                         showPlayerController = true;
                                       }),
@@ -536,5 +534,199 @@ class _DetailedPageState extends ConsumerState<DetailedPage> {
               bottomNavigationBar:
                   _loading ? const LinearProgressIndicator() : null,
             )));
+  }
+}
+
+class FavListPage extends ConsumerStatefulWidget {
+  BilibiliListItem selectedItem =
+      BilibiliListItem(title: '我的收藏', media_ids: 'fav');
+  // Function loadLists;
+  // Function deleteSelectedItems;
+//   Function onItemSelected;
+//  Map<String, List<BilibiliListItem>> cachedLists;
+  FavListPage();
+
+  @override
+  FavListPageState createState() => FavListPageState();
+}
+class FavListPageState extends ConsumerState<FavListPage> {
+  bool _loading = false;
+  int _page = 1;
+  bool firstLoad = true;
+  bool isSelectionMode = false;
+  Set<int> selectedIndices = {};
+
+  Future<void> loadLists(
+      {required Map<String, List<BilibiliListItem>> cachedLists}) async {
+    dynamic data = await fetchFavList();
+    List<dynamic> dataList = data['data']['list'];
+    // List<BilibiliListItem> items = [];
+    for (var jsonItem in dataList) {
+      String id = jsonItem['id'].toString();
+      dynamic detailJson =
+          await fetchFavInfo(id); // load detail JSON for each item
+
+      BilibiliListItem item = BilibiliListItem(
+          title: jsonItem['title'],
+          coverUrl: detailJson['data']['cover'],
+          intro: detailJson['data']['intro'],
+          mediaCount: detailJson['data']['media_count'],
+          media_ids: id);
+      cachedLists[widget.selectedItem.media_ids]?.add(item);
+    }
+  //   BilibiliListItem item = BilibiliListItem(title: 'xxx', mediaCount: 0, media_ids: 'xxxxx', coverUrl: 'xxx', intro: 'xxx');
+  //   //  sleep(Duration(seconds: 1));
+  // cachedLists[widget.selectedItem.media_ids]?.add(item);
+
+    // print(cachedLists[widget.selectedItem.media_ids]);
+    setState(() {});
+  }
+
+  void deleteSelectedItems(Map<String, List<BilibiliListItem>> cachedLists,
+      Set<int> selectedIndices) async {
+    dynamic cachedItems = cachedLists[widget.selectedItem.media_ids];
+    for (int element in selectedIndices) {
+      dynamic res = await removeFav(cachedItems[element].media_ids);
+      print(res);
+    }
+
+    for (int index in selectedIndices.toList()
+      ..sort((a, b) => b.compareTo(a))) {
+      cachedItems.removeAt(index);
+    }
+    selectedIndices.clear();
+    isSelectionMode = false;
+    setState(() {
+      isSelectionMode = false;
+    });
+  }
+
+  void onItemTapped(BuildContext context, BilibiliListItem item) {
+    if (!mediaList.containsKey(item.media_ids)) {
+      mediaList[item.media_ids] = FavMediaListPage(selectedItem: item,);
+    }
+    // // print(mediaList);
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => mediaList[item.media_ids]!
+        // builder: (context) =>  FavMediaListPage(selectedItem: item,)
+      ),
+    ).then((result) {
+      setState(() {});
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return CommonListPage(
+        selectedItem: widget.selectedItem,
+        cachedLists: favList,
+        loadLists: loadLists,
+        deleteSelectedItems: deleteSelectedItems,
+        onItemSelected: onItemTapped);
+  }
+}
+
+
+class FavMediaListPage extends ConsumerStatefulWidget {
+  BilibiliListItem selectedItem ;
+  // Function loadLists;
+  // Function deleteSelectedItems;
+//   Function onItemSelected;
+//  Map<String, List<BilibiliListItem>> cachedLists;
+  FavMediaListPage({required this.selectedItem}) {
+    if (!favList.containsKey(selectedItem.media_ids)) {
+      favList[selectedItem.media_ids] = [];
+    }
+  }
+
+  @override
+  FavMediaListPageState createState() => FavMediaListPageState();
+}
+class FavMediaListPageState extends ConsumerState<FavMediaListPage> {
+  bool _loading = false;
+  int _page = 1;
+  bool firstLoad = true;
+  bool isSelectionMode = false;
+  Set<int> selectedIndices = {};
+
+  Future<void> loadLists(
+      {required Map<String, List<BilibiliListItem>> cachedLists}) async {
+    List<BilibiliListItem> cachedItems =
+        cachedLists[widget.selectedItem.media_ids]!;
+
+    // 此处setState将导致报错
+    // setState(() {
+    // });
+
+    dynamic jsonData = await getFavouredMediaList(widget.selectedItem.media_ids,
+        pageNumber: _page++);
+    print('jsonData: ${jsonData}');
+
+    List<dynamic> dataList = jsonData['data']['medias'] ?? [];
+    for (var jsonItem in dataList) {
+      BilibiliListItem item = BilibiliListItem(
+        title: jsonItem['title'],
+        coverUrl: jsonItem['cover'],
+        intro: jsonItem['intro'],
+        id: jsonItem['id'].toString(),
+        type: jsonItem['type'].toString(),
+        bvid: jsonItem['bvid'].toString(),
+      );
+      cachedLists[widget.selectedItem.media_ids]?.add(item);
+    }
+
+    setState(() {
+      _loading = false;
+    });
+
+  }
+
+  void deleteSelectedItems(Map<String, List<BilibiliListItem>> cachedLists,
+      Set<int> selectedIndices) async {
+        print('deleteSelectedItems');
+    List<BilibiliListItem> cachedItems =
+        cachedLists[widget.selectedItem.media_ids]!;
+
+    dynamic resources = 'resources=';
+    for (int element in selectedIndices) {
+      resources += '${cachedItems[element].id}:${cachedItems[element].type},';
+    }
+
+    await removeBatchFromFav(widget.selectedItem.media_ids, resources);
+    for (int index in selectedIndices.toList()
+      ..sort((a, b) => b.compareTo(a))) {
+      cachedItems.removeAt(index);
+    }
+    widget.selectedItem.mediaCount -= selectedIndices.length;
+    selectedIndices.clear();
+    isSelectionMode = false;
+    setState(() {
+      isSelectionMode = false;
+    });
+  }
+
+  void onItemTapped(BuildContext context, BilibiliListItem item, Map<String, List<BilibiliListItem>>? cachedLists, int? index) {
+        print('onItemTapped');
+
+    List<BilibiliListItem> cachedItems = cachedLists![widget.selectedItem.media_ids]!;
+    ref
+      .read(miniControllerProvider.notifier)
+      .startPlay(cachedItems[index!]);
+      setState(() {
+        showPlayerController = true;
+      });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return CommonListPage(
+        selectedItem: widget.selectedItem,
+        cachedLists: favList,
+        loadLists: loadLists,
+        deleteSelectedItems: deleteSelectedItems,
+        onItemSelected: onItemTapped);
   }
 }
