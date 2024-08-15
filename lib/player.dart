@@ -24,6 +24,7 @@ class _ControllerPageState extends State<ControllerPage> {
   bool isPlaying = false;
   late String audioPlayUrl = '';
 
+  
   void loadMedia() async {
     dynamic brief = await getMediaBrief(widget.selectedItem.bvid); // data/cid
     String cid = brief['data']['cid'].toString();
@@ -40,6 +41,18 @@ class _ControllerPageState extends State<ControllerPage> {
     // Play a [Media] or [Playlist].
     loadMedia();
     showPlayerController |= true;
+    player.stream.playing.listen(
+      (bool playing) {
+        if (playing) {
+          setState(() {
+            isPlaying = true;
+          });
+        } else {
+          // Paused.
+            isPlaying = false;
+        }
+      },
+    );
   }
 
   void togglePlayPause() {

@@ -3,6 +3,7 @@ import 'package:bilibili_music/player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
+import 'package:media_kit/media_kit.dart';
 import 'dart:convert';
 
 import '../controllers/home_page_notifier.dart';
@@ -12,7 +13,11 @@ HomePage homePage = HomePage();
 class HomePage extends ConsumerWidget {
   HomePage({
     super.key,
-  });
+    
+
+  }) {
+
+  }
   
   final List<String> items = [];
   final  bool isLoading = true;
@@ -92,7 +97,7 @@ class HomePage extends ConsumerWidget {
               ],
             ),
           ),
-          if (homePageState.showMiniController)
+          // if (homePageState.showMiniController)
             const Positioned(
               left: 0,
               right: 0,

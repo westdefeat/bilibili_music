@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bilibili_music/bilibili_api/bilibili_core.dart';
 import 'package:bilibili_music/bilibili_api/bilibli_api.dart';
 import 'package:bilibili_music/player.dart';
@@ -8,6 +10,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_kit/media_kit.dart';
 
 import 'models/BilibiliListItem.dart';
+import 'views/home_page.dart';
+
+
 class MiniControllerModel {
   String mediaName;
   bool isPlaying;
@@ -29,28 +34,40 @@ class MiniControllerModel {
 
 class MiniControllerNotifier extends StateNotifier<MiniControllerModel> {
   MiniControllerNotifier()
-      : super(MiniControllerModel(mediaName: '', isPlaying: false, imageUrl: '', mediaUrl: ''));
+      : super(MiniControllerModel(mediaName: '', isPlaying: false, imageUrl: '', mediaUrl: '')) {
+        player.stream.playing.listen(
+  (bool playing) {
+        // final miniController = ref.watch(miniControllerProvider);
+        if (!playing) {
+          // This allows us to create a new instance of the model with updated fields, which is crucial for triggering state updates in Riverpod.
+          state = state.copyWith(isPlaying: false);
+        }
+  },
+);
+      }
 
-  void updateMedia(String name, bool playing) {
-    // state = state.copyWith(mediaName: name, isPlaying: playing);
-    state.mediaName = name;
-    state.isPlaying = playing;
-  }
 
   Future<void> startPlay(BilibiliListItem selectedItem) async {
-    state = state.copyWith(isPlaying: !state.isPlaying);
+    // state = state.copyWith(isPlaying: true);
     dynamic brief = await getMediaBrief(selectedItem.bvid); // data/cid
     String cid = brief['data']['cid'].toString();
     dynamic playUrls = await getPlayUrl(selectedItem.bvid, cid);
     await player.open(Media(playUrls['data']['dash']['audio'][0]['backupUrl'][0], httpHeaders: ApiConfig.headers));
     state = state.copyWith(isPlaying: true, imageUrl: selectedItem.coverUrl, mediaName: selectedItem.title);
-    updateMedia(selectedItem.title, true);
   }
+
+
 
   Future<void> togglePlayPause() async {
      state = state.copyWith(isPlaying: !state.isPlaying);
      player.playOrPause();
   }
+
+  Future<void> updatePlayingStatus(bool isPlaying) async {
+     state = state.copyWith(isPlaying: !state.isPlaying);
+  }
+
+  
 }
 
 final miniControllerProvider =
@@ -66,7 +83,9 @@ class MiniControllerWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final miniController = ref.watch(miniControllerProvider);
-    
+    final isPlaying = ref.watch(miniControllerProvider).isPlaying;
+    print("build");
+
     return Container(
       width: MediaQuery.of(context).size.width,
       height: kToolbarHeight, // Set height same as the navigation bar
@@ -90,7 +109,7 @@ class MiniControllerWidget extends ConsumerWidget {
           ),
           IconButton(
             icon: Icon(
-              miniController.isPlaying ? Icons.pause : Icons.play_arrow,
+              isPlaying ? Icons.pause : Icons.play_arrow,
               color: Colors.white,
             ),
             onPressed: ref.read(miniControllerProvider.notifier).togglePlayPause,

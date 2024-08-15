@@ -159,7 +159,7 @@ class CommonListPageState extends ConsumerState<CommonListPage> {
                           // Center(child: Text('No items available'))
                         ),
                   
-                  if (miniControllerNotifier.isPlaying)
+                  // if (miniControllerNotifier.isPlaying)
                     const Positioned(
                       left: 0,
                       right: 0,

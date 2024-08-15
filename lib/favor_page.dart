@@ -488,7 +488,6 @@ class _DetailedPageState extends ConsumerState<DetailedPage> {
                                       ref
                                           .read(miniControllerProvider.notifier)
                                           .startPlay(cachedItems[index]),
-                            
                                       setState(() {
                                         showPlayerController = true;
                                       }),
@@ -547,11 +546,11 @@ class FavListPage extends ConsumerStatefulWidget {
   List<BilibiliListItem> cacheItems = [];
   bool firstLoad = true;
   FavListPage();
-  
 
   @override
   FavListPageState createState() => FavListPageState();
 }
+
 class FavListPageState extends ConsumerState<FavListPage> {
   bool _loading = false;
   int _page = 1;
@@ -560,13 +559,14 @@ class FavListPageState extends ConsumerState<FavListPage> {
   Set<int> selectedIndices = {};
 
   Future<void> loadLists(
-      {required List<BilibiliListItem> cachedLists, bool? initialize=false}) async {
-        print("widget.firstLoad == ${widget.firstLoad}");
-        print("initialize == ${initialize}");
-        if (widget.firstLoad == false && initialize == true) {
+      {required List<BilibiliListItem> cachedLists,
+      bool? initialize = false}) async {
+    print("widget.firstLoad == ${widget.firstLoad}");
+    print("initialize == ${initialize}");
+    if (widget.firstLoad == false && initialize == true) {
       return;
     }
-   widget.firstLoad = false;
+    widget.firstLoad = false;
     dynamic data = await fetchFavList();
     List<dynamic> dataList = data['data']['list'];
     // List<BilibiliListItem> items = [];
@@ -583,16 +583,16 @@ class FavListPageState extends ConsumerState<FavListPage> {
           media_ids: id);
       cachedLists.add(item);
     }
-  //   BilibiliListItem item = BilibiliListItem(title: 'xxx', mediaCount: 0, media_ids: 'xxxxx', coverUrl: 'xxx', intro: 'xxx');
-  //   //  sleep(Duration(seconds: 1));
-  // cachedLists[widget.selectedItem.media_ids]?.add(item);
+    //   BilibiliListItem item = BilibiliListItem(title: 'xxx', mediaCount: 0, media_ids: 'xxxxx', coverUrl: 'xxx', intro: 'xxx');
+    //   //  sleep(Duration(seconds: 1));
+    // cachedLists[widget.selectedItem.media_ids]?.add(item);
 
     // print(cachedLists[widget.selectedItem.media_ids]);
     setState(() {});
   }
 
-  void deleteSelectedItems(List<BilibiliListItem> cachedLists,
-      Set<int> selectedIndices) async {
+  void deleteSelectedItems(
+      List<BilibiliListItem> cachedLists, Set<int> selectedIndices) async {
     dynamic cachedItems = cachedLists;
     for (int element in selectedIndices) {
       dynamic res = await removeFav(cachedItems[element].media_ids);
@@ -612,16 +612,17 @@ class FavListPageState extends ConsumerState<FavListPage> {
 
   void onItemTapped(BuildContext context, BilibiliListItem item) {
     if (!mediaList.containsKey(item.media_ids)) {
-      mediaList[item.media_ids] = FavMediaListPage(selectedItem: item,);
+      mediaList[item.media_ids] = FavMediaListPage(
+        selectedItem: item,
+      );
     }
     // // print(mediaList);
     print(mediaList[item.media_ids]!.firstLoad);
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (context) => mediaList[item.media_ids]!
-        // builder: (context) =>  FavMediaListPage(selectedItem: item,)
-      ),
+      MaterialPageRoute(builder: (context) => mediaList[item.media_ids]!
+          // builder: (context) =>  FavMediaListPage(selectedItem: item,)
+          ),
     ).then((result) {
       setState(() {});
     });
@@ -638,14 +639,13 @@ class FavListPageState extends ConsumerState<FavListPage> {
   }
 }
 
-
 class FavMediaListPage extends ConsumerStatefulWidget {
-  BilibiliListItem selectedItem ;
+  BilibiliListItem selectedItem;
   // Function loadLists;
   // Function deleteSelectedItems;
 //   Function onItemSelected;
 //  Map<String, List<BilibiliListItem>> cachedLists;
-    List<BilibiliListItem> cachedItems = [];
+  List<BilibiliListItem> cachedItems = [];
   bool firstLoad = true;
 
   FavMediaListPage({required this.selectedItem}) {
@@ -658,20 +658,20 @@ class FavMediaListPage extends ConsumerStatefulWidget {
   @override
   FavMediaListPageState createState() => FavMediaListPageState();
 }
+
 class FavMediaListPageState extends ConsumerState<FavMediaListPage> {
   bool _loading = false;
   int _page = 1;
   bool isSelectionMode = false;
   Set<int> selectedIndices = {};
 
-
   Future<void> loadLists(
-      {required List<BilibiliListItem> cachedLists, bool? initialize=false}) async {
+      {required List<BilibiliListItem> cachedLists,
+      bool? initialize = false}) async {
     if (widget.firstLoad == false && initialize == true) {
       return;
     }
-   widget.firstLoad = false;
-       
+    widget.firstLoad = false;
 
     // 此处setState将导致报错
     // setState(() {
@@ -696,12 +696,11 @@ class FavMediaListPageState extends ConsumerState<FavMediaListPage> {
     setState(() {
       _loading = false;
     });
-
   }
 
-  void deleteSelectedItems(List<BilibiliListItem> cachedLists,
-      Set<int> selectedIndices) async {
-        print('deleteSelectedItems');
+  void deleteSelectedItems(
+      List<BilibiliListItem> cachedLists, Set<int> selectedIndices) async {
+    print('deleteSelectedItems');
     List<BilibiliListItem> cachedItems = cachedLists;
 
     dynamic resources = 'resources=';
@@ -723,15 +722,12 @@ class FavMediaListPageState extends ConsumerState<FavMediaListPage> {
   }
 
   void onItemTapped(BuildContext context, BilibiliListItem item) {
-        print('onItemTapped');
+    print('onItemTapped');
 
     // List<BilibiliListItem> cachedItems = cachedLists!;
-    ref
-      .read(miniControllerProvider.notifier)
-      .startPlay(item);
-      setState(() {
-        showPlayerController = true;
-      });
+    ref.read(miniControllerProvider.notifier).startPlay(item);
+    setState(() {
+    });
   }
 
   @override
@@ -744,5 +740,3 @@ class FavMediaListPageState extends ConsumerState<FavMediaListPage> {
         onItemSelected: onItemTapped);
   }
 }
-
-
