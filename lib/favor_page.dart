@@ -323,6 +323,7 @@ class _FavorPageState extends State<FavorPage> {
 Map<String, List<BilibiliListItem>> detailedPageMediaList = {};
 Map<String, List<BilibiliListItem>> favList = {};
 Map<String, FavMediaListPage> mediaList = {};
+Map<String, SearchMediaListPage> searchMediaList = {};
 
 class DetailedPage extends ConsumerStatefulWidget {
   final BilibiliListItem selectedItem;
@@ -719,6 +720,88 @@ class FavMediaListPageState extends ConsumerState<FavMediaListPage> {
     setState(() {
       isSelectionMode = false;
     });
+  }
+
+  void onItemTapped(BuildContext context, BilibiliListItem item) {
+    print('onItemTapped');
+
+    // List<BilibiliListItem> cachedItems = cachedLists!;
+    ref.read(miniControllerProvider.notifier).startPlay(item);
+    setState(() {
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return CommonListPage(
+        selectedItem: widget.selectedItem,
+        cachedLists: widget.cachedItems,
+        loadLists: loadLists,
+        deleteSelectedItems: deleteSelectedItems,
+        onItemSelected: onItemTapped);
+  }
+}
+
+
+class SearchMediaListPage extends ConsumerStatefulWidget {
+  BilibiliListItem selectedItem;
+  // Function loadLists;
+  // Function deleteSelectedItems;
+//   Function onItemSelected;
+//  Map<String, List<BilibiliListItem>> cachedLists;
+  List<BilibiliListItem> cachedItems = [];
+  bool firstLoad = true;
+
+  SearchMediaListPage({required this.selectedItem}) {
+
+  }
+
+  @override
+  SearchMediaListPageState createState() => SearchMediaListPageState();
+}
+
+class SearchMediaListPageState extends ConsumerState<SearchMediaListPage> {
+  bool _loading = false;
+  int _page = 1;
+  bool isSelectionMode = false;
+  Set<int> selectedIndices = {};
+
+  Future<void> loadLists(
+      {required List<BilibiliListItem> cachedLists,
+      bool? initialize = false}) async {
+    if (widget.firstLoad == false && initialize == true) {
+      return;
+    }
+    widget.firstLoad = false;
+
+    // 此处setState将导致报错
+    // setState(() {
+    // });
+
+    dynamic jsonData = await getSearchResults(widget.selectedItem.media_ids,
+        page: _page++);
+
+    List<dynamic> dataList = jsonData['data']['result'] ?? [];
+    for (var jsonItem in dataList) {
+      BilibiliListItem item = BilibiliListItem(
+        title: jsonItem['title'],
+        coverUrl: jsonItem['pic'],
+        intro: jsonItem['description'],
+        id: jsonItem['id'].toString(),
+        type: jsonItem['type'].toString(),
+        bvid: jsonItem['bvid'].toString(),
+      );
+      cachedLists.add(item);
+    }
+
+    setState(() {
+      _loading = false;
+    });
+  }
+
+  void deleteSelectedItems(
+      List<BilibiliListItem> cachedLists, Set<int> selectedIndices) async {
+    
   }
 
   void onItemTapped(BuildContext context, BilibiliListItem item) {

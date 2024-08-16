@@ -247,13 +247,14 @@ Future<dynamic> getPlayUrl(String bvid, String cid,
   return data;
 }
 
-Future<dynamic> getSearchResults(String keyword) async {
+Future<dynamic> getSearchResults(String keyword, {int? page=1, String? searchType='video'}) async {
   var queryParams = {
     "keyword": keyword,
-
+    "search_type": searchType.toString(),
+    "page": page.toString()
   };
   var data =
-      await requestBilibili(HttpMethod.get, ApiEndpoints.search, queryParams);
+      await requestBilibili(HttpMethod.get, ApiEndpoints.classifiedSearch, queryParams);
   if (data != null) {
     printResponse(data, getCurrentFunctionName() + '.json');
   }
@@ -275,5 +276,5 @@ void main() async {
   // getPageList('BV1cs411v7xr');
   // getMediaBrief('BV1cs411v7xr');
   // getPlayUrl('BV1cs411v7xr', '8177639');
-  getSearchResults('周杰伦');
+  getSearchResults('鸿雁', page: 1);
 }
