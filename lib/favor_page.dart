@@ -677,7 +677,7 @@ class FavMediaListPageState extends ConsumerState<FavMediaListPage> {
     // 此处setState将导致报错
     // setState(() {
     // });
-
+  print('getFavouredMediaList');
     dynamic jsonData = await getFavouredMediaList(widget.selectedItem.media_ids,
         pageNumber: _page++);
 
@@ -777,20 +777,27 @@ class SearchMediaListPageState extends ConsumerState<SearchMediaListPage> {
     // 此处setState将导致报错
     // setState(() {
     // });
-
+  print('getSearchResults');
     dynamic jsonData = await getSearchResults(widget.selectedItem.media_ids,
         page: _page++);
+  widget.selectedItem.mediaCount = jsonData['data']['numResults'];
 
+    String removeContentsInAngleBrackets(String input) {
+    // Regular expression to match content within angle brackets
+    final RegExp regExp = RegExp(r'<[^>]*>');
+    return input.replaceAll(regExp, '');
+  }
     List<dynamic> dataList = jsonData['data']['result'] ?? [];
     for (var jsonItem in dataList) {
       BilibiliListItem item = BilibiliListItem(
-        title: jsonItem['title'],
-        coverUrl: jsonItem['pic'],
+        title: removeContentsInAngleBrackets(jsonItem['title']),
+        coverUrl: jsonItem['pic'].toString().startsWith('http') ? jsonItem['pic'].toString() : "https:" + jsonItem['pic'],
         intro: jsonItem['description'],
         id: jsonItem['id'].toString(),
         type: jsonItem['type'].toString(),
         bvid: jsonItem['bvid'].toString(),
       );
+      print(item.coverUrl);
       cachedLists.add(item);
     }
 

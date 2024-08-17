@@ -3,26 +3,26 @@
   "message": "0",
   "ttl": 1,
   "data": {
-    "bvid": "BV1a64y1m7XZ",
-    "aid": 757636089,
+    "bvid": "BV1GA411V7PJ",
+    "aid": 332676664,
     "videos": 1,
-    "tid": 130,
-    "tname": "音乐综合",
-    "copyright": 1,
-    "pic": "http://i2.hdslb.com/bfs/archive/ae50caaf7e7bd6cb54c99cb845fd8ec7bb7e0d7d.jpg",
-    "title": "降央卓玛不愧为最美女中音，一首《鸿雁》唱得悠远蜿蜒，直抵内心",
-    "pubdate": 1618993180,
-    "ctime": 1618993180,
-    "desc": "降央卓玛不愧为最美女中音，一首《鸿雁》唱得悠远蜿蜒，直抵内心",
+    "tid": 29,
+    "tname": "音乐现场",
+    "copyright": 2,
+    "pic": "http://i2.hdslb.com/bfs/archive/72a008019f2eda1d596cd4ca14d99085e34a394a.png",
+    "title": "【谭咏麟】4K 一首歌一个故事 (Live'94)  ['94纯金曲演唱会·香港大球场]",
+    "pubdate": 1619177122,
+    "ctime": 1619177123,
+    "desc": "转自百度贴吧ID：whatiswww\n搬运工就有搬运工的样子，这不是自己的东西，一定要感谢原作者：百度贴吧的吧友3w辛苦修复LD碟转模拟4K提升！谢谢！1994年的今天，4月23日，是第二场也就是大家熟悉的录影场演出！27年过去了，这场演唱会地位依旧超然，堪称“华语乐坛最震撼的演唱会之一”，观众高达4万人满座！在那时候是个创举！乐队水准，校长的发挥，全都是殿堂级，已载入中文音乐史册重要的一页！本曲目只在卡拉OK影碟产品和CD唱片出现，所以带卡拉OK大字幕，没有欣赏版本。",
     "desc_v2": [
       {
-        "raw_text": "降央卓玛不愧为最美女中音，一首《鸿雁》唱得悠远蜿蜒，直抵内心",
+        "raw_text": "转自百度贴吧ID：whatiswww\n搬运工就有搬运工的样子，这不是自己的东西，一定要感谢原作者：百度贴吧的吧友3w辛苦修复LD碟转模拟4K提升！谢谢！1994年的今天，4月23日，是第二场也就是大家熟悉的录影场演出！27年过去了，这场演唱会地位依旧超然，堪称“华语乐坛最震撼的演唱会之一”，观众高达4万人满座！在那时候是个创举！乐队水准，校长的发挥，全都是殿堂级，已载入中文音乐史册重要的一页！本曲目只在卡拉OK影碟产品和CD唱片出现，所以带卡拉OK大字幕，没有欣赏版本。",
         "type": 1,
         "biz_id": 0
       }
     ],
     "state": 0,
-    "duration": 255,
+    "duration": 284,
     "rights": {
       "bp": 0,
       "elec": 0,
@@ -30,7 +30,7 @@
       "movie": 0,
       "pay": 0,
       "hd5": 1,
-      "no_reprint": 1,
+      "no_reprint": 0,
       "autoplay": 1,
       "ugc_pay": 0,
       "is_cooperation": 0,
@@ -44,21 +44,21 @@
       "free_watch": 0
     },
     "owner": {
-      "mid": 675788113,
-      "name": "听音阅影",
-      "face": "http://i1.hdslb.com/bfs/face/27e4fae7c3db1435f5eea93006de1f9fb42c08b0.jpg"
+      "mid": 82185527,
+      "name": "E楼前座MF_哆啦A滔",
+      "face": "https://i2.hdslb.com/bfs/face/af8531f89f85388812b0ad477df0d2a7f0c6d93c.jpg"
     },
     "stat": {
-      "aid": 757636089,
-      "view": 329559,
-      "danmaku": 165,
-      "reply": 129,
-      "favorite": 3251,
-      "coin": 422,
-      "share": 964,
+      "aid": 332676664,
+      "view": 97952,
+      "danmaku": 198,
+      "reply": 159,
+      "favorite": 1377,
+      "coin": 459,
+      "share": 697,
       "now_rank": 0,
       "his_rank": 0,
-      "like": 3009,
+      "like": 1467,
       "dislike": 0,
       "evaluation": "",
       "vt": 0
@@ -69,10 +69,10 @@
       "argue_link": ""
     },
     "dynamic": "",
-    "cid": 327186639,
+    "cid": 328022992,
     "dimension": {
-      "width": 1920,
-      "height": 1080,
+      "width": 2880,
+      "height": 2160,
       "rotate": 0
     },
     "premiere": null,
@@ -87,16 +87,16 @@
     "no_cache": false,
     "pages": [
       {
-        "cid": 327186639,
+        "cid": 328022992,
         "page": 1,
         "from": "vupload",
-        "part": "降央卓玛不愧为最美女中音，一首《鸿雁》唱得悠远蜿蜒，直抵内心",
-        "duration": 255,
+        "part": "一首歌一个故事",
+        "duration": 284,
         "vid": "",
         "weblink": "",
         "dimension": {
-          "width": 1920,
-          "height": 1080,
+          "width": 2880,
+          "height": 2160,
           "rotate": 0
         }
       }

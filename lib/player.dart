@@ -1,71 +1,43 @@
-
 import 'package:bilibili_music/bilibili_api/bilibli_api.dart';
 import 'package:bilibili_music/utils.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_kit/media_kit.dart';
 
 import 'bilibili_api/bilibili_core.dart';
-import 'models/BilibiliListItem.dart';       
+import 'minicontroller.dart';
+import 'models/BilibiliListItem.dart';
 
 bool showPlayerController = false;
 
 final Player player = Player();
-class ControllerPage extends StatefulWidget {
-  final BilibiliListItem selectedItem;
 
-  ControllerPage({required this.selectedItem});
+const playerDetailPage = PlayerDetailPage();
 
+class PlayerDetailPage extends ConsumerWidget {
 
-  @override
-  _ControllerPageState createState() => _ControllerPageState();
-}
+  const PlayerDetailPage();
 
-class _ControllerPageState extends State<ControllerPage> {
-  bool isPlaying = false;
-  late String audioPlayUrl = '';
+ @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final miniController = ref.watch(miniControllerProvider);
+    final isPlaying = ref.watch(miniControllerProvider).isPlaying;
 
-  
-  void loadMedia() async {
-    dynamic brief = await getMediaBrief(widget.selectedItem.bvid); // data/cid
-    String cid = brief['data']['cid'].toString();
-    dynamic playUrls = await getPlayUrl(widget.selectedItem.bvid, cid);
-    audioPlayUrl = playUrls['data']['dash']['audio'][0]['backupUrl'][0];
-    await player.open(Media(audioPlayUrl, httpHeaders: ApiConfig.headers));
-    setState(() {
-      isPlaying = true;
-    });
-  }
-  @override
-  void initState() {
-    super.initState();
-    // Play a [Media] or [Playlist].
-    loadMedia();
-    showPlayerController |= true;
-    player.stream.playing.listen(
-      (bool playing) {
-        if (playing) {
-          setState(() {
-            isPlaying = true;
-          });
-        } else {
-          // Paused.
-            isPlaying = false;
-        }
-      },
-    );
-  }
-
-  void togglePlayPause() {
-    setState(() {
-      isPlaying = !isPlaying;
-    });
-    
-    player.playOrPause();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+    return 
+    GestureDetector(
+      onPanUpdate: (details) {
+    // Handle move action
+    print('User is moving: ${details.delta}');
+    // You can perform any action here, e.g., moving the widget, updating state, etc.
+  },
+  onPanEnd: (details) {
+    // Handle when the move action ends
+    print('User finished moving');
+    // You can perform any cleanup or state updates here
+  },
+      child: 
+    Scaffold(
       appBar: AppBar(
         title: Text('Controller Page'),
         centerTitle: true,
@@ -75,11 +47,10 @@ class _ControllerPageState extends State<ControllerPage> {
         children: [
           // Image at the top center
           Center(
-            child: Image.network(
-              widget.selectedItem.coverUrl, // Replace with your image URL
-              height: 150,
-              width: 150,
-            ),
+            child: CachedNetworkImage(
+              imageUrl: miniController.imageUrl,
+              // placeholder: (context, url) => CircularProgressIndicator(),
+              errorWidget: (context, url, error) => const Icon(Icons.error)),
           ),
           SizedBox(height: 100),
           // Control buttons
@@ -96,7 +67,7 @@ class _ControllerPageState extends State<ControllerPage> {
               IconButton(
                 icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
                 iconSize: 70,
-                onPressed: togglePlayPause,
+                onPressed: ref.read(miniControllerProvider.notifier).togglePlayPause,
               ),
               IconButton(
                 icon: Icon(Icons.skip_next),
@@ -109,8 +80,7 @@ class _ControllerPageState extends State<ControllerPage> {
           ),
         ],
       ),
+    )
     );
   }
 }
-
-

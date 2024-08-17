@@ -30,26 +30,51 @@ class ListTileWithImageState extends State<ListTileWithImage> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: SizedBox(
-        width: MediaQuery.of(context).size.width / 4,
-        child: CachedNetworkImage(
+      contentPadding: EdgeInsets.all(1.0),
+      minVerticalPadding: 0,
+      leading: 
+      LayoutBuilder(
+        builder: (context, constraints) {
+          // Use the constraints to dynamically set the size of the image
+          double sideLength = constraints.maxHeight;
+          return SizedBox(
+            width: 90, // Match the width with the ListTile's height
+            height: 56, // Match the height with the ListTile's height
+        child: 
+        CachedNetworkImage(
             imageUrl: widget.coverUrl,
             // placeholder: (context, url) => CircularProgressIndicator(),
             errorWidget: (context, url, error) => const Icon(Icons.error),
-        ),
+            fit: BoxFit.fill, 
+        )
+          );
+        }
       ),
-      title: Text(widget.title.length > 10 ? '${widget.title.substring(0, 10)}...' : widget.title),
-      subtitle: Text(widget.intro.length > 10 ? '${widget.intro.substring(0, 10)}...' : widget.intro),    
+      title: Text(
+        widget.title.length > 20 ? '${widget.title.substring(0, 20)}...' : widget.title,
+        style: TextStyle(
+          fontSize: 16, // Customize the font size
+          fontWeight: FontWeight.normal, // Customize the font weight
+        ),
+        maxLines: 1,
+      ),
+      subtitle: Text(
+        widget.intro.length > 100 ? '${widget.intro.substring(0, 100)}...' : widget.intro,
+        style: TextStyle(
+          fontSize: 14, // Customize the font size
+          color: Colors.grey, // Customize the color
+        ),
+        maxLines: 2,
+      ),    
       trailing: Row(
     mainAxisSize: MainAxisSize.min,
     children: [
       IconButton(
-        icon: const Icon(Icons.edit, size: 14),
+        icon: const Icon(Icons.more_vert, size: 14),
         onPressed: () {
           // handle edit action
         },
       ),
-      
     ],
   ),
       onTap: widget.onTap,

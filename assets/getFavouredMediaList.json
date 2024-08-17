@@ -4,12 +4,12 @@
   "ttl": 1,
   "data": {
     "info": {
-      "id": 100109244,
-      "fid": 1001092,
+      "id": 2057910644,
+      "fid": 20579106,
       "mid": 57164044,
-      "attr": 0,
-      "title": "默认收藏夹",
-      "cover": "http://i1.hdslb.com/bfs/archive/3fb486302770c6e69921c32401f38980411f3565.jpg",
+      "attr": 22,
+      "title": "音乐",
+      "cover": "http://i2.hdslb.com/bfs/archive/72a008019f2eda1d596cd4ca14d99085e34a394a.png",
       "upper": {
         "mid": 57164044,
         "name": "以气御刀",
@@ -21,95 +21,743 @@
       "cover_type": 2,
       "cnt_info": {
         "collect": 0,
-        "play": 2,
-        "thumb_up": 0,
-        "share": 0
+        "play": 1635,
+        "thumb_up": 1,
+        "share": 1
       },
       "type": 11,
       "intro": "",
-      "ctime": 1478922856,
-      "mtime": 1556498091,
+      "ctime": 1675059790,
+      "mtime": 1675059790,
       "state": 0,
       "fav_state": 0,
       "like_state": 0,
-      "media_count": 2,
-      "is_top": true
+      "media_count": 133,
+      "is_top": false
     },
     "medias": [
       {
-        "id": 24521619,
+        "id": 576676501,
         "type": 2,
-        "title": "宋鸿兵 《解说货币战争》全集",
-        "cover": "http://i1.hdslb.com/bfs/archive/3fb486302770c6e69921c32401f38980411f3565.jpg",
-        "intro": "视频仅供大家学习丰富自己  切记不可盲信 任何时候都应保存自己独立思考的能力乾杯 []~（￣▽￣）~*",
-        "page": 6,
-        "duration": 22036,
+        "title": "在百万豪装录音棚大声听 王力宏《花田错》【Hi-res】",
+        "cover": "http://i0.hdslb.com/bfs/archive/4d40e568c49ac223d67ac0ff03653410a84f015f.jpg",
+        "intro": "《花田错》是王力宏演唱的一首中国风歌曲，由陈镇川作词，王力宏作曲并编曲，收录在王力宏2005年12月30日发行的专辑《盖世英雄》中。\n\n录音设备：\n话筒：Neumann M149 tube Pair\n调音台：SSL Duality Delta Pro Station\n工作站：PT\n音箱：Barefoot MM12\n[侵删]",
+        "page": 1,
+        "duration": 229,
         "upper": {
-          "mid": 84100099,
-          "name": "账号已注销",
-          "face": "http://i0.hdslb.com/bfs/face/member/noface.jpg"
+          "mid": 3493093607213343,
+          "name": "JLRS-LeoFM",
+          "face": "https://i0.hdslb.com/bfs/face/a7176b4e205f2fae521faf3b6d22eca17a44e7a3.jpg"
         },
         "attr": 0,
         "cnt_info": {
-          "collect": 18569,
-          "play": 356964,
-          "danmaku": 5465,
+          "collect": 19381,
+          "play": 1397601,
+          "danmaku": 421,
           "vt": 0,
           "play_switch": 0,
           "reply": 0,
-          "view_text_1": "35.7万"
+          "view_text_1": "139.8万"
         },
-        "link": "bilibili://video/24521619",
-        "ctime": 1528439149,
-        "pubtime": 1528439149,
-        "fav_time": 1721052750,
-        "bv_id": "BV1oW411A7wS",
-        "bvid": "BV1oW411A7wS",
+        "link": "bilibili://video/576676501",
+        "ctime": 1696148693,
+        "pubtime": 1696242300,
+        "fav_time": 1713026569,
+        "bv_id": "BV1qz4y1G7eq",
+        "bvid": "BV1qz4y1G7eq",
         "season": null,
         "ogv": null,
         "ugc": {
-          "first_cid": 41188789
+          "first_cid": 1285479044
         },
-        "media_list_link": "bilibili://music/playlist/playpage/157273244?page_type=3&oid=24521619&otype=2"
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=576676501&otype=2"
       },
       {
-        "id": 714737569,
+        "id": 885307560,
         "type": 2,
-        "title": "【4K60FPS】酷玩Coldplay《Viva La Vida》万人大合唱现场！生命万岁！",
-        "cover": "http://i0.hdslb.com/bfs/archive/041214badc5e89318ab10dd73c4c3dd72a3361a4.jpg",
-        "intro": "自己制作\n蓝光原盘制作，4K最高规格制作\n很多人点的一个现场！Viva La Vida\n也是我自己非常喜欢的一首歌\n感恩，生命万岁！",
+        "title": "【王力宏、谭维维《緣分一道橋》】4K宽屏无损音质，挺震撼的",
+        "cover": "http://i1.hdslb.com/bfs/archive/78034596b22bfb79dacace42b5dfb0e1f217812a.jpg",
+        "intro": "https://www.youtube.com/watch?v=EQ5Ib7jNnnE\n本应投到合集中，效果挺震撼呢，先好好享受一下#高音质高画质#",
         "page": 1,
-        "duration": 294,
+        "duration": 287,
         "upper": {
-          "mid": 229733301,
-          "name": "音乐私藏馆",
-          "face": "https://i0.hdslb.com/bfs/face/91a6526445f61e2d491523242b532d5e76f0435a.jpg"
+          "mid": 36826532,
+          "name": "MR_永远的第7天",
+          "face": "https://i2.hdslb.com/bfs/face/74d5c59d1dfc58aa10bc34d1da18eef606f3069a.jpg"
         },
         "attr": 0,
         "cnt_info": {
-          "collect": 207653,
-          "play": 8606541,
-          "danmaku": 13992,
+          "collect": 39990,
+          "play": 2284727,
+          "danmaku": 1271,
           "vt": 0,
           "play_switch": 0,
           "reply": 0,
-          "view_text_1": "860.7万"
+          "view_text_1": "228.5万"
         },
-        "link": "bilibili://video/714737569",
-        "ctime": 1615807807,
-        "pubtime": 1615807805,
-        "fav_time": 1715682198,
-        "bv_id": "BV1AX4y1G7or",
-        "bvid": "BV1AX4y1G7or",
+        "link": "bilibili://video/885307560",
+        "ctime": 1605722367,
+        "pubtime": 1605722367,
+        "fav_time": 1713026565,
+        "bv_id": "BV14K4y1j7ma",
+        "bvid": "BV14K4y1j7ma",
         "season": null,
         "ogv": null,
         "ugc": {
-          "first_cid": 400451316
+          "first_cid": 257283572
         },
-        "media_list_link": "bilibili://music/playlist/playpage/157273244?page_type=3&oid=714737569&otype=2"
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=885307560&otype=2"
+      },
+      {
+        "id": 915700443,
+        "type": 2,
+        "title": "在百万豪装录音棚大声听 王力宏《我们的歌》【Hi-res】",
+        "cover": "http://i2.hdslb.com/bfs/archive/ca6ddd4f1c89af8133cae0fe38cd72c2d54f8e17.jpg",
+        "intro": "《我们的歌》是王力宏演唱的一首歌曲，由王力宏、陈信延作词，王力宏作曲，李恒宾编曲，收录在王力宏2007年7月13日发行的专辑《改变自己》中。\n\n录音设备：\n话筒：Neumann M149 tube Pair\n调音台：SSL Duality Delta Pro Station\n工作站：PT\n音箱：Barefoot MM12\n[侵删]",
+        "page": 1,
+        "duration": 248,
+        "upper": {
+          "mid": 3493093607213343,
+          "name": "JLRS-LeoFM",
+          "face": "https://i0.hdslb.com/bfs/face/a7176b4e205f2fae521faf3b6d22eca17a44e7a3.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 27541,
+          "play": 1696154,
+          "danmaku": 309,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "169.6万"
+        },
+        "link": "bilibili://video/915700443",
+        "ctime": 1694052005,
+        "pubtime": 1694058900,
+        "fav_time": 1713026508,
+        "bv_id": "BV1Au4y1k7WK",
+        "bvid": "BV1Au4y1k7WK",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 1260076158
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=915700443&otype=2"
+      },
+      {
+        "id": 399373924,
+        "type": 2,
+        "title": "在百万豪装录音棚大声听 林俊杰《交换余生》【Hi-res】",
+        "cover": "http://i2.hdslb.com/bfs/archive/a90eb27c8cab8160947c2311c5ef1925edd6a609.jpg",
+        "intro": "《交换余生》是林俊杰演唱的歌曲，由易家扬作词，林俊杰作曲，收录于林俊杰2020年发行的音乐EP《幸存者》。\n\n录音设备：\n话筒：Neumann M149 tube Pair\n调音台：SSL Duality Delta Pro Station\n工作站：PT\n音箱：Barefoot MM12\n[侵删]",
+        "page": 1,
+        "duration": 279,
+        "upper": {
+          "mid": 3493093607213343,
+          "name": "JLRS-LeoFM",
+          "face": "https://i0.hdslb.com/bfs/face/a7176b4e205f2fae521faf3b6d22eca17a44e7a3.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 45284,
+          "play": 3901124,
+          "danmaku": 787,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "390.1万"
+        },
+        "link": "bilibili://video/399373924",
+        "ctime": 1685710624,
+        "pubtime": 1685710624,
+        "fav_time": 1712989797,
+        "bv_id": "BV1qo4y1u7Jk",
+        "bvid": "BV1qo4y1u7Jk",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 1150611556
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=399373924&otype=2"
+      },
+      {
+        "id": 600491808,
+        "type": 2,
+        "title": "【重温经典】磁带试听：罗大佑《东方之珠》",
+        "cover": "http://i1.hdslb.com/bfs/archive/4bad0c2a4d69cb1ed72d23b46b2c690a1fb983db.jpg",
+        "intro": "声浪抵岸，心潮澎湃。让我们一起穿越时空，聆听香江之声！\n视频：@我是一颗小星星点歌台  \n站内编辑：海鲜面",
+        "page": 1,
+        "duration": 293,
+        "upper": {
+          "mid": 473837611,
+          "name": "新华社",
+          "face": "https://i1.hdslb.com/bfs/face/396b93a7f619882afa711879dbf2cb98a40e7367.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 5848,
+          "play": 350118,
+          "danmaku": 449,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "35万"
+        },
+        "link": "bilibili://video/600491808",
+        "ctime": 1656590951,
+        "pubtime": 1656597599,
+        "fav_time": 1710680704,
+        "bv_id": "BV1pB4y1W7mU",
+        "bvid": "BV1pB4y1W7mU",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 760186230
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=600491808&otype=2"
+      },
+      {
+        "id": 578008731,
+        "type": 2,
+        "title": "谭咏麟 经典歌曲合集【带歌词字幕】 全网筛选最TOP的歌曲合集",
+        "cover": "http://i0.hdslb.com/bfs/archive/0f29a22a23d4cbcab4ee5eff84a1db2a005ae5dd.png",
+        "intro": "谭咏麟 经典歌曲合集【带歌词字幕】 全网筛选最TOP的歌曲合集\r\n无边的思忆 \r\n俗世洪流 \r\n那些感动过人的歌 \r\n定风波 \r\n情不变 \r\n幸运星 \r\n一生何求 \r\n痴心的废墟 \r\n小说人生 \r\n情海方舟 \r\n披着羊皮的狼 \r\n难舍难分 \r\n云似是你 \r\n何苦 \r\n我爱雀斑 \r\n也曾相识 \r\n一生一次 \r\n曾经 \r\n暴风女神 \r\n像我这样的朋友 \r\n心经 \r\n神的传说 \r\n柔柔河畔 \r\n刺客 \r\n回赠 \r\n唱一首好歌 \r\n拥抱 \r\n第一滴泪 \r\n无言感激 \r\n他们对我说起你 \r\n夏日寒风",
+        "page": 99,
+        "duration": 25842,
+        "upper": {
+          "mid": 3493084893547010,
+          "name": "自洽音梦",
+          "face": "https://i2.hdslb.com/bfs/face/29df1ce21274a60ba40e597eda015f86737e3ef9.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 1260,
+          "play": 94713,
+          "danmaku": 15,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "9.5万"
+        },
+        "link": "bilibili://video/578008731",
+        "ctime": 1699164682,
+        "pubtime": 1699164682,
+        "fav_time": 1710252634,
+        "bv_id": "BV1gz4y1K7tg",
+        "bvid": "BV1gz4y1K7tg",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 1322170904
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=578008731&otype=2"
+      },
+      {
+        "id": 33613477,
+        "type": 2,
+        "title": "《白狐（旧版）》-陈瑞",
+        "cover": "http://i2.hdslb.com/bfs/archive/0b41339fa89dbed425a74317665253231c326b3a.jpg",
+        "intro": "https://youtu.be/3GJsDJN4Ar4",
+        "page": 1,
+        "duration": 356,
+        "upper": {
+          "mid": 52103059,
+          "name": "史努-比亚迪",
+          "face": "https://i1.hdslb.com/bfs/face/843ca3ba0d484374a5b7c15859e180888c5c762f.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 10702,
+          "play": 638935,
+          "danmaku": 597,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "63.9万"
+        },
+        "link": "bilibili://video/33613477",
+        "ctime": 1539248095,
+        "pubtime": 1539248095,
+        "fav_time": 1708797651,
+        "bv_id": "BV1at411f7bQ",
+        "bvid": "BV1at411f7bQ",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 58850473
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=33613477&otype=2"
+      },
+      {
+        "id": 935860946,
+        "type": 2,
+        "title": "【4K修复】任贤齐&阿牛&光良《浪花一朵朵》MV 画质增强版",
+        "cover": "http://i2.hdslb.com/bfs/archive/9c2a220afcf0e498a0a7ecb0c480187ff75f28b4.jpg",
+        "intro": "官方MV。画质修复。\n《浪花一朵朵》是任贤齐\t、阿牛\t、光良演唱的一首歌曲，由任贤齐、阿牛作词、作曲，收录在任贤齐、阿牛、光良2000年8月9日由滚石唱片发行的合辑《流浪汉》中。该曲是电影《夏日么么茶》的主题曲。\n\n我是音乐君\n祝你幸福",
+        "page": 1,
+        "duration": 214,
+        "upper": {
+          "mid": 696160102,
+          "name": "同学们的音乐君",
+          "face": "https://i1.hdslb.com/bfs/face/8bb093bfa032689cc52add6986f6fc7b35d1fbbe.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 4197,
+          "play": 261542,
+          "danmaku": 123,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "26.2万"
+        },
+        "link": "bilibili://video/935860946",
+        "ctime": 1642783002,
+        "pubtime": 1642816814,
+        "fav_time": 1708696122,
+        "bv_id": "BV19T4y1C7No",
+        "bvid": "BV19T4y1C7No",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 489344948
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=935860946&otype=2"
+      },
+      {
+        "id": 714683434,
+        "type": 2,
+        "title": "童安格 - 聽海的歌 (Official Video)",
+        "cover": "http://i0.hdslb.com/bfs/archive/c69cb5a36ef3a2fa10092538b4d2d9e177b37b95.jpg",
+        "intro": "",
+        "page": 1,
+        "duration": 283,
+        "upper": {
+          "mid": 476250567,
+          "name": "萌音新视界",
+          "face": "https://i0.hdslb.com/bfs/face/ed8c40199a2fb2b1fa915187dcbaaf79d18e005e.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 17,
+          "play": 1057,
+          "danmaku": 2,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "1057"
+        },
+        "link": "bilibili://video/714683434",
+        "ctime": 1616234691,
+        "pubtime": 1616234691,
+        "fav_time": 1708134018,
+        "bv_id": "BV12X4y137dx",
+        "bvid": "BV12X4y137dx",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 312867343
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=714683434&otype=2"
+      },
+      {
+        "id": 1337181,
+        "type": 2,
+        "title": "陈学冬《不再见》（《小时代3：刺金时代》插曲）",
+        "cover": "http://i2.hdslb.com/bfs/archive/e0ac2a0e58dedd8dd5cf1e4d5ef592ebc390c635.jpg",
+        "intro": "腾讯视频 虽然up喜欢二次，但是感觉听这个感触很深啊。。。嘛。。到现在还没看小3快哭了m",
+        "page": 1,
+        "duration": 243,
+        "upper": {
+          "mid": 2035399,
+          "name": "乖乖澄澄宝",
+          "face": "https://i1.hdslb.com/bfs/face/afa5c1255bc33057901afae1b172cc2a13240c95.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 4171,
+          "play": 285363,
+          "danmaku": 513,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "28.5万"
+        },
+        "link": "bilibili://video/1337181",
+        "ctime": 1497426450,
+        "pubtime": 1406456287,
+        "fav_time": 1708073516,
+        "bv_id": "BV1xx411N7wd",
+        "bvid": "BV1xx411N7wd",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 2027507
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=1337181&otype=2"
+      },
+      {
+        "id": 584173810,
+        "type": 2,
+        "title": "孙燕姿经典现场《天黑黑》",
+        "cover": "http://i0.hdslb.com/bfs/archive/e3c70ff36f74e3a54e27a26d3ed1e93896111918.jpg",
+        "intro": "转载自优酷\n带传，享受",
+        "page": 1,
+        "duration": 342,
+        "upper": {
+          "mid": 22746434,
+          "name": "雾色柳丁",
+          "face": "https://i2.hdslb.com/bfs/face/2dc741d8e087916f6989499193ce409dabf6e998.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 3921,
+          "play": 270186,
+          "danmaku": 460,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "27万"
+        },
+        "link": "bilibili://video/584173810",
+        "ctime": 1597079775,
+        "pubtime": 1597079775,
+        "fav_time": 1707053257,
+        "bv_id": "BV1N64y1c7eA",
+        "bvid": "BV1N64y1c7eA",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 222919101
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=584173810&otype=2"
+      },
+      {
+        "id": 271578523,
+        "type": 2,
+        "title": "【孤岛惊魂5】百万级录音棚听《When the Morning Light Shines In》游戏《孤岛惊魂5》原声【Hi-Res】",
+        "cover": "http://i0.hdslb.com/bfs/archive/c97f9862f182ba13e4d4a1ebe73b19d8df9d9ef4.jpg",
+        "intro": "《When the Morning Light Shines In》游戏《孤岛惊魂5》原声\n作曲 : Dan Romer\n\n音响：真力1234\n录音MIC：纽曼149 2支\n录音设备：SSL Duality Delta Pro Station + Protools\n侵删",
+        "page": 1,
+        "duration": 186,
+        "upper": {
+          "mid": 3493082817366845,
+          "name": "JLRS-jayfm",
+          "face": "https://i2.hdslb.com/bfs/face/0da24ae60a20f0f00855a534678864d095d0e900.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 4667,
+          "play": 241440,
+          "danmaku": 293,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "24.1万"
+        },
+        "link": "bilibili://video/271578523",
+        "ctime": 1684920376,
+        "pubtime": 1685016000,
+        "fav_time": 1706337521,
+        "bv_id": "BV1Fc411P7mq",
+        "bvid": "BV1Fc411P7mq",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 1140410170
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=271578523&otype=2"
+      },
+      {
+        "id": 402520790,
+        "type": 2,
+        "title": "【巫师3：狂猎】百万级录音棚听《The Fields of Ard Skellig》游戏《巫师3：狂猎》OST【Hi-Res】",
+        "cover": "http://i1.hdslb.com/bfs/archive/0fb589ef311ce2551d24261a745d1cbc181bec03.jpg",
+        "intro": "《The Fields of Ard Skellig》游戏《巫师3：狂猎》OST\nMarcin Przybyłowicz\n\n音响：真力1234\n录音MIC：纽曼149 2支\n录音设备：SSL Duality Delta Pro Station + Protools\n侵删",
+        "page": 1,
+        "duration": 190,
+        "upper": {
+          "mid": 3493082817366845,
+          "name": "JLRS-jayfm",
+          "face": "https://i2.hdslb.com/bfs/face/0da24ae60a20f0f00855a534678864d095d0e900.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 7633,
+          "play": 386744,
+          "danmaku": 370,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "38.7万"
+        },
+        "link": "bilibili://video/402520790",
+        "ctime": 1687342006,
+        "pubtime": 1687509000,
+        "fav_time": 1705766485,
+        "bv_id": "BV15o4y1P7jN",
+        "bvid": "BV15o4y1P7jN",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 1171080854
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=402520790&otype=2"
+      },
+      {
+        "id": 22764212,
+        "type": 2,
+        "title": "張學友 祝福 2002-2003音樂之旅世界巡迴演唱會 香港",
+        "cover": "http://i0.hdslb.com/bfs/archive/69932b9f997be650cbd6172198c341cea9350a97.jpg",
+        "intro": "www.youtube.com\n所属作品: 张学友祝福",
+        "page": 1,
+        "duration": 334,
+        "upper": {
+          "mid": 25826795,
+          "name": "Gamkiu",
+          "face": "http://i2.hdslb.com/bfs/face/27233ea71680109ed22fb23af91f483044010c6d.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 573,
+          "play": 40880,
+          "danmaku": 103,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "4.1万"
+        },
+        "link": "bilibili://video/22764212",
+        "ctime": 1525058860,
+        "pubtime": 1525058858,
+        "fav_time": 1705660082,
+        "bv_id": "BV1eW411V7Df",
+        "bvid": "BV1eW411V7Df",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 37797695
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=22764212&otype=2"
+      },
+      {
+        "id": 203691872,
+        "type": 2,
+        "title": "每天爱你多一些—张学友 2007 Live 1080P 50帧",
+        "cover": "http://i1.hdslb.com/bfs/archive/26a0cd2b1a02127144d0926e720220f2aa03648d.jpg",
+        "intro": "蓝光原盘自压\n学友光年世界巡回演唱会 香港站",
+        "page": 1,
+        "duration": 288,
+        "upper": {
+          "mid": 107717965,
+          "name": "梁乐观同学",
+          "face": "https://i1.hdslb.com/bfs/face/2b6cd8f547b33f9280ab320c6658d9f8dccfc816.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 2970,
+          "play": 164639,
+          "danmaku": 184,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "16.5万"
+        },
+        "link": "bilibili://video/203691872",
+        "ctime": 1610463345,
+        "pubtime": 1610463345,
+        "fav_time": 1705659574,
+        "bv_id": "BV1Eh411y7CW",
+        "bvid": "BV1Eh411y7CW",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 281633206
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=203691872&otype=2"
+      },
+      {
+        "id": 565610085,
+        "type": 2,
+        "title": "在百万豪装录音棚大声听郭顶《水星记》【Hi-res】",
+        "cover": "http://i0.hdslb.com/bfs/archive/9214f7f1702e1412a6696d03575f68666f7406b9.jpg",
+        "intro": "《水星记》(Mercury Records)由郭顶作词、作曲并演唱，收录于郭顶2016年11月25日发行的专辑《飞行器的执行周期》中。\n\n录音设备：\n话筒：Neumann M149 tube Pair\n调音台：SSL Duality Delta Pro Station\n工作站：PT\n音箱：Barefoot MM12\n[侵删]",
+        "page": 1,
+        "duration": 332,
+        "upper": {
+          "mid": 3493093607213343,
+          "name": "JLRS-LeoFM",
+          "face": "https://i0.hdslb.com/bfs/face/a7176b4e205f2fae521faf3b6d22eca17a44e7a3.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 38097,
+          "play": 2465129,
+          "danmaku": 598,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "246.5万"
+        },
+        "link": "bilibili://video/565610085",
+        "ctime": 1674035315,
+        "pubtime": 1674097200,
+        "fav_time": 1704524845,
+        "bv_id": "BV1Zv4y1C7AY",
+        "bvid": "BV1Zv4y1C7AY",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 971379941
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=565610085&otype=2"
+      },
+      {
+        "id": 991475663,
+        "type": 2,
+        "title": "在百万豪装录音棚大声听郭顶《凄美地》【Hi-res】",
+        "cover": "http://i0.hdslb.com/bfs/archive/463c5a038e27e8f99b54487dc48760f6e94c1e6b.jpg",
+        "intro": "郭顶《凄美地》由郭顶作词、作曲，收录2016年10月21日发行的专辑《飞行器的执行周期》中。\n\n录音设备：\n话筒：Neumann M149 tube Pair\n调音台：SSL Duality Delta Pro Station\n工作站：PT\n音箱：Barefoot MM12\n[侵删]",
+        "page": 1,
+        "duration": 254,
+        "upper": {
+          "mid": 3493093607213343,
+          "name": "JLRS-LeoFM",
+          "face": "https://i0.hdslb.com/bfs/face/a7176b4e205f2fae521faf3b6d22eca17a44e7a3.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 131090,
+          "play": 6652408,
+          "danmaku": 1646,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "665.2万"
+        },
+        "link": "bilibili://video/991475663",
+        "ctime": 1675683781,
+        "pubtime": 1675764000,
+        "fav_time": 1704524828,
+        "bv_id": "BV1Sx4y157RQ",
+        "bvid": "BV1Sx4y157RQ",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 996226520
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=991475663&otype=2"
+      },
+      {
+        "id": 345139585,
+        "type": 2,
+        "title": "【许嵩x方文山】神仙组合！“嵩山”联手创作新歌《纸上雪》",
+        "cover": "http://i1.hdslb.com/bfs/archive/7ce0d3db48d82f67d231ab69be79b0e75a6c810d.jpg",
+        "intro": "“雪霁一壶酒，与你共饮春秋。盼前尘回首，三生亦师友。”在今晚《诗画中国》节目中，许嵩带来与方文山再度联手创作的中国风歌曲《纸上雪》，不仅唱出名画《江干雪霁图》中闲适安然的雪中图景，还道出王维诗中“洒空深巷静，积素广庭闲”的心怀。",
+        "page": 1,
+        "duration": 276,
+        "upper": {
+          "mid": 456664753,
+          "name": "央视新闻",
+          "face": "https://i1.hdslb.com/bfs/face/38a8db1c187b64a1412fafffbf350f8a3f436371.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 52060,
+          "play": 2553246,
+          "danmaku": 6491,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "255.3万"
+        },
+        "link": "bilibili://video/345139585",
+        "ctime": 1662292683,
+        "pubtime": 1662292912,
+        "fav_time": 1704463356,
+        "bv_id": "BV16d4y1G7tY",
+        "bvid": "BV16d4y1G7tY",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 823836415
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=345139585&otype=2"
+      },
+      {
+        "id": 48565864,
+        "type": 2,
+        "title": "[ 纯享 ]林俊杰《雪落下的声音》《梦想的声音3》",
+        "cover": "http://i0.hdslb.com/bfs/archive/dedf9dedc1407f65d44c5d46a9c2f51c49f309fb.jpg",
+        "intro": "Youtube",
+        "page": 1,
+        "duration": 300,
+        "upper": {
+          "mid": 98650216,
+          "name": "初初和大柑橘",
+          "face": "http://i1.hdslb.com/bfs/face/ecc4b0ee90fb658cc29dda3341396530a7423196.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 14161,
+          "play": 1067449,
+          "danmaku": 871,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "106.7万"
+        },
+        "link": "bilibili://video/48565864",
+        "ctime": 1554605225,
+        "pubtime": 1554605225,
+        "fav_time": 1704459221,
+        "bv_id": "BV1Mb411u7Yy",
+        "bvid": "BV1Mb411u7Yy",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 85047148
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=48565864&otype=2"
+      },
+      {
+        "id": 460547958,
+        "type": 2,
+        "title": "【4K修复.Live’96】张学友《情书》等待着别人给幸福的人，往往过得都不怎么幸福",
+        "cover": "http://i2.hdslb.com/bfs/archive/5927de879def66192aa9c3040bb0110f701dfcde.png",
+        "intro": "「96音乐无疆界演唱会」\r\n《情书》是收录在歌手张学友的专辑《忘记你我做不到》中的一首歌曲，于1996年6月12日发行，由姚若龙作词，戚小恋作曲。",
+        "page": 1,
+        "duration": 234,
+        "upper": {
+          "mid": 326838748,
+          "name": "tAAAAAAAAAAo",
+          "face": "https://i1.hdslb.com/bfs/face/184172a863edbbb58223982b9ce3313992f85b92.jpg"
+        },
+        "attr": 0,
+        "cnt_info": {
+          "collect": 4495,
+          "play": 471159,
+          "danmaku": 342,
+          "vt": 0,
+          "play_switch": 0,
+          "reply": 0,
+          "view_text_1": "47.1万"
+        },
+        "link": "bilibili://video/460547958",
+        "ctime": 1620816827,
+        "pubtime": 1620816827,
+        "fav_time": 1703963982,
+        "bv_id": "BV1q541137VJ",
+        "bvid": "BV1q541137VJ",
+        "season": null,
+        "ogv": null,
+        "ugc": {
+          "first_cid": 337581172
+        },
+        "media_list_link": "bilibili://music/playlist/playpage/2115074644?page_type=3&oid=460547958&otype=2"
       }
     ],
-    "has_more": false,
-    "ttl": 1723810472
+    "has_more": true,
+    "ttl": 1723905319
   }
 }
