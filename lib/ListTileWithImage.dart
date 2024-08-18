@@ -34,22 +34,22 @@ class ListTileWithImageState extends State<ListTileWithImage> {
       minVerticalPadding: 0,
       leading: 
       LayoutBuilder(
-        builder: (context, constraints) {
-          // Use the constraints to dynamically set the size of the image
-          double sideLength = constraints.maxHeight;
-          return SizedBox(
-            width: 90, // Match the width with the ListTile's height
-            height: 56, // Match the height with the ListTile's height
-        child: 
-        CachedNetworkImage(
-            imageUrl: widget.coverUrl,
-            // placeholder: (context, url) => CircularProgressIndicator(),
-            errorWidget: (context, url, error) => const Icon(Icons.error),
-            fit: BoxFit.fill, 
-        )
-          );
-        }
-      ),
+      builder: (context, constraints) {
+        // Dynamically set the size of the image based on the constraints
+        return Container(
+          width: constraints.maxHeight * 1.5, // Make the width equal to the height of the ListTile
+          height: constraints.maxHeight, // Height matches the ListTile's height
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(4.0), // Optional: add some rounding
+            child: CachedNetworkImage(
+              imageUrl: widget.coverUrl,
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+              fit: BoxFit.cover, // Ensure the image covers the container
+            ),
+          ),
+        );
+      },
+    ),
       title: Text(
         widget.title.length > 20 ? '${widget.title.substring(0, 20)}...' : widget.title,
         style: TextStyle(

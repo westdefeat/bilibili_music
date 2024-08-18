@@ -1,7 +1,7 @@
 
 
 import 'package:bilibili_music/controllers/bilibili_list_controller.dart';
-import 'package:bilibili_music/utils.dart';
+import 'package:bilibili_music/ListTileWithImage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

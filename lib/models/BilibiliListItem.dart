@@ -1,4 +1,3 @@
-
 class BilibiliListItem {
   final String title;
   final String coverUrl;
@@ -9,6 +8,7 @@ class BilibiliListItem {
   final String id; // video id
   final String type; // video id
   final String bvid; // bv id
+  final int duration;
 
   BilibiliListItem(
       {required this.title,
@@ -19,7 +19,6 @@ class BilibiliListItem {
       this.media_ids = '',
       this.id = '',
       this.type = '2',
-      this.bvid = ''});
-  
+      this.bvid = '',
+      this.duration = 0});
 }
-

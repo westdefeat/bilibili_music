@@ -1,5 +1,5 @@
 import 'package:bilibili_music/bilibili_api/bilibli_api.dart';
-import 'package:bilibili_music/utils.dart';
+import 'package:bilibili_music/ListTileWithImage.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -15,14 +15,22 @@ final Player player = Player();
 
 const playerDetailPage = PlayerDetailPage();
 
+// State provider for the slider value
+final sliderValueProvider = StateProvider<double>((ref) => 0.0);
+
 class PlayerDetailPage extends ConsumerWidget {
 
   const PlayerDetailPage();
 
  @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // Watch the slider value
+    final sliderValue = ref.watch(sliderValueProvider);
     final miniController = ref.watch(miniControllerProvider);
-    final isPlaying = ref.watch(miniControllerProvider).isPlaying;
+    // final isPlaying = ref.watch(miniControllerProvider).isPlaying;
+    double buttonWidth = MediaQuery.of(context).size.width * 0.3;
+    print("miniController.duration");
+    print(miniController.duration);
 
     return 
     GestureDetector(
@@ -42,43 +50,117 @@ class PlayerDetailPage extends ConsumerWidget {
         title: Text('Controller Page'),
         centerTitle: true,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          // Image at the top center
-          Center(
-            child: CachedNetworkImage(
-              imageUrl: miniController.imageUrl,
-              // placeholder: (context, url) => CircularProgressIndicator(),
-              errorWidget: (context, url, error) => const Icon(Icons.error)),
-          ),
-          SizedBox(height: 100),
-          // Control buttons
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              IconButton(
-                icon: Icon(Icons.skip_previous),
-                iconSize: 50,
-                onPressed: () {
-                  // Handle prev action
-                },
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20.0),
+              child: CachedNetworkImage(
+                imageUrl: miniController.imageUrl,
+                width: double.infinity,
+                // height: 600,
+                fit: BoxFit.cover,
               ),
-              IconButton(
-                icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
-                iconSize: 70,
-                onPressed: ref.read(miniControllerProvider.notifier).togglePlayPause,
+            ),
+            const SizedBox(height: 20),
+            Text(
+              miniController.mediaName,
+              style: const TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
               ),
-              IconButton(
-                icon: Icon(Icons.skip_next),
-                iconSize: 50,
-                onPressed: () {
-                  // Handle next action
-                },
+            ),
+            Text(
+              'xxxxxxx',
+              style: const TextStyle(
+                fontSize: 16,
+                color: Colors.grey,
               ),
-            ],
-          ),
-        ],
+            ),
+            const SizedBox(height: 20),
+            Slider(
+              // value: 0,
+              value: miniController.position.toDouble(),
+              onChanged: (value) {
+                // Add your slider logic here
+                // ref.read(sliderValueProvider.notifier).state = value;
+                print("new value: ${value}");
+                ref.read(miniControllerProvider.notifier).updatePlayPosition(value.toInt());
+              },
+              min: 0.0,
+              max: miniController.duration.toDouble(),
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    // Add your previous button logic here
+                  },
+                  icon: const Icon(Icons.skip_previous),
+                  iconSize: 36.0,
+                ),
+                CircleAvatar(
+                  radius: 30,
+                  backgroundColor: Colors.blueAccent,
+                  child: IconButton(
+                  onPressed: () {
+                    // Toggle play/pause state
+                    print("tapped");
+                    ref.read(miniControllerProvider.notifier).togglePlayPause();
+                  },
+                  icon: Icon(miniController.isPlaying ? Icons.pause : Icons.play_arrow),
+                  iconSize: 36.0,
+                  color: Colors.white,
+                ),
+                ),
+                IconButton(
+                  onPressed: () {
+                    // Add your next button logic here
+                  },
+                  icon: const Icon(Icons.skip_next),
+                  iconSize: 36.0,
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: buttonWidth / 3,
+                  child: IconButton(
+                    onPressed: () {
+                      // Add your list button logic here
+                    },
+                    icon: const Icon(Icons.list),
+                  ),
+                ),
+                SizedBox(
+                  width: buttonWidth / 3,
+                  child: IconButton(
+                    onPressed: () {
+                      // Add your queue button logic here
+                    },
+                    icon: const Icon(Icons.queue_music),
+                  ),
+                ),
+                SizedBox(
+                  width: buttonWidth / 3,
+                  child: IconButton(
+                    onPressed: () {
+                      // Add your more button logic here
+                    },
+                    icon: const Icon(Icons.more_horiz),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     )
     );

@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:bilibili_music/bilibili_api/bilibli_api.dart';
 import 'package:bilibili_music/minicontroller.dart';
 import 'package:bilibili_music/player.dart';
-import 'package:bilibili_music/utils.dart';
+import 'package:bilibili_music/ListTileWithImage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -14,6 +14,27 @@ import 'package:path_provider/path_provider.dart';
 import 'common_list.dart';
 import 'controllers/home_page_notifier.dart';
 import 'models/BilibiliListItem.dart';
+int decodeDurationToSeconds(String input) {
+  // Check if the input is a pure number (no colon)
+  if (RegExp(r'^\d+$').hasMatch(input)) {
+    // Convert to integer and return as total seconds
+    print('input: ${input}');
+    return int.parse(input);
+  } 
+  // Check if the input contains a colon
+  else if (RegExp(r'^\d+:\d+$').hasMatch(input)) {
+    // Split the input by colon
+    var parts = input.split(':');
+    int minutes = int.parse(parts[0]);
+    int seconds = int.parse(parts[1]);
+    // Calculate total seconds
+    return (minutes * 60) + seconds;
+  } 
+  // If the input format is not recognized
+  else {
+    throw FormatException('Invalid format');
+  }
+}
 
 class FavorPage extends StatefulWidget {
   final String title;
@@ -690,7 +711,9 @@ class FavMediaListPageState extends ConsumerState<FavMediaListPage> {
         id: jsonItem['id'].toString(),
         type: jsonItem['type'].toString(),
         bvid: jsonItem['bvid'].toString(),
+        duration: jsonItem['duration'],
       );
+      print("duration: ${item.duration}");
       cachedLists.add(item);
     }
 
@@ -796,6 +819,7 @@ class SearchMediaListPageState extends ConsumerState<SearchMediaListPage> {
         id: jsonItem['id'].toString(),
         type: jsonItem['type'].toString(),
         bvid: jsonItem['bvid'].toString(),
+        duration: decodeDurationToSeconds(jsonItem['duration']),
       );
       print(item.coverUrl);
       cachedLists.add(item);

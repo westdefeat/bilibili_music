@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'favor_page.dart';
 import 'minicontroller.dart';
 import 'models/BilibiliListItem.dart';
-import 'utils.dart';
+import 'ListTileWithImage.dart';
 
 class CommonListPage extends ConsumerStatefulWidget {
   final BilibiliListItem selectedItem;

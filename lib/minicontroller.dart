@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bilibili_music/bilibili_api/bilibili_core.dart';
 import 'package:bilibili_music/bilibili_api/bilibli_api.dart';
 import 'package:bilibili_music/player.dart';
-import 'package:bilibili_music/utils.dart';
+import 'package:bilibili_music/ListTileWithImage.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,24 +17,33 @@ class MiniControllerModel {
   bool isPlaying;
   String imageUrl;
   String mediaUrl;
-  Player player = Player();
-
+  int duration;
+  int position;
   MiniControllerModel(
       {required this.mediaName,
       required this.isPlaying,
       required this.imageUrl,
-      required this.mediaUrl});
+      required this.mediaUrl,
+      required this.duration,
+      required this.position,
+      });
 
   MiniControllerModel copyWith(
       {String? mediaName,
       bool? isPlaying,
       String? imageUrl,
-      String? mediaUrl}) {
+      String? mediaUrl,
+      int? duration,
+      int? position,
+      
+      }) {
     return MiniControllerModel(
       mediaName: mediaName ?? this.mediaName,
       isPlaying: isPlaying ?? this.isPlaying,
       imageUrl: imageUrl ?? this.imageUrl,
       mediaUrl: mediaUrl ?? this.mediaUrl,
+      duration: duration ?? this.duration,
+      position: position ?? this.position,
     );
   }
 }
@@ -46,7 +55,10 @@ class MiniControllerNotifier extends StateNotifier<MiniControllerModel> {
             isPlaying: false,
             imageUrl:
                 'https://i0.hdslb.com/bfs/static/jinkela/long/images/512.png',
-            mediaUrl: '')) {
+            mediaUrl: '',
+            duration: 0,
+            position: 0
+            )) {
     player.stream.playing.listen(
       (bool playing) {
         // final miniController = ref.watch(miniControllerProvider);
@@ -54,6 +66,11 @@ class MiniControllerNotifier extends StateNotifier<MiniControllerModel> {
           // This allows us to create a new instance of the model with updated fields, which is crucial for triggering state updates in Riverpod.
           state = state.copyWith(isPlaying: false);
         }
+      },
+    );
+    player.stream.position.listen(
+      (Duration position) {
+        state = state.copyWith(position: position.inSeconds);
       },
     );
   }
@@ -70,7 +87,11 @@ class MiniControllerNotifier extends StateNotifier<MiniControllerModel> {
         isPlaying: true,
         imageUrl: selectedItem.coverUrl,
         mediaName: selectedItem.title,
-        mediaUrl: mediaUrl);
+        mediaUrl: mediaUrl,
+        duration: selectedItem.duration,
+        position: 0,
+        );
+    print("startPlay ${selectedItem.duration}");
   }
 
   Future<void> togglePlayPause() async {
@@ -83,6 +104,14 @@ class MiniControllerNotifier extends StateNotifier<MiniControllerModel> {
 
   Future<void> updatePlayingStatus(bool isPlaying) async {
     state = state.copyWith(isPlaying: !state.isPlaying);
+  }
+
+Future<void> updatePlayPosition(int position) async {
+    player.seek(Duration(seconds: position));
+  print(position);
+  print(state.duration);
+
+    state = state.copyWith(position: position);
   }
 }
 
@@ -115,7 +144,7 @@ class MiniControllerWidget extends ConsumerWidget {
               .primaryColor, // Optional: Set a background color
           child: Row(
             children: [
-              
+
               CachedNetworkImage(
                   imageUrl: miniController.imageUrl,
                   // placeholder: (context, url) => CircularProgressIndicator(),
