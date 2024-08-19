@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:http/http.dart' as http;
 import 'bilibili_core.dart';
 
 String getCurrentFunctionName() {
@@ -11,7 +10,8 @@ String getCurrentFunctionName() {
     var stackTraceLines = stackTrace.toString().split('\n');
     if (stackTraceLines.length > 1) {
       var functionNameLine = stackTraceLines[1];
-      var functionNameMatch = RegExp(r'#1\s+(.+?)\s').firstMatch(functionNameLine);
+      var functionNameMatch =
+          RegExp(r'#1\s+(.+?)\s').firstMatch(functionNameLine);
       if (functionNameMatch != null) {
         return functionNameMatch.group(1)?.split('.').last ?? 'unknown';
       }
@@ -20,14 +20,15 @@ String getCurrentFunctionName() {
   return 'unknown';
 }
 
-
 Future<void> printResponse(Map<String, dynamic>? data, String fileName) async {
-  var jsonEncoder = JsonEncoder.withIndent('  '); // adjust the indent level to your liking
+  var jsonEncoder = const JsonEncoder.withIndent(
+      '  '); // adjust the indent level to your liking
   var formattedJson = jsonEncoder.convert(data);
 
   // print(formattedJson);
   // Get the directory to save the file
-  final directory = Directory('C:\\Users\\37686\\source\\bilibili_music\\assets');
+  final directory =
+      Directory('C:\\Users\\37686\\source\\bilibili_music\\assets');
   final file = File('${directory.path}/$fileName');
 
   // Write the formatted JSON to the file
@@ -42,10 +43,10 @@ Future<dynamic> fetchUserInfo() async {
     'photo': 'true',
   };
 
-  var data = await requestBilibili(
-      HttpMethod.get, ApiEndpoints.userInfo, queryParams);
+  var data =
+      await requestBilibili(HttpMethod.get, ApiEndpoints.userInfo, queryParams);
   if (data != null) {
-    printResponse(data, getCurrentFunctionName() + '.json');
+    printResponse(data, '${getCurrentFunctionName()}.json');
     // var name = data['data']['card']['name'];
     // print('User name: $name');
     return data;
@@ -57,22 +58,22 @@ Future<dynamic> fetchFavList() async {
   var queryParams = {
     'up_mid': '57164044',
   };
-  var data = await requestBilibili(
-      HttpMethod.get, ApiEndpoints.favList, queryParams);
+  var data =
+      await requestBilibili(HttpMethod.get, ApiEndpoints.favList, queryParams);
   if (data != null) {
-    printResponse(data, getCurrentFunctionName() + '.json');
+    printResponse(data, '${getCurrentFunctionName()}.json');
   }
   return data;
 }
 
-Future<dynamic> fetchFavInfo(String media_id) async {
+Future<dynamic> fetchFavInfo(String mediaId) async {
   var queryParams = {
-    'media_id': media_id,
+    'media_id': mediaId,
   };
-  var data = await requestBilibili(
-      HttpMethod.get, ApiEndpoints.favInfo, queryParams);
+  var data =
+      await requestBilibili(HttpMethod.get, ApiEndpoints.favInfo, queryParams);
   if (data != null) {
-    printResponse(data, getCurrentFunctionName() + '.json');
+    printResponse(data, '${getCurrentFunctionName()}.json');
   }
   return data;
 }
@@ -89,7 +90,7 @@ Future<dynamic> createFav(String title, String? intro, int privacy) async {
   var data = await requestBilibili(
       HttpMethod.post, ApiEndpoints.createFav, queryParams);
   if (data != null) {
-    printResponse(data, getCurrentFunctionName() + '.json');
+    printResponse(data, '${getCurrentFunctionName()}.json');
   }
   // print(data);
   return data;
@@ -97,9 +98,9 @@ Future<dynamic> createFav(String title, String? intro, int privacy) async {
 
 // 3170798444
 Future<dynamic> renameFav(
-    String media_id, String renamedTitle, String? intro, int? privacy) async {
+    String mediaId, String renamedTitle, String? intro, int? privacy) async {
   var queryParams = {
-    "media_id": media_id,
+    "media_id": mediaId,
     "title": renamedTitle,
     "intro": intro.toString(),
     "privacy": privacy.toString(),
@@ -109,7 +110,7 @@ Future<dynamic> renameFav(
   var data = await requestBilibili(
       HttpMethod.post, ApiEndpoints.createFav, queryParams);
   if (data != null) {
-    printResponse(data, getCurrentFunctionName() + '.json');
+    printResponse(data, '${getCurrentFunctionName()}.json');
   }
   return data;
 }
@@ -121,15 +122,15 @@ Future<dynamic> renameFav(
 // }
 
 // 3170798444
-Future<dynamic> removeFav(String media_ids) async {
+Future<dynamic> removeFav(String mediaIds) async {
   var queryParams = {
-    "media_ids": media_ids,
+    "media_ids": mediaIds,
     'csrf': ApiConfig.csrfToken,
   };
   var data = await requestBilibili(
       HttpMethod.post, ApiEndpoints.removeFav, queryParams);
   if (data != null) {
-    printResponse(data, getCurrentFunctionName() + '.json');
+    printResponse(data, '${getCurrentFunctionName()}.json');
   }
   return data;
 }
@@ -141,7 +142,7 @@ Future<dynamic> isFavoured(String aid) async {
   var data = await requestBilibili(
       HttpMethod.get, ApiEndpoints.mediaFavoured, queryParams);
   if (data != null) {
-    printResponse(data, getCurrentFunctionName() + '.json');
+    printResponse(data, '${getCurrentFunctionName()}.json');
   }
   return data;
 }
@@ -158,29 +159,29 @@ Future<dynamic> modifyFav(String rid,
   var data = await requestBilibili(
       HttpMethod.post, ApiEndpoints.modifyFav, queryParams);
   if (data != null) {
-    printResponse(data, getCurrentFunctionName() + '.json');
+    printResponse(data, '${getCurrentFunctionName()}.json');
   }
   return data;
 }
-Future<dynamic> removeBatchFromFav(String media_id, String resources) async {
+
+Future<dynamic> removeBatchFromFav(String mediaId, String resources) async {
   var queryParams = {
     "resources": resources,
-    "media_id": media_id,
+    "media_id": mediaId,
     "csrf": ApiConfig.csrfToken,
   };
   var data = await requestBilibili(
       HttpMethod.post, ApiEndpoints.delbatchFromFav, queryParams);
   if (data != null) {
-    printResponse(data, getCurrentFunctionName() + '.json');
+    printResponse(data, '${getCurrentFunctionName()}.json');
   }
   return data;
 }
 
-
-Future<dynamic> getFavouredMediaList(String media_id,
+Future<dynamic> getFavouredMediaList(String mediaId,
     {int? pageNumber = 1, int? pageSize = 20}) async {
   var queryParams = {
-    "media_id": media_id.toString(),
+    "media_id": mediaId.toString(),
     "platform": "web",
     "pn": pageNumber.toString(),
     "ps": pageSize.toString(),
@@ -188,21 +189,21 @@ Future<dynamic> getFavouredMediaList(String media_id,
   var data = await requestBilibili(
       HttpMethod.get, ApiEndpoints.favouredMediaList, queryParams);
   if (data != null) {
-    printResponse(data, getCurrentFunctionName() + '.json');
+    printResponse(data, '${getCurrentFunctionName()}.json');
   }
   // print(data);
   return data;
 }
 
-Future<dynamic> getFavouredMediaIDs(String media_id) async {
+Future<dynamic> getFavouredMediaIDs(String mediaId) async {
   var queryParams = {
-    "media_id": media_id.toString(),
+    "media_id": mediaId.toString(),
     "platform": "web",
   };
   var data = await requestBilibili(
       HttpMethod.get, ApiEndpoints.favouredMediaIds, queryParams);
   if (data != null) {
-    printResponse(data, getCurrentFunctionName() + '.json');
+    printResponse(data, '${getCurrentFunctionName()}.json');
   }
   return data;
 }
@@ -214,7 +215,7 @@ Future<dynamic> getPageList(String bvid) async {
   var data =
       await requestBilibili(HttpMethod.get, ApiEndpoints.pagelist, queryParams);
   if (data != null) {
-    printResponse(data, getCurrentFunctionName() + '.json');
+    printResponse(data, '${getCurrentFunctionName()}.json');
   }
   return data;
 }
@@ -226,7 +227,7 @@ Future<dynamic> getMediaBrief(String bvid) async {
   var data = await requestBilibili(
       HttpMethod.get, ApiEndpoints.mediaBrief, queryParams);
   if (data != null) {
-    printResponse(data, getCurrentFunctionName() + '.json');
+    printResponse(data, '${getCurrentFunctionName()}.json');
   }
   return data;
 }
@@ -242,21 +243,22 @@ Future<dynamic> getPlayUrl(String bvid, String cid,
   var data =
       await requestBilibili(HttpMethod.get, ApiEndpoints.playUrl, queryParams);
   if (data != null) {
-    printResponse(data, getCurrentFunctionName() + '.json');
+    printResponse(data, '${getCurrentFunctionName()}.json');
   }
   return data;
 }
 
-Future<dynamic> getSearchResults(String keyword, {int? page=1, String? searchType='video'}) async {
+Future<dynamic> getSearchResults(String keyword,
+    {int? page = 1, String? searchType = 'video'}) async {
   var queryParams = {
     "keyword": keyword,
     "search_type": searchType.toString(),
     "page": page.toString()
   };
-  var data =
-      await requestBilibili(HttpMethod.get, ApiEndpoints.classifiedSearch, queryParams);
+  var data = await requestBilibili(
+      HttpMethod.get, ApiEndpoints.classifiedSearch, queryParams);
   if (data != null) {
-    printResponse(data, getCurrentFunctionName() + '.json');
+    printResponse(data, '${getCurrentFunctionName()}.json');
   }
   return data;
 }

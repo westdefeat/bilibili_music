@@ -1,10 +1,8 @@
-import 'package:bilibili_music/favor_page.dart';
-import 'package:bilibili_music/views/home_page.dart';
+import 'package:bilibili_music/views/fav_list_page_widget.dart';
+import 'package:bilibili_music/views/home_page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_kit/media_kit.dart';
-
-import 'views/bilibili_list_view.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -68,13 +66,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<Widget> _widgetOptions = [
     homePage,
-    FavListPage(),
+    favListPage,
   ];
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-      
     });
   }
 
@@ -102,5 +99,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-
