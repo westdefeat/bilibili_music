@@ -1,0 +1,23 @@
+play queue management
+the playurl lives for 2 hours
+in media list page:
+    click once, add all following into queue
+    what if the cnd outdates?
+    only add bvid into queue.
+    when playing it, get cdn url
+    the player does not support it!
+    The list must be a state!
+    自己维护一个列表：
+_player.streams.position.listen((position) {
+      if (_player.streams.duration.value != null &&
+          position >= _player.streams.duration.value!) {
+        _playNext();
+      }
+    });
+    
+
+recommend
+
+pull to refresh
+
+fav/remove/ function test
