@@ -66,7 +66,8 @@ class FavListPageState extends ConsumerState<FavListPageWidget> {
     });
   }
 
-  void onItemTapped(BuildContext context, BilibiliListItem item) {
+  void onItemTapped(BuildContext context, List<BilibiliListItem> items, int index) {
+    BilibiliListItem item = items[index];
     if (!mediaList.containsKey(item.media_ids)) {
       mediaList[item.media_ids] = FavMediaListPageWidget(
         selectedItem: item,

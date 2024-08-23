@@ -5,6 +5,7 @@ class PlayerControllerModel {
   String mediaUrl;
   int duration;
   int position;
+  List<String> playQueue = [];
   PlayerControllerModel({
     required this.mediaName,
     required this.isPlaying,
@@ -12,6 +13,7 @@ class PlayerControllerModel {
     required this.mediaUrl,
     required this.duration,
     required this.position,
+    required this.playQueue,
   });
 
   PlayerControllerModel copyWith({
@@ -21,6 +23,7 @@ class PlayerControllerModel {
     String? mediaUrl,
     int? duration,
     int? position,
+    List<String>? playQueue,
   }) {
     return PlayerControllerModel(
       mediaName: mediaName ?? this.mediaName,
@@ -29,6 +32,7 @@ class PlayerControllerModel {
       mediaUrl: mediaUrl ?? this.mediaUrl,
       duration: duration ?? this.duration,
       position: position ?? this.position,
+      playQueue: playQueue ?? this.playQueue,
     );
   }
 }

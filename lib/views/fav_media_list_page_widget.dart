@@ -81,9 +81,10 @@ class FavMediaListPageState extends ConsumerState<FavMediaListPageWidget> {
     });
   }
 
-  void onItemTapped(BuildContext context, BilibiliListItem item) {
+  void onItemTapped(BuildContext context, List<BilibiliListItem> items, int index) {
+    BilibiliListItem item = items[index];
     // List<BilibiliListItem> cachedItems = cachedLists!;
-    ref.read(miniControllerProvider.notifier).startPlay(item);
+    ref.read(miniControllerProvider.notifier).startPlay(items, index);
     setState(() {});
   }
 

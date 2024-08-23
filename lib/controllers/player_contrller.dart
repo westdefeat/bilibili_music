@@ -15,7 +15,9 @@ class PlayerControllerNotifier extends StateNotifier<PlayerControllerModel> {
                 'https://i0.hdslb.com/bfs/static/jinkela/long/images/512.png',
             mediaUrl: '',
             duration: 0,
-            position: 0)) {
+            position: 0,
+            playQueue: []
+            )) {
     player.stream.playing.listen(
       (bool playing) {
         // final miniController = ref.watch(miniControllerProvider);
@@ -25,6 +27,12 @@ class PlayerControllerNotifier extends StateNotifier<PlayerControllerModel> {
         }
       },
     );
+    player.stream.completed.listen(
+      (bool completed) {
+        print("completed");
+        print(state.playQueue);
+      }
+    );
     player.stream.position.listen(
       (Duration position) {
         state = state.copyWith(position: position.inSeconds);
@@ -32,7 +40,8 @@ class PlayerControllerNotifier extends StateNotifier<PlayerControllerModel> {
     );
   }
 
-  Future<void> startPlay(BilibiliListItem selectedItem) async {
+  Future<void> startPlay(List<BilibiliListItem> items, int index) async {
+    BilibiliListItem selectedItem = items[index];
     // state = state.copyWith(isPlaying: true);
     dynamic brief = await getMediaBrief(selectedItem.bvid); // data/cid
     String cid = brief['data']['cid'].toString();
@@ -47,6 +56,7 @@ class PlayerControllerNotifier extends StateNotifier<PlayerControllerModel> {
       mediaUrl: mediaUrl,
       duration: selectedItem.duration,
       position: 0,
+      playQueue: items.sublist(index).map((item) => item.id).toList(),
     );
   }
 

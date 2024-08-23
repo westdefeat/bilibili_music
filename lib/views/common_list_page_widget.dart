@@ -170,7 +170,7 @@ class CommonListPageState extends ConsumerState<CommonListPageWidget> {
                                   else
                                     {
                                       widget.onItemSelected(
-                                          context, widget.cachedLists[index])
+                                          context, widget.cachedLists, index)
                                     }
                                 },
                                 onLongPress: () => toggleSelectionMode(index),
